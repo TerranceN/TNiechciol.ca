@@ -1,0 +1,8 @@
+main
+main.exe
+Stuff
+google*.html
+*.hi
+*.o
+*.sw*
+Haskell-Web-Framework/*

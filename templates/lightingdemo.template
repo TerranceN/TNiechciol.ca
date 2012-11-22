@@ -1,0 +1,64 @@
+<h1 class="title">
+    2D Dynamic Lighting Demo
+</h1>
+
+<div class="section description">
+    <h2>
+        Description
+    </h2>
+    <div class="section_body">
+        <ul>
+            <li>
+            Worked on from October 2011 to January 2012
+            </li>
+            <li>
+            Coded in Java using LWJGL
+            </li>
+            <li>
+            Calculates hard-edged shadows for any shaped light source, and any shaped polygon
+            </li>
+            <li>
+            Created to learn various OpenGL commands
+            </li>
+            <li>
+            The player is a small shape with a flashlight. The player can place and remove new light sources.
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section screenshots">
+    <h2>
+        Screenshots
+    </h2>
+    <div class="section_body">
+        <image src="/~tniechci/images/LightingDemo1_web.png" alt="" title=""/>
+        <image src="/~tniechci/images/LightingDemo2_web.png" alt="" title=""/>
+    </div>
+</div>
+
+<div class="section downloads">
+    <h2>
+        Downloads
+    </h2>
+    <div class="section_body">
+        <ul>
+            <li>
+            <a href="/~tniechci/files/2DShadows.zip">JAR</a>
+            </li>
+            <li>
+            <a href="/~tniechci/files/2DShadowsSrc.zip">Source</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="section problems">
+    <h2>
+        Problems Overcome
+    </h2>
+    <div class="section_body">
+        <p>Had to figure out a method of drawing shadows. I used framebuffer objects and blending modes to create a mask image for the shadows, then drew the mask on top of the scene.</p>
+        <p>The method I use of finding shadow geometry only works for convex polygons, so to get shadows for concave polygons, I used a combination of convex polygons. Unfortunately, this allowed an object's shadows to draw on top of itself, which I fixed by removing all of a concave polygon's sub-polygons from any shadow geometry created from it.</p>
+    </div>
+</div>

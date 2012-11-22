@@ -1,0 +1,139 @@
+html {
+    font-family: Arial, Helvetica, Tahoma !important;
+}
+
+h1, h2, h3, h4, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1.title {
+    text-align:center;
+}
+
+html, body {
+    height: 100%;
+    margin:0;
+    padding:0;
+} 
+
+#navBar {
+    background: #222;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    border-bottom: 3px solid black;
+    font-size: 18px;
+}
+
+#navBar, #navSpacing {
+    height: 50px;
+}
+
+#navBar a
+{
+    text-decoration: none;
+}
+#navBar ul
+{
+    list-style: none;
+    margin: 0;
+    padding: .3em;
+}
+#navBar li
+{
+    float: left;
+    margin-right: 5px;
+}
+#navBar li a
+{
+    display: block;
+    background-color: #222;
+    border: 1px solid #222;
+    padding: .5em;
+}
+#navBar li a:hover
+{
+    background-color: #A00;
+    color: #DDD;
+}
+#navBar li ul
+{
+    display: none;
+    position: absolute;
+    padding: 0;
+}
+#navBar li:hover ul
+{
+    display: block; 
+}
+#navBar li li
+{
+    float: none;
+    border-bottom: 1px solid #000; 
+}
+#navBar li li a
+{
+    border: 0;
+    border-left: 1px solid #000;
+    border-right: 1px solid #000;
+}
+
+#wraper{
+    position:relative;
+    margin: auto;
+    width:800px;
+    min-height:100%;
+    background: #333;
+
+    -moz-box-shadow: 0px 8px 16px 0px #000;
+    -webkit-box-shadow: 0px 8px 16px 0px #000;
+    -o-box-shadow: 0px 8px 16px 0px #000;
+    box-shadow: 0px 8px 16px 0px #000;
+}
+
+#pageContent {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    min-height: 100%;
+    overflow:hidden;
+    padding-bottom: 80px;
+}
+
+.textsection {
+    color: #DDD;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#footseperator {
+    width: 100%;
+    height: 20px;
+    background-color: #222;
+    margin-bottom: 10px;
+}
+
+#footer {
+    position: absolute;
+    bottom:0;
+    background: #333;
+    width:100%;
+    height:40px;
+    text-align: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+}
+p {
+    margin: 0;
+}
+a {
+    color: #DDD;
+}
+a:visited {
+    color: #DDD
+}
+a:hover {
+    color: #A00;
+}
+

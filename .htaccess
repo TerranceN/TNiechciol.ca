@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# complete urls without ending /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*[^/])$ /~tniechci/$1/ [R=301,L]
+
+# ignore asset directories
+RewriteCond $1 !^styles/*
+RewriteCond $1 !^images/*
+RewriteCond $1 !^files/*
+
+# ignore the server cgi script
+RewriteCond $1 !^cgi-bin/server.cgi$
+RewriteRule ^(.*)$ /\~tniechci/cgi-bin/server.cgi
