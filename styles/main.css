@@ -35,44 +35,63 @@ html, body {
 {
     text-decoration: none;
 }
+
 #navBar ul
 {
     list-style: none;
     margin: 0;
     padding: .3em;
 }
+
+#navBar > ul {
+    width: 800px;
+    margin: auto;
+}
+
 #navBar li
 {
     float: left;
     margin-right: 5px;
 }
+
 #navBar li a
 {
     display: block;
     background-color: #222;
     border: 1px solid #222;
     padding: .5em;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
+
 #navBar li a:hover
 {
     background-color: #A00;
     color: #DDD;
 }
+
 #navBar li ul
 {
     display: none;
     position: absolute;
     padding: 0;
 }
+
 #navBar li:hover ul
 {
     display: block; 
 }
+
 #navBar li li
 {
     float: none;
     border-bottom: 1px solid #000; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
+
 #navBar li li a
 {
     border: 0;
@@ -124,15 +143,19 @@ html, body {
     margin-top: 20px;
     padding-bottom: 20px;
 }
+
 p {
     margin: 0;
 }
+
 a {
     color: #DDD;
 }
+
 a:visited {
     color: #DDD
 }
+
 a:hover {
     color: #A00;
 }
