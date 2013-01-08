@@ -40,8 +40,8 @@
         Screenshots
     </h2>
     <div class="section_body">
-        <img src="/~tniechci/images/GWClone_grid.png" alt="Grid Effects" title="Grid Effects"/>
-        <img src="/~tniechci/images/GWClone_dragon.png" alt="Dragons!" title="Dragons!"/>
+        <img src="/images/GWClone_grid.png" alt="Grid Effects" title="Grid Effects"/>
+        <img src="/images/GWClone_dragon.png" alt="Dragons!" title="Dragons!"/>
     </div>
 </div>
 
@@ -52,10 +52,10 @@
     <div class="section_body">
         <ul>
             <li>
-            <a href="/~tniechci/files/Geometry_Wars_Clone.zip">JAR</a>
+            <a href="/files/Geometry_Wars_Clone.zip">JAR</a>
             </li>
             <li>
-            <a href="/~tniechci/files/GWCloneSrc.zip">Source</a>
+            <a href="/files/GWCloneSrc.zip">Source</a>
             </li>
         </ul>
     </div>

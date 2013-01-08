@@ -45,10 +45,10 @@
         </h3>
         <ul>
             <li>
-            <a href="/~tniechci/files/SpringPhysicsW32.zip">Windows</a>
+            <a href="/files/SpringPhysicsW32.zip">Windows</a>
             </li>
             <li>
-            <a href="/~tniechci/files/SpringPhysicsLinux.zip">Linux (old version, shape explodes much easier)</a>
+            <a href="/files/SpringPhysicsLinux.zip">Linux (old version, shape explodes much easier)</a>
             </li>
         </ul>
         <h3>
@@ -56,7 +56,7 @@
         </h3>
         <ul>
             <li>
-            <a href="/~tniechci/files/SpringPhysicsSrc.zip">Source</a>
+            <a href="/files/SpringPhysicsSrc.zip">Source</a>
             </li>
         </ul>
     </div>

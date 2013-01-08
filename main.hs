@@ -5,4 +5,4 @@ module Main
 import RequestHandler
 import Handlers
 
-main = handleRequest "/~tniechci" handlers
+main = handleRequest handlers

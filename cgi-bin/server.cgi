@@ -1,1 +1,1 @@
-#!/u9/tniechciol/public_html/main
+#!/var/www/main

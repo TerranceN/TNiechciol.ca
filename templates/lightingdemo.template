@@ -32,8 +32,8 @@
         Screenshots
     </h2>
     <div class="section_body">
-        <image src="/~tniechci/images/LightingDemo1_web.png" alt="" title=""/>
-        <image src="/~tniechci/images/LightingDemo2_web.png" alt="" title=""/>
+        <image src="/images/LightingDemo1_web.png" alt="" title=""/>
+        <image src="/images/LightingDemo2_web.png" alt="" title=""/>
     </div>
 </div>
 
@@ -44,10 +44,10 @@
     <div class="section_body">
         <ul>
             <li>
-            <a href="/~tniechci/files/2DShadows.zip">JAR</a>
+            <a href="/files/2DShadows.zip">JAR</a>
             </li>
             <li>
-            <a href="/~tniechci/files/2DShadowsSrc.zip">Source</a>
+            <a href="/files/2DShadowsSrc.zip">Source</a>
             </li>
         </ul>
     </div>

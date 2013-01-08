@@ -1,5 +1,8 @@
 html {
-    font-family: Arial, Helvetica, Tahoma !important;
+    /*font-family: Arial, Helvetica, Tahoma !important;*/
+    font-family: 'Source Sans Pro', sans-serif;
+    overflow-y: -moz-scrollbars-vertical;
+    overflow-y: scroll;
 }
 
 h1, h2, h3, h4, p {
@@ -16,6 +19,10 @@ html, body {
     margin:0;
     padding:0;
 } 
+
+body {
+    background-color: #3C3C3C;
+}
 
 #navBar {
     background: #222;
@@ -40,7 +47,7 @@ html, body {
 {
     list-style: none;
     margin: 0;
-    padding: .3em;
+    padding: 8px;
 }
 
 #navBar > ul {
@@ -59,7 +66,7 @@ html, body {
     display: block;
     background-color: #222;
     border: 1px solid #222;
-    padding: .5em;
+    padding: 7px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -68,7 +75,7 @@ html, body {
 #navBar li a:hover
 {
     background-color: #A00;
-    color: #DDD;
+    color: #CCC;
 }
 
 #navBar li ul
@@ -121,7 +128,7 @@ html, body {
 }
 
 .textsection {
-    color: #DDD;
+    color: #CCC;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -149,11 +156,11 @@ p {
 }
 
 a {
-    color: #DDD;
+    color: #CCC;
 }
 
 a:visited {
-    color: #DDD
+    color: #CCC
 }
 
 a:hover {
