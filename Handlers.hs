@@ -8,17 +8,17 @@ import Data.List
 import System.Environment as Env
 import Control.Monad
 import Control.Monad.Trans
+
 import Text.ParserCombinators.Parsec
 
-import PageTypes
 import Template
 import HelperFunctions
 
 import PageStructure
 import qualified Blog
 
-index :: [Option] -> Html
-index options =
+index :: [Option] -> [Option] -> Html
+index urlOptions queryOptions =
     mainLayout head content
   where
     head =
@@ -29,7 +29,7 @@ index options =
             link "https://github.com/TerranceN/Haskell-Web-Framework"
                  "Web Framework in Haskell."
 
-contactPage options = 
+contactPage urlOptions queryOptions = 
     mainLayout head content
   where
     head = do
@@ -42,7 +42,7 @@ contactPage options =
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
         tag "p" [] $ text "Phone Number: 1-519-721-1435"
 
-geometryWarsPage options =
+geometryWarsPage urlOptions queryOptions =
     projectLayout head content
   where
     head =
@@ -66,7 +66,7 @@ geometryWarsPage options =
                 tag "li" [] $ link "/files/Geometry_Wars_Clone.zip" "JAR"
                 tag "li" [] $ link "/files/GWCloneSrc.zip" "Source"
 
-springPhysicsPage options =
+springPhysicsPage urlOptions queryOptions =
     projectLayout head content
   where
     head =
@@ -91,7 +91,7 @@ springPhysicsPage options =
             tag "ul" [] $ do
                 tag "li" [] $ link "/files/SpringPhysicsSrc.zip" "Source"
 
-lightingDemoPage options = 
+lightingDemoPage urlOptions queryOptions = 
     projectLayout head content
   where
     head =
@@ -109,8 +109,8 @@ lightingDemoPage options =
             screenshot "/images/LightingDemo1_web.png" "alt"
             screenshot "/images/LightingDemo2_web.png" "alt"
 
-notFoundPage :: [Option] -> Html
-notFoundPage options =
+notFoundPage :: [Option] -> [Option] -> Html
+notFoundPage urlOptions queryOptions =
     mainLayout noHtml $ tag "p" [] $ do
         tag "h1" [] $ text "404"
         tag "p" [] $ text "Sorry, the page you requested cannot be found."
@@ -141,16 +141,29 @@ testPost = do
     let content = decodeUrl (take contentLength allContent)
     text content
 
-postTest :: [Option] -> Html
-postTest options = do
+postTest :: [Option] -> [Option] -> Html
+postTest urlOptions queryOptions = do
     mainLayout noHtml $ tag "p" [] $ testPost
 
-formTest :: [Option] -> Html
-formTest options =
+formTest :: [Option] -> [Option] -> Html
+formTest urlOptions queryOptions =
     mainLayout noHtml $ tag "p" [] $ do
         tag "form" [("action", "/postTest/"), ("method", "post")] $ do
             tag "input" [("type", "textbox"), ("name", "str")] noHtml
             tag "input" [("type", "submit")] noHtml
+
+blogRouter :: [Option] -> [Option] -> Html
+blogRouter urlOptions getOptions = do
+    let blogOption = searchDict "blogName" urlOptions
+    case blogOption of
+        Nothing -> notFoundPage urlOptions getOptions
+        Just blogName -> Blog.renderBlog blogName urlOptions getOptions
+
+blogUrl :: Parser [Option]
+blogUrl = do
+    blogName <- many validHtmlChar
+    char '/'
+    return [("blogName", blogName)]
 
 handlers :: [Handler]
 handlers =
@@ -162,4 +175,5 @@ handlers =
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)
-    ] ++ Blog.handlers
+    ,(string "/blog/" >> blogUrl, blogRouter)
+    ]

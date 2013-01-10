@@ -1,31 +1,49 @@
 module Blog where
 
+import System.Info
+import System.Process
 import Data.Maybe
 import Data.Char
 import Control.Monad
+import Control.Monad.Trans
+import Data.DList hiding (map)
+import Control.Monad.Trans.State.Lazy
 
 import PageTypes
 import PageStructure
 
-blogIndex :: [Option] -> Html
-blogIndex options =
-    mainLayout head content
+runBlog :: Html -> IO ()
+runBlog blog = putStr . toList =<< execStateT blog (fromList "")
+
+slash =
+    if os == "mingw32"
+        then '\\'
+        else '/'
+
+toPath str = map convert str
+  where
+    convert '/' = slash
+    convert '\\' = slash
+    convert c = c
+
+loadBlogContent :: String -> IO (Int, Int, String)
+loadBlogContent blogName = do
+    (exit, stdout, stderr) <- readProcessWithExitCode (toPath $ "Blog/" ++ (slugify blogName) ++ "/Main") [] ""
+    return (0, 0, stdout)
+
+renderBlog :: String -> [Option] -> [Option] -> Html
+renderBlog blogName urlOptions queryOptions = mainLayout head body
   where
     head = tag "title" [] $ text "Blog"
-    content :: Html
-    content = do
-        tag "h1" [] $ text "Blog Index"
-        tag "p" [] $ text $ "Under construction."
-        mapM_ (\(x, y) -> tag "p" [] $ link ("/blog/" ++ slugify x) x) $ take 5 blogs
-
-blogLayout head content = mainLayout head content
-
-renderBlog blogName content options =
-    blogLayout head (content options)
-  where
-    head = tag "title" [] $ text "Blog"
-
-firstBlog options = text "asdfg"
+    body = do
+        (dateWritten, dateModified, content) <- lift $ loadBlogContent blogName
+        tag "h1" [] $ text blogName
+        uText content
+        tag "p" [] $ do
+            text (show dateWritten)
+        if (dateWritten == dateModified)
+            then return ()
+            else tag "p" [] $ text (show dateModified)
 
 slugify str = catMaybes $ map slugifyChar str
   where
@@ -34,10 +52,3 @@ slugify str = catMaybes $ map slugifyChar str
         | c `elem` allowedChars = Just (toLower c)
         | otherwise = Nothing
     allowedChars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++ "-_"
-
-blogs =
-    [("First Blog", firstBlog)
-    ]
-
-handlers =
-    [(exactly "/blog/", blogIndex)] ++ (map (\(x, y) -> (exactly ("/blog/" ++ (slugify x) ++ "/"), renderBlog x y)) blogs)

@@ -1,4 +1,16 @@
-module PageStructure where
+module PageStructure
+( link
+, navBar
+, stylesheet
+, mainLayout
+, exactly
+, screenshot
+, youtube_video
+, projectLayout
+, projectSection
+, module PageTypes
+, module Text.ParserCombinators.Parsec
+) where
 
 import Data.Char
 import Text.ParserCombinators.Parsec
