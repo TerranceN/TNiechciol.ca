@@ -31,5 +31,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !(.*)/$
 RewriteRule ^(.*)$ %{REQUEST_URI}/ [L,R=301]
 
+# ignore cgi script
+RewriteRule ^runProgram.cgi$ - [L]
+
 # Finally, run the server.
-RewriteRule ^.*$ /cgi-bin/server.cgi
+RewriteRule ^.*$ /runProgram.cgi
