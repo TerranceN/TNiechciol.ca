@@ -6,3 +6,4 @@ google*.html
 *.o
 *.sw*
 Haskell-Web-Framework/*
+Blog/*/Main
