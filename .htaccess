@@ -1,3 +1,6 @@
+Options +ExecCGI -MultiViews
+AddHandler cgi-script .cgi
+
 RewriteEngine On
 
 RewriteBase /
