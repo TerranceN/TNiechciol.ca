@@ -41,6 +41,7 @@ body {
 #navBar a
 {
     text-decoration: none;
+    color: #CCC;
 }
 
 #navBar ul
@@ -156,14 +157,14 @@ p {
 }
 
 a {
-    color: #CCC;
+    color: #C22;
 }
 
 a:visited {
-    color: #CCC
+    color: #C22;
 }
 
 a:hover {
-    color: #A00;
+    color: #F22;
 }
 
