@@ -33,7 +33,7 @@ contactPage urlOptions queryOptions =
     mainLayout head content
   where
     head = do
-        tag "title" [] $ text "Contact Information"
+        title "Contact Information"
         stylesheet "/styles/contact.css"
     content = do
         tag "h1" [] $ text "Contact"
@@ -42,19 +42,32 @@ contactPage urlOptions queryOptions =
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
         tag "p" [] $ text "Phone Number: 1-519-721-1435"
 
+projectsPage urlOptions queryOptions =
+    mainLayout head content
+  where
+    head = do
+        title "Projects"
+    content = do
+        tag "ul" [] $ do
+            tag "li" [] $ link "GeoWarsClone" "Geometry Wars Clone"
+            tag "li" [] $ link "LightingDemo" "2D Lighting Demo"
+            tag "li" [] $ link "ParadoxTower" "Paradox Tower"
+            tag "li" [] $ link "SpringPhysics" "Spring Physics Demo"
+
 geometryWarsPage urlOptions queryOptions =
     projectLayout head content
   where
     head =
-        tag "title" [] $ text "Geometry Wars Clone"
+        title "Geometry Wars Clone"
     content = do
         tag "h1" [] $ text "Geometry Wars Clone"
         projectSection "Description" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ text "Worked on from February 2011 to June 2011"
-                tag "li" [] $ text "Coded in Java using LWJGL"
-                tag "li" [] $ text "Clone of the Xbox Live Arcade game Geometry Wars"
-                tag "li" [] $ text "Player is a space ship that must avoid enemies, and gain points by destroying enemies with its bullets."
+            tag "p" [] $ do
+                text "A clone of the Xbox Live Arcade game "
+                link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars"
+                text ", written in Java with "
+                link "http://www.lwjgl.org/" "LWJGL"
+                text ". Created during my final semester of high school (Feb. 2011 - June 2011)."
         projectSection "Video" $ do
             tag "div" [("class", "youtube_video")] $ do
                 youtube_video "2-HFsanORGw" 560 315
@@ -70,16 +83,14 @@ springPhysicsPage urlOptions queryOptions =
     projectLayout head content
   where
     head =
-        tag "title" [] $ text "Spring Physics Demo"
+        title "Spring Physics Demo"
     content = do
         tag "h1" [] $ text "Spring Physics Demo"
         projectSection "Description" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ text "Worked on during April 20th 2012"
-                tag "li" [] $ text "Coded in C++ using SFML"
-                tag "li" [] $ text "Based off a simulation of springs using Hooke's Law"
-                tag "li" [] $ text "The player is a ball of springs that can change its spring and damping constants to let \
-                                   \its shape become flexible, then change its shape to become rigid, launching the player into the air."
+            tag "p" [] $ do
+                text "A physics simulation of a blob of springs that can control its own springiness. Created in C++ using "
+                link "http://www.sfml-dev.org/" "SFML"
+                text " in a week in April 2012."
         projectSection "Video" $ do
             tag "div" [("class", "youtube_video")] $ do
                 youtube_video "OS00DNj0GgI" 560 315
@@ -95,19 +106,29 @@ lightingDemoPage urlOptions queryOptions =
     projectLayout head content
   where
     head =
-        tag "title" [] $ text "2D Lighting Demo"
+        title "2D Lighting Demo"
     content = do
         tag "h1" [] $ text "2D Lighting Demo"
         projectSection "Description" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ text "Worked on from October 2011 to January 2012"
-                tag "li" [] $ text "Coded in Java using LWJGL"
-                tag "li" [] $ text "Calculates hard-edged shadows for any shaped light source, and any shaped polygon"
-                tag "li" [] $ text "Created to learn various OpenGL commands"
-                tag "li" [] $ text "The player is a small shape with a flashlight. The player can place and remove new light sources."
+            tag "p" [] $ do
+                text "This demo creates and displays shadow geometry based on arbitrary shapes in the scene. Coded in Java with "
+                link "http://www.lwjgl.org/" "LWJGL"
+                text ", and was worked on from Oct. 2011 to Jan. 2012."
         projectSection "Screenshots" $ do
             screenshot "/images/LightingDemo1_web.png" "alt"
             screenshot "/images/LightingDemo2_web.png" "alt"
+
+paradoxTowerPage urlOptions queryOptions =
+    projectLayout head content
+  where
+    head =
+        title "Paradox Tower"
+    content = do
+        tag "h1" [] $ text "Paradox Tower"
+        tag "p" [] $ do
+            text "This project is hosted on the Global Jam Jam site "
+            link "http://archive.globalgamejam.org/2012/paradox-tower" "here"
+            text "."
 
 notFoundPage :: [Option] -> [Option] -> Html
 notFoundPage urlOptions queryOptions =
@@ -169,9 +190,11 @@ handlers :: [Handler]
 handlers =
     [(exactly "/", index)
     ,(exactly "/contact/", contactPage)
+    ,(exactly "/projects/", projectsPage)
     ,(exactly "/projects/geowarsclone/", geometryWarsPage)
     ,(exactly "/projects/springphysics/", springPhysicsPage)
     ,(exactly "/projects/lightingdemo/", lightingDemoPage)
+    ,(exactly "/projects/paradoxtower/", paradoxTowerPage)
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)

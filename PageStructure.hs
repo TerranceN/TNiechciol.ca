@@ -8,6 +8,7 @@ module PageStructure
 , youtube_video
 , projectLayout
 , projectSection
+, title
 , module PageTypes
 , module Text.ParserCombinators.Parsec
 ) where
@@ -16,6 +17,9 @@ import Data.Char
 import Text.ParserCombinators.Parsec
 
 import PageTypes
+
+title :: String -> Html
+title str = tag "title" [] $ text (str ++ " | TNiechciol.ca")
 
 link :: String -> String -> Html
 link url "" = link url url
