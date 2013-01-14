@@ -42,6 +42,15 @@ contactPage urlOptions queryOptions =
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
         tag "p" [] $ text "Phone Number: 1-519-721-1435"
 
+resumePage urlOptions queryOptions =
+    mainLayout head content
+  where
+    head = do
+        title "Resume"
+        stylesheet "/styles/resume.css"
+    content = do
+        tag "embed" [("class", "pdf"), ("src", "/files/Resume.pdf")] $ return ()
+
 projectsPage urlOptions queryOptions =
     mainLayout head content
   where
@@ -190,6 +199,7 @@ handlers :: [Handler]
 handlers =
     [(exactly "/", index)
     ,(exactly "/contact/", contactPage)
+    ,(exactly "/resume/", resumePage)
     ,(exactly "/projects/", projectsPage)
     ,(exactly "/projects/geowarsclone/", geometryWarsPage)
     ,(exactly "/projects/springphysics/", springPhysicsPage)

@@ -1,0 +1,10 @@
+.pdf {
+    width: 826px;
+    height: 1070px;
+}
+
+#pageContent {
+    margin: 5px;
+    margin-top: 10px;
+    padding-bottom: 65px;
+}
