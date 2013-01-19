@@ -15,11 +15,11 @@ type Html = StateT (DList Char) IO ()
 
 uText :: String -> Html
 uText str = modify (\x -> x `append` (fromList str))
-```
 
 -- Note that encode encodes unsafe characters.
 text :: String -> Html
 text = uText . encode
+```
 
 Another nice benefit is that due to the laziness of Haskell, monadic values (like values of the Html type) can be passed around before they are evaluated, allowing you to inject Html values into functions, that can then place those values where appropriate. One common example of this is a `tag` function:
 
