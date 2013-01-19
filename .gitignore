@@ -1,9 +1,8 @@
-main
-main.exe
+Main
+Main.exe
 Stuff
 google*.html
 *.hi
 *.o
 *.sw*
-Haskell-Web-Framework/*
 Blog/*/Main

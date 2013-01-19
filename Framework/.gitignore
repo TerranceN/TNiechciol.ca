@@ -1,0 +1,8 @@
+dist
+cabal-dev
+main*
+*.o
+*.hi
+*.chi
+*.chs.h
+*.sw*
