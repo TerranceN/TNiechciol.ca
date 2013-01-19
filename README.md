@@ -7,7 +7,8 @@ It has been created using apache2 and a program written in Haskell that reads th
 
 Using a State monad, I have been able to easily write html as Haskell code instead of injecting values into templates.
 
-    -- Note I am using DLists to ensure that string appending is done right assiciatively (a ++ (b ++ c) instead of ((a ++ b) ++ c)).
+    -- Note I am using DLists to ensure that string appending is done right assiciatively.
+    -- (a ++ (b ++ c) instead of ((a ++ b) ++ c))
     type Html = StateT DList IO ()
     
     uText :: String -> Html
