@@ -34,47 +34,47 @@ Another nice benefit is that due to the laziness of Haskell, monadic values (lik
 
 You can then create a page like this:
 
-examplePage :: Html
-examplePage = do
-    uText "Content-Type: text/html\n"
-    uText "\n"
-    uText "<!DOCTYPE html>"
-    tag "html" [] $ do
-        tag "head" [] $ tag "title" [] $ text "Example Page"
-        tag "body" [] $ do
-            tag "h1" [] $ text "Example Page"
-            tag "p" [] $ text "Hello, world!"
+    examplePage :: Html
+    examplePage = do
+        uText "Content-Type: text/html\n"
+        uText "\n"
+        uText "<!DOCTYPE html>"
+        tag "html" [] $ do
+            tag "head" [] $ tag "title" [] $ text "Example Page"
+            tag "body" [] $ do
+                tag "h1" [] $ text "Example Page"
+                tag "p" [] $ text "Hello, world!"
 
 Notice how I never need to take care of closing tags, it is done automatically.
 
 Once again, passing monadic values is very convenient, this time for making templates:
 
-noHtml :: Html
-noHtml = return ()
-
-stylesheet :: String -> Html
-stylesheet url = do
-    tag "link" [("rel", "stylesheet")
-               ,("type", "text/css")
-               ,("href", url)] noHtml
-
-pageTemplate :: Html -> Html -> Html
-pageTemplate head content = do
-    uText "Content-Type: text/html\n"
-    uText "\n"
-    uText "<!DOCTYPE html>"
-    tag "html" [] $ do
-        tag "head" [] $ do
-            stylesheet "my_main_styles.css"
-            head
-        tag "body" [] $ do
-            tag "div" [("class", "container")] body
-
-examplePage :: Html
-examplePage =
-    pageTemplate head content
-  where
-    head = tag "title" [] $ text "Example Page"
-    body = do
-        tag "h1" [] $ text "Example Page"
-        tag "p" [] $ text "Hello, world!"
+    noHtml :: Html
+    noHtml = return ()
+    
+    stylesheet :: String -> Html
+    stylesheet url = do
+        tag "link" [("rel", "stylesheet")
+                   ,("type", "text/css")
+                   ,("href", url)] noHtml
+    
+    pageTemplate :: Html -> Html -> Html
+    pageTemplate head content = do
+        uText "Content-Type: text/html\n"
+        uText "\n"
+        uText "<!DOCTYPE html>"
+        tag "html" [] $ do
+            tag "head" [] $ do
+                stylesheet "my_main_styles.css"
+                head
+            tag "body" [] $ do
+                tag "div" [("class", "container")] body
+    
+    examplePage :: Html
+    examplePage =
+        pageTemplate head content
+      where
+        head = tag "title" [] $ text "Example Page"
+        body = do
+            tag "h1" [] $ text "Example Page"
+            tag "p" [] $ text "Hello, world!"
