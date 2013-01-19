@@ -1,15 +1,16 @@
 Website
 =======
 
-This is my personal website, hosted at TNiechciol.ca.
+This is my personal website, hosted at [TNiechciol.ca](TNiechciol.ca).
 
-It has been created using apache2 and a program written in Haskell that reads the environment to display the correct page.
+It has been created using apache2 and a program written in [Haskell](http://www.haskell.org/haskellwiki/Haskell) that reads the environment to display the correct page.
 
 Using a State monad, I have been able to easily write html as Haskell code instead of injecting values into templates.
 
     -- Note I am using DLists to ensure that string appending is done right assiciatively.
     -- (a ++ (b ++ c) instead of ((a ++ b) ++ c))
-    type Html = StateT DList IO ()
+    -- I know I probably shouldn't use the IO monad here, I will probably split this up later.
+    type Html = StateT (DList Char) IO ()
     
     uText :: String -> Html
     uText str = modify (\x -> x `append` (fromList str))
