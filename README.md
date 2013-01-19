@@ -77,7 +77,7 @@ pageTemplate head content = do
             stylesheet "my_main_styles.css"
             head
         tag "body" [] $ do
-            tag "div" [("class", "container")] body
+            tag "div" [("class", "container")] content
 
 examplePage :: Html
 examplePage =
