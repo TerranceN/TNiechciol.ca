@@ -1,7 +1,7 @@
 Website
 =======
 
-This is my personal website, hosted at [TNiechciol.ca](TNiechciol.ca).
+This is my personal website, hosted at [TNiechciol.ca](http://TNiechciol.ca).
 
 It has been created using apache2 and a program written in [Haskell](http://www.haskell.org/haskellwiki/Haskell) that reads the environment to display the correct page.
 
