@@ -96,7 +96,11 @@ geometryWarsPage urlOptions queryOptions =
         projectSection "Downloads" $ do
             tag "ul" [] $ do
                 tag "li" [] $ link "/files/Geometry_Wars_Clone.zip" "JAR"
-                tag "li" [] $ link "/files/GWCloneSrc.zip" "Source"
+                tag "li" [] $ do
+                    link "/files/GWCloneSrc.zip" "Source"
+                    text ", and on GitHub "
+                    link "https://github.com/TerranceN/GeometryWarsClone" "here"
+                    text "."
 
 springPhysicsPage urlOptions queryOptions =
     projectLayout head content
@@ -117,9 +121,14 @@ springPhysicsPage urlOptions queryOptions =
             tag "h3" [] $ text "Binaries"
             tag "ul" [] $ do
                 tag "li" [] $ link "/files/SpringPhysicsW32.zip" "Windows"
+                tag "li" [] $ link "/files/SpringPhysicsLinux.zip" "Linux"
             tag "h3" [] $ text "Source"
             tag "ul" [] $ do
-                tag "li" [] $ link "/files/SpringPhysicsSrc.zip" "Source"
+                tag "li" [] $ do
+                    link "/files/SpringPhysicsSrc.zip" "Source"
+                    text ", and on GitHub "
+                    link "https://github.com/TerranceN/SpringPhysicsDemo" "here"
+                    text "."
 
 lightingDemoPage urlOptions queryOptions = 
     projectLayout head content
@@ -136,6 +145,14 @@ lightingDemoPage urlOptions queryOptions =
         projectSection "Screenshots" $ do
             screenshot "/images/LightingDemo1_web.png" "alt"
             screenshot "/images/LightingDemo2_web.png" "alt"
+        projectSection "Downloads" $ do
+            tag "ul" [] $ do
+                tag "li" [] $ link "/files/2DShadows.zip" "JAR"
+                tag "li" [] $ do
+                    link "/files/2DShadowsSrc.zip" "Source"
+                    text ", and on GitHub "
+                    link "https://github.com/TerranceN/2DLightingDemo" "here"
+                    text "."
 
 paradoxTowerPage urlOptions queryOptions =
     projectLayout head content
