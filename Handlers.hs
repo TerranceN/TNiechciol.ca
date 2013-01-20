@@ -23,11 +23,21 @@ index urlOptions queryOptions =
   where
     head =
         tag "title" [] $ text "Terrance Niechciol's Website"
-    content =
+    content = do
+        tag "h1" [] $ text "Terrance Niechciol's Personal Website"
         tag "p" [] $ do
-            text "Website under construction while I create a "
-            link "https://github.com/TerranceN/Haskell-Web-Framework"
-                 "Web Framework in Haskell."
+            text "Welcome to my website, where you can find my "
+            link "/Projects/" "projects"
+            text ", and "
+            link "/Contact/" "contact information"
+            text ". I also have a "
+            link "https://github.com/TerranceN" "github profile"
+            text "."
+        tag "br" [] noHtml
+        tag "p" [] $ do
+            text "You can also find this "
+            link "https://github.com/TerranceN/TNiechciol.ca""website on github"
+            text "."
 
 contactPage urlOptions queryOptions = 
     mainLayout head content
