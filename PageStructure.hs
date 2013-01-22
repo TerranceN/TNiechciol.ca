@@ -45,8 +45,8 @@ navBar = do
                     tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
                     tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
                     tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
-            --tag "li" [] $ do
-            --    link "/Resume/" "Resume"
+            tag "li" [] $ do
+                link "/Resume/" "Resume"
             tag "li" [] $ do
                 link "/Contact/" "Contact"
 
