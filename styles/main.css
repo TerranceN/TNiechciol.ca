@@ -1,6 +1,7 @@
 html {
     /*font-family: Arial, Helvetica, Tahoma !important;*/
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.2em;
     overflow-y: -moz-scrollbars-vertical;
     overflow-y: scroll;
 }
