@@ -32,7 +32,7 @@ body {
     left:0;
     width:100%;
     border-bottom: 3px solid black;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 #navBar, #navSpacing {
@@ -52,9 +52,14 @@ body {
     padding: 8px;
 }
 
+#navBar ul ul {
+    font-size: 18px;
+}
+
 #navBar > ul {
     width: 800px;
     margin: auto;
+    margin-top: -5px;
 }
 
 #navBar li
