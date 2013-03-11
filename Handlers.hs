@@ -143,8 +143,8 @@ lightingDemoPage urlOptions queryOptions =
                 link "http://www.lwjgl.org/" "LWJGL"
                 text ", and was worked on from Oct. 2011 to Jan. 2012."
         projectSection "Screenshots" $ do
-            screenshot "/images/LightingDemo1_web.png" "alt"
-            screenshot "/images/LightingDemo2_web.png" "alt"
+            screenshot "/images/LightingDemo1_web.png" ""
+            screenshot "/images/LightingDemo2_web.png" ""
         projectSection "Downloads" $ do
             tag "ul" [] $ do
                 tag "li" [] $ link "/files/2DShadows.zip" "JAR"
