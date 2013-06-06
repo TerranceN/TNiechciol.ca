@@ -1,1 +1,1 @@
-#!/var/www/Main
+#!Main
