@@ -26,13 +26,15 @@ index urlOptions queryOptions =
     content = do
         tag "h1" [] $ text "Terrance Niechciol's Personal Website"
         tag "p" [] $ do
-            text "Welcome to my website, where you can find my "
+            text "Welcome to my personal website where you can find my "
+            link "/Resume/" "resume"
+            text ", and some small "
             link "/Projects/" "projects"
-            text ", and "
+            text " that I've made for fun. If you need to get in touch with me, you check out my "
             link "/Contact/" "contact information"
             text ". I also have a "
-            link "https://github.com/TerranceN" "github profile"
-            text "."
+            link "https://github.com/TerranceN" "github account"
+            text " you can check out too."
         tag "br" [] noHtml
         tag "p" [] $ do
             text "You can also find this "
