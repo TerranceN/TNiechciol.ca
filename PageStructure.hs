@@ -50,6 +50,13 @@ navBar = do
             tag "li" [] $ do
                 link "/Contact/" "Contact"
 
+meta :: Html
+meta = do
+    tag "meta" [ ("name", "keywords")
+               , ("content", "Terrance Terry Niechciol")] noHtml
+    tag "meta" [ ("name", "description")
+               , ("content", "My personal website where you can find my Resume and some small projects I've made for fun.")] noHtml
+
 mainLayout :: Html -> Html -> Html
 mainLayout heads strs = do
     uText "Content-Type: text/html\n"
@@ -57,6 +64,7 @@ mainLayout heads strs = do
     uText "<!DOCTYPE html>"
     tag "html" [] $ do
         tag "head" [] $ do
+            meta
             stylesheet "/styles/main.css"
             stylesheet "http://fonts.googleapis.com/css?family=Source+Sans+Pro"
             heads
