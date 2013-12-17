@@ -2,6 +2,7 @@ module PageStructure
 ( link
 , navBar
 , stylesheet
+, javascript
 , mainLayout
 , exactly
 , screenshot
@@ -31,6 +32,11 @@ stylesheet url = do
     tag "link" [("rel", "stylesheet")
                ,("type", "text/css")
                ,("href", url)] noHtml
+
+javascript :: String -> Html
+javascript url = do
+    tag "script" [("type", "text/javascript")
+                 ,("src", url)] noHtml
 
 navBar :: Html
 navBar = do

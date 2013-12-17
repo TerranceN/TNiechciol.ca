@@ -216,6 +216,16 @@ formTest urlOptions queryOptions =
             tag "input" [("type", "textbox"), ("name", "str")] noHtml
             tag "input" [("type", "submit")] noHtml
 
+socketTest :: [Option] -> [Option] -> Html
+socketTest urlOptions queryOptions =
+    mainLayout head body
+  where
+    head = do
+        javascript "/scripts/socketTest.js"
+    body = do
+        tag "p" [] $ do
+            uText "This is a test!"
+
 blogRouter :: [Option] -> [Option] -> Html
 blogRouter urlOptions getOptions = do
     let blogOption = searchDict "blogName" urlOptions
@@ -241,6 +251,7 @@ handlers =
     ,(exactly "/projects/paradoxtower/", paradoxTowerPage)
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
+    ,(exactly "/sockettest/", socketTest)
     ,(exactly "/404/", notFoundPage)
     ,(string "/blog/" >> blogUrl, blogRouter)
     ]
