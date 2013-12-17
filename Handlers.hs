@@ -175,12 +175,16 @@ notFoundPage urlOptions queryOptions =
         tag "p" [] $ text "Sorry, the page you requested cannot be found."
 
 urlDecoder :: Parser String
-urlDecoder = many (encoded <|> anyChar)
+urlDecoder = many (encoded <|> space <|> anyChar)
   where
     hexChars = ['0'..'9'] ++ ['A'..'Z']
     decodeHex c = case elemIndex (toUpper c) hexChars of
         Just x -> x
         Nothing -> 0
+    space :: Parser Char
+    space = do
+        char '+'
+        return ' '
     encoded :: Parser Char
     encoded = do
         char '%'
