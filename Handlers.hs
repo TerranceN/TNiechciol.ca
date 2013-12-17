@@ -169,7 +169,8 @@ paradoxTowerPage urlOptions queryOptions =
             text "."
 
 notFoundPage :: [Option] -> [Option] -> Html
-notFoundPage urlOptions queryOptions =
+notFoundPage urlOptions queryOptions = do
+    uText "Status: 404 Not Found\n"
     mainLayout noHtml $ tag "p" [] $ do
         tag "h1" [] $ text "404"
         tag "p" [] $ text "Sorry, the page you requested cannot be found."
