@@ -69,7 +69,7 @@ mainLayout heads strs = do
             stylesheet "http://fonts.googleapis.com/css?family=Source+Sans+Pro"
             heads
         tag "body" [("background", "/images/low_contrast_linen.png")] $ do
-            tag "div" [("id", "wraper")] $ do
+            tag "div" [("id", "wrapper")] $ do
                 tag "div" [("id", "navSpacing")] noHtml
                 tag "div" [("id", "pageContent"), ("class", "textsection")] strs
                 tag "div" [("id", "footer")] $ do
