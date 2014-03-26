@@ -118,6 +118,7 @@ body {
     margin: auto;
     width:800px;
     min-height:100%;
+    padding-bottom:1px;
     background: #333;
 
     -moz-box-shadow: 0px 8px 16px 0px #000;
@@ -155,7 +156,7 @@ body {
     height:40px;
     text-align: center;
     margin-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
 }
 
 p {
