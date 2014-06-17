@@ -37,18 +37,18 @@ navBar = do
     tag "div" [("id", "navBar")] $ do
         tag "ul" [] $ do
             tag "li" [] $ do
-                link "/" "Home"
+                tag "div" [] $ link "/" "Home"
             tag "li" [] $ do
-                link "/Projects/" "Projects"
+                tag "div" [] $ link "/Projects/" "Projects"
                 tag "ul" [] $ do
                     tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
                     tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
                     tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
                     tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
             tag "li" [] $ do
-                link "/Resume/" "Resume"
+                tag "div" [] $ link "/Resume/" "Resume"
             tag "li" [] $ do
-                link "/Contact/" "Contact"
+                tag "div" [] $ link "/Contact/" "Contact"
 
 meta :: Html
 meta = do
