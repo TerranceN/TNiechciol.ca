@@ -5,6 +5,7 @@ module Handlers
 import Data.Maybe
 import Data.Char
 import Data.List
+import qualified Data.HashMap.Lazy as Map
 import System.Environment as Env
 import Control.Monad
 import Control.Monad.Trans
@@ -17,8 +18,7 @@ import HelperFunctions
 import PageStructure
 import qualified Blog
 
-index :: [Option] -> [Option] -> Html
-index urlOptions queryOptions =
+index urlOptions request =
     mainLayout head content
   where
     head =
@@ -41,7 +41,7 @@ index urlOptions queryOptions =
             link "https://github.com/TerranceN/TNiechciol.ca""website on github"
             text "."
 
-contactPage urlOptions queryOptions = 
+contactPage urlOptions request = 
     mainLayout head content
   where
     head = do
@@ -54,7 +54,7 @@ contactPage urlOptions queryOptions =
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
         tag "p" [] $ text "Phone Number: 1-519-721-1435"
 
-resumePage urlOptions queryOptions =
+resumePage urlOptions request =
     mainLayout head content
   where
     head = do
@@ -63,7 +63,7 @@ resumePage urlOptions queryOptions =
     content = do
         tag "embed" [("class", "pdf"), ("src", "/files/Resume.pdf")] $ return ()
 
-projectsPage urlOptions queryOptions =
+projectsPage urlOptions request =
     mainLayout head content
   where
     head = do
@@ -75,7 +75,7 @@ projectsPage urlOptions queryOptions =
             tag "li" [] $ link "ParadoxTower" "Paradox Tower"
             tag "li" [] $ link "SpringPhysics" "Spring Physics Demo"
 
-geometryWarsPage urlOptions queryOptions =
+geometryWarsPage urlOptions request =
     projectLayout head content
   where
     head =
@@ -104,7 +104,7 @@ geometryWarsPage urlOptions queryOptions =
                     link "https://github.com/TerranceN/GeometryWarsClone" "here"
                     text "."
 
-springPhysicsPage urlOptions queryOptions =
+springPhysicsPage urlOptions request =
     projectLayout head content
   where
     head =
@@ -132,7 +132,7 @@ springPhysicsPage urlOptions queryOptions =
                     link "https://github.com/TerranceN/SpringPhysicsDemo" "here"
                     text "."
 
-lightingDemoPage urlOptions queryOptions = 
+lightingDemoPage urlOptions request = 
     projectLayout head content
   where
     head =
@@ -156,7 +156,7 @@ lightingDemoPage urlOptions queryOptions =
                     link "https://github.com/TerranceN/2DLightingDemo" "here"
                     text "."
 
-paradoxTowerPage urlOptions queryOptions =
+paradoxTowerPage urlOptions request =
     projectLayout head content
   where
     head =
@@ -168,10 +168,8 @@ paradoxTowerPage urlOptions queryOptions =
             link "http://archive.globalgamejam.org/2012/paradox-tower" "here"
             text "."
 
-notFoundPage :: [Option] -> [Option] -> Html
-notFoundPage urlOptions queryOptions = do
-    uText "Status: 404 Not Found\n"
-    mainLayout noHtml $ tag "p" [] $ do
+notFoundPage urlOptions request = do
+    httpResponse 404 $ mainPage noHtml $ tag "p" [] $ do
         tag "h1" [] $ text "404"
         tag "p" [] $ text "Sorry, the page you requested cannot be found."
 
@@ -205,29 +203,26 @@ testPost = do
     let content = decodeUrl (take contentLength allContent)
     text content
 
-postTest :: [Option] -> [Option] -> Html
-postTest urlOptions queryOptions = do
+postTest urlOptions request = do
     mainLayout noHtml $ tag "p" [] $ testPost
 
-formTest :: [Option] -> [Option] -> Html
-formTest urlOptions queryOptions =
+formTest urlOptions request =
     mainLayout noHtml $ tag "p" [] $ do
         tag "form" [("action", "/postTest/"), ("method", "post")] $ do
             tag "input" [("type", "textbox"), ("name", "str")] noHtml
             tag "input" [("type", "submit")] noHtml
 
-blogRouter :: [Option] -> [Option] -> Html
-blogRouter urlOptions getOptions = do
-    let blogOption = searchDict "blogName" urlOptions
+blogRouter urlOptions request = do
+    let blogOption = Map.lookup "blogName" urlOptions
     case blogOption of
-        Nothing -> notFoundPage urlOptions getOptions
-        Just blogName -> Blog.renderBlog blogName urlOptions getOptions
+        Nothing -> notFoundPage urlOptions request
+        Just blogName -> Blog.renderBlog blogName urlOptions request
 
-blogUrl :: Parser [Option]
+blogUrl :: Parser (Map.HashMap String String)
 blogUrl = do
     blogName <- many validHtmlChar
     char '/'
-    return [("blogName", blogName)]
+    return $ Map.fromList [("blogName", blogName)]
 
 handlers :: [Handler]
 handlers =

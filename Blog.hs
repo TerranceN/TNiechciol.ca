@@ -68,8 +68,7 @@ loadBlogInformation blogName = do
         Left err -> return ""
         Right info -> return $ compileBlogInformation info
 
-renderBlog :: String -> [Option] -> [Option] -> Html
-renderBlog blogName urlOptions queryOptions = mainLayout head body
+renderBlog blogName urlOptions request = mainLayout head body
   where
     head = tag "title" [] $ text "Blog"
     body = do

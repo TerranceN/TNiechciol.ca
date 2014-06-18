@@ -2,6 +2,7 @@ module PageStructure
 ( link
 , navBar
 , stylesheet
+, mainPage
 , mainLayout
 , exactly
 , screenshot
@@ -14,6 +15,7 @@ module PageStructure
 ) where
 
 import Data.Char
+import qualified Data.HashMap.Lazy as Map
 import Text.ParserCombinators.Parsec
 
 import PageTypes
@@ -57,21 +59,18 @@ meta = do
     tag "meta" [ ("name", "description")
                , ("content", "My personal website where you can find my Resume and some small projects I've made for fun.")] noHtml
 
-mainLayout :: Html -> Html -> Html
-mainLayout heads strs = do
-    uText "Content-Type: text/html\n"
-    uText "\n"
-    uText "<!DOCTYPE html>"
+mainPage :: Html -> Html -> Html
+mainPage head content = do
     tag "html" [] $ do
         tag "head" [] $ do
             meta
             stylesheet "/styles/main.css"
             stylesheet "http://fonts.googleapis.com/css?family=Source+Sans+Pro"
-            heads
+            head
         tag "body" [("background", "/images/low_contrast_linen.png")] $ do
             tag "div" [("id", "wrapper")] $ do
                 tag "div" [("id", "navSpacing")] noHtml
-                tag "div" [("id", "pageContent"), ("class", "textsection")] strs
+                tag "div" [("id", "pageContent"), ("class", "textsection")] content
                 tag "div" [("id", "footer")] $ do
                     tag "div" [("id", "footseperator")] noHtml
                     tag "div" [("class", "textsection")] $ do
@@ -80,6 +79,10 @@ mainLayout heads strs = do
                             text "| Background obtained from "
                             link "http://subtlepatterns.com/" "SubtlePatterns.com"
             navBar
+
+mainLayout :: Html -> Html -> IO Response
+mainLayout head content = do
+    httpResponse 200 $ mainPage head content
 
 projectLayout head body =
     mainLayout (customHead >> head) body
@@ -103,5 +106,5 @@ screenshot url alt =
               ,("alt", alt)
               ,("title", alt)] noHtml
 
-exactly :: String -> Parser [Option]
-exactly str = (mapM char str) >>= (\x -> eof >> return [("url", x)])
+exactly :: String -> Parser (Map.HashMap String String)
+exactly str = (mapM char str) >>= (\x -> eof >> return (Map.fromList [("url", x)]))

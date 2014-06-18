@@ -8,19 +8,43 @@ module PageTypes
 , uText
 , noHtml
 , validHtmlChar
+, Request(..)
+, Response(..)
+, httpResponse
 ) where
 
 import Text.ParserCombinators.Parsec
 import Data.DList hiding (foldr)
 import Data.Char
+import qualified Data.HashMap.Lazy as Map
 import Control.Monad
 import Control.Monad.Trans
 import Control.Monad.Trans.State.Lazy
 
-type Html = StateT (DList Char) IO ()
-type Page = [Option] -> [Option] -> Html
+data Request = Request { requestUrl :: String
+                       , requestMethod :: String
+                       , requestQueryParams :: Map.HashMap String String
+                       }
+
+data Response = Response { responseStatus :: Int
+                         , responseContentType :: String
+                         , responseBody :: String
+                         }
+
 type Option = (String, String)
-type Handler = (Parser [Option], Page)
+
+type Html = StateT (DList Char) IO ()
+type Page = Request -> IO Response
+type Handler = (Parser (Map.HashMap String String), Endpoint)
+type Endpoint = Map.HashMap String String -> Page
+
+httpResponse :: Int -> Html -> IO Response
+httpResponse statusCode html = do
+    content <- execStateT html (fromList "")
+    return Response { responseStatus = statusCode
+                    , responseContentType = "text/html"
+                    , responseBody = toList $ (fromList "<DOCTYPE! html>\n") `append` content
+                    }
 
 validHtmlChars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++ "-_.,!@#$%^() "
 
