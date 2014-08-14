@@ -2,7 +2,11 @@ module HelperFunctions
 ( searchDict
 , breakDrop
 , breakDropAll
+, slugify
 ) where
+
+import Data.Char
+import Data.Maybe
 
 searchDict :: String -> [(String, a)] -> Maybe a
 searchDict _ [] = Nothing
@@ -28,3 +32,11 @@ breakDropAll p lst =
         else [fst broken]
     where
         broken = breakDrop p lst
+
+slugify str = catMaybes $ map slugifyChar str
+  where
+    slugifyChar c
+        | c == ' ' = Just '-'
+        | c `elem` allowedChars = Just (toLower c)
+        | otherwise = Nothing
+    allowedChars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++ "-_"

@@ -3,8 +3,6 @@ module Blog where
 import System.Info
 import System.Process
 import System.Locale
-import Data.Maybe
-import Data.Char
 import Data.Time
 import Control.Monad
 import Control.Monad.Trans
@@ -15,6 +13,7 @@ import Text.ParserCombinators.Parsec
 
 import PageTypes
 import PageStructure
+import HelperFunctions
 
 runBlog :: Html -> IO ()
 runBlog blog = putStr . toList =<< execStateT blog (fromList "")
@@ -80,11 +79,3 @@ renderBlog blogName urlOptions request = mainLayout head body
             time <- getZonedTime
             return $ formatTime defaultTimeLocale "%m/%d/%Y %I:%M %p" time
         tag "p" [] $ text ("Last modified: " ++ time)
-
-slugify str = catMaybes $ map slugifyChar str
-  where
-    slugifyChar c
-        | c == ' ' = Just '-'
-        | c `elem` allowedChars = Just (toLower c)
-        | otherwise = Nothing
-    allowedChars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++ "-_"

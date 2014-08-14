@@ -17,6 +17,7 @@ import HelperFunctions
 
 import PageStructure
 import qualified Blog
+import qualified Resume
 
 index urlOptions request =
     mainLayout head content
@@ -238,4 +239,5 @@ handlers =
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)
     ,(string "/blog/" >> blogUrl, blogRouter)
+    ,(exactly "/base_resume/", Resume.resume)
     ]
