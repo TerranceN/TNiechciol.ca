@@ -17,16 +17,22 @@ header = do
 
 section name content = do
     tag "div" [("class", "section_wrapper"), ("id", (slugify name) ++ "_section_wrapper")] $ do
-        tag "h2" [] $ tag "u" [] $ text name
+        tag "h2" [] $ tag "b" [] $ text name
+        tag "img" [("class", "seperator"), ("src", "/images/resume_gradient.png")] noHtml
         tag "div" [] content
 
-subsection name content = subsectionBase name Nothing content
+subsection name content = subsectionBase name Nothing Nothing content
 
-subsectionWithDate name date content = subsectionBase name (Just date) content
+subsectionWithDate name date content = subsectionBase name (Just date) Nothing content
 
-subsectionBase name date content = do
+subsectionWithDateAndUrl name date url content = subsectionBase name (Just date) (Just url) content
+
+subsectionBase name date link content = do
     tag "div" [("class", "subsection_wrapper"), ("id", (slugify name) ++ "_subsection_wrapper")] $ do
-        tag "h3" [] $ tag "b" [] $ text name
+        tag "h3" [] $ tag "b" [] $ do
+            case link of
+                Nothing -> text name
+                Just url -> tag "a" [("href", url)] $ text name
         case date of
             Nothing -> noHtml
             Just date -> dateDiv date
@@ -62,13 +68,13 @@ resume urlOptions request = do
                                   ,text "Experience with OpenGL, GLSL and GLES 2.0 (including both WebGL and Android)"
                                   ]
                         section "Work Experience" $ do
-                            subsectionWithDate "Willet" (text "Sept. 2012 - Dec. 2012") $ do
+                            subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
                                 ulist [text "Thrived in a fast-paced startup environment"
                                       ,text "Helped write a web app for brands to create an infitely scrolling page of related products"
                                       ,text "Web app was written in Python using the Django framework, with just normal html/css/javascript with jQuery on the frontend"
                                       ]
-                            subsectionWithDate "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") $ do
-                                ulist [text "Worked a total of three semesters, each with a different focus:"
+                            subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
+                                ulist [text "Worked a total of three semesters, each with a different focus"
                                       ,text "Developed the iOS frontend of a prototype poker app"
                                       ,text "Worked on caching for the backend metrics team"
                                       ,text "Developed frontend features for a real-time 3d Android racing game, including an interactive map, and the movement/drifting simulation"

@@ -1,5 +1,10 @@
-html {
-    font-family: 'Oswald', sans-serif;
+html * {
+    font-family: 'Oswald', sans-serif !important;
+    color: #444 !important;
+}
+
+html body a {
+    text-decoration:underline;
 }
 
 #wrapper {
@@ -18,7 +23,7 @@ html {
 }
 
 #content {
-    padding-top: 80px;
+    padding-top: 75px;
 }
 
 h1 {
@@ -29,7 +34,6 @@ h1 {
 
 h2 {
     font-size: 2em;
-    margin-bottom: 15px !important;
 }
 
 h2, h3 {
@@ -39,6 +43,7 @@ h2, h3 {
 
 .subsection_wrapper {
     position:relative;
+    margin-top:20px;
 }
 
 .section_wrapper ul {
@@ -47,7 +52,7 @@ h2, h3 {
 
 .subsection_wrapper .right_info {
     position:absolute;
-    right:25px;
+    right:10px;
     top:6px;
     font-size: 0.80em;
 }
@@ -73,13 +78,26 @@ h2, h3 {
 .project_images {
     position: absolute;
     width: 350px;
-    top: 50px;
+    top: 70px;
     right: 0;
 }
 
 .project_images img {
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 12px;
     max-height: 180px;
+}
+
+h1, h2, h3 {
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
+.seperator {
+    width:75%;
+    height:1px;
+    margin-top:0;
+    display:block;
+    border:none;
 }
