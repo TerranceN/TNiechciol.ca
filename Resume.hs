@@ -68,16 +68,16 @@ resume urlOptions request = do
                                   ,text "Experience with OpenGL, GLSL and GLES 2.0 (including both WebGL and Android)"
                                   ]
                         section "Work Experience" $ do
-                            subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
-                                ulist [text "Thrived in a fast-paced startup environment"
-                                      ,text "Helped write a web app for brands to create an infitely scrolling page of related products"
-                                      ,text "Web app was written in Python using the Django framework, with just normal html/css/javascript with jQuery on the frontend"
-                                      ]
                             subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
                                 ulist [text "Worked a total of three semesters, each with a different focus"
                                       ,text "Developed the iOS frontend of a prototype poker app"
                                       ,text "Worked on caching for the backend metrics team"
                                       ,text "Developed frontend features for a real-time 3d Android racing game, including an interactive map, and the movement/drifting simulation"
+                                      ]
+                            subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
+                                ulist [text "Thrived in a fast-paced startup environment"
+                                      ,text "Helped write a web app for brands to create an infitely scrolling page of related products"
+                                      ,text "Web app was written in Python using the Django framework, with just normal html/css/javascript with jQuery on the frontend"
                                       ]
                         section "Personal Projects" $ do
                             tag "div" [("class", "project_descriptions")] $ do
