@@ -1,6 +1,7 @@
 html * {
     font-family: 'Oswald', sans-serif !important;
     color: #444 !important;
+    font-size: 1em;
 }
 
 html body a {
@@ -41,9 +42,12 @@ h2, h3 {
     margin-top: 0;
 }
 
+h3 {
+    font-size: 1.5em;
+}
+
 .subsection_wrapper {
     position:relative;
-    margin-top:20px;
 }
 
 .section_wrapper ul {
@@ -61,6 +65,24 @@ h2, h3 {
     width: 440px;
     display: inline-block;
     vertical-align: top;
+}
+
+#skills_section_wrapper .subsection_wrapper {
+    display: inline-block;
+    vertical-align: top;
+    min-width: 150px;
+}
+
+#languages_subsection_wrapper, #platforms_subsection_wrapper {
+    margin-right: 55px;
+}
+
+#languages_subsection_wrapper ul {
+    padding-left: 0px;
+}
+
+#languages_subsection_wrapper ul li {
+    margin-left: 20px;
 }
 
 #a-thinking-ape_subsection_wrapper {
@@ -100,4 +122,31 @@ h1, h2, h3 {
     margin-top:0;
     display:block;
     border:none;
+}
+
+.vertical_seperator_table {
+    display: table;
+    border-spacing: 10px;
+}
+
+.vertical_seperator {
+    width: 1px;
+    height: 100%;
+    background: #444;
+    display: table-cell;
+    vertical-align: top;
+}
+
+.subsection_seperated_content {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+}
+
+.skills_sublist {
+    float: left;
+}
+
+.skills_sublist:first-child {
+    margin-right: 20px;
 }

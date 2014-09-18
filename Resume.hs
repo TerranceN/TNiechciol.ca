@@ -29,14 +29,17 @@ subsectionWithDateAndUrl name date url content = subsectionBase name (Just date)
 
 subsectionBase name date link content = do
     tag "div" [("class", "subsection_wrapper"), ("id", (slugify name) ++ "_subsection_wrapper")] $ do
-        tag "h3" [] $ tag "b" [] $ do
-            case link of
-                Nothing -> text name
-                Just url -> tag "a" [("href", url)] $ text name
-        case date of
-            Nothing -> noHtml
-            Just date -> dateDiv date
-        tag "div" [] content
+        tag "div" [("class", "vertical_seperator_table")] $ do
+            tag "img" [("class", "vertical_seperator"), ("src", "/images/resume_gradient_vertical.png")] noHtml
+            tag "div" [("class", "subsection_seperated_content")] $ do
+                tag "h3" [] $ tag "b" [] $ do
+                    case link of
+                        Nothing -> text name
+                        Just url -> tag "a" [("href", url)] $ text name
+                case date of
+                    Nothing -> noHtml
+                    Just date -> dateDiv date
+                tag "div" [] content
   where
     dateDiv date = do
         tag "div" [("class", "right_info")] $ do
@@ -45,7 +48,7 @@ subsectionBase name date link content = do
 ulist items = do
     tag "ul" [] $ mapM_ (\x -> tag "li" [] x) items
 
-placeholder = "http://www.zwaldtransport.com/images/placeholders/placeholder1.jpg"
+placeholder = "/images/placeholder.jpg"
 
 resume urlOptions request = do
     httpResponse 200 $ do
@@ -62,11 +65,31 @@ resume urlOptions request = do
                     header
                     tag "div" [("id", "content")] $ do
                         section "Skills" $ do
-                            ulist [text "Proficient in both imperative (Python, Java, Javascript) and functional languages (Haskell, Scala)"
-                                  ,text "Able to work independently within a small, focused team"
-                                  ,text "Experience with Unix environments, bash scripting, etc."
-                                  ,text "Experience with OpenGL, GLSL and GLES 2.0 (including both WebGL and Android)"
-                                  ]
+                            subsection "Languages" $ do
+                                tag "div" [("class", "skills_sublist")] $ do
+                                    ulist [text "C/C++"
+                                          ,text "Java"
+                                          ,text "Python"
+                                          ,text "Scala"
+                                          ]
+                                tag "div" [("class", "skills_sublist")] $ do
+                                    ulist [text "Javascript"
+                                          ,text "Haskell"
+                                          ,text "Lisp"
+                                          ]
+                            subsection "Platforms" $ do
+                                ulist [text "Web"
+                                      ,text "Desktop"
+                                      ,text "IOS"
+                                      ,text "Android"
+                                      ]
+                            subsection "Technologies/Libraries" $ do
+                                ulist [text "OpenGL/GLSL"
+                                      ,text "GLES 2.0 (both Android and WebGL)"
+                                      ,text "LWJGL"
+                                      ,text "LibGDX"
+                                      ,text "SFML"
+                                      ]
                         section "Work Experience" $ do
                             subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
                                 ulist [text "Worked a total of three semesters, each with a different focus"
@@ -87,7 +110,7 @@ resume urlOptions request = do
                                           ,text "SSAO is implemented Crysis-style by sampling the depth information in the G-Buffer to approximate the scene geometry"
                                           ]
                                 subsection "Geometry Wars Clone" $ do
-                                    ulist [text "2D, top down, space shooter with deformable grid, particle effects, and a neon glow on everything"
+                                    ulist [text "2D, top down space shooter with deformable grid, particle effects, and a neon glow effect"
                                           ,text "Written in Scala using LWJGL"
                                           ,text "Particle simulation (including grid) runs on the GPU by using FBOs to store position/velocity, with shaders to update the simulation"
                                           ]
@@ -103,6 +126,8 @@ resume urlOptions request = do
                                 tag "div" [] $ tag "img" [("src", placeholder)] noHtml
                                 tag "div" [] $ tag "img" [("src", placeholder)] noHtml
                                 tag "div" [] $ tag "img" [("src", placeholder)] noHtml
+                        section "School" $ do
+                            text "Persuing a Bachelor's in Computer Science from the University of Waterloo"
   where
     head = do
         noHtml
