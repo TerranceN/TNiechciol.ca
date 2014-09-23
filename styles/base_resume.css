@@ -6,6 +6,7 @@ html * {
 
 html body a {
     text-decoration:underline;
+    color: #A00 !important;
 }
 
 #wrapper {
@@ -21,10 +22,15 @@ html body a {
     top: 0;
     right: 0;
     text-align: right;
+    margin-top: -20px;
+}
+
+body {
+    margin: 0;
 }
 
 #content {
-    padding-top: 75px;
+    padding-top: 25px;
 }
 
 h1 {
@@ -52,13 +58,19 @@ h3 {
 
 .section_wrapper ul {
     padding-left: 20px;
+    margin-top:0;
+    margin-bottom:0;
 }
 
 .subsection_wrapper .right_info {
     position:absolute;
     right:10px;
-    top:6px;
+    top:8px;
     font-size: 0.80em;
+}
+
+#work-experience_section_wrapper {
+    margin-top: -25px;
 }
 
 #work-experience_section_wrapper .subsection_wrapper {
@@ -100,7 +112,7 @@ h3 {
 .project_images {
     position: absolute;
     width: 350px;
-    top: 70px;
+    top: 55px;
     right: 0;
 }
 
@@ -108,7 +120,8 @@ h3 {
     display: block;
     margin: auto;
     margin-top: 12px;
-    max-height: 175px;
+    width: 350px;
+    height: 155px;
 }
 
 h1, h2, h3 {
@@ -118,21 +131,21 @@ h1, h2, h3 {
 
 .seperator {
     width:75%;
-    height:1px;
+    height:3px;
     margin-top:0;
+    margin-bottom:5px;
     display:block;
     border:none;
 }
 
 .vertical_seperator_table {
     display: table;
-    border-spacing: 10px;
+    border-spacing: 10px 5px;
 }
 
 .vertical_seperator {
     width: 1px;
     height: 100%;
-    background: #444;
     display: table-cell;
     vertical-align: top;
 }
@@ -143,10 +156,18 @@ h1, h2, h3 {
     height: 100%;
 }
 
+.subsection_seperated_content .inner_content {
+}
+
 .skills_sublist {
     float: left;
 }
 
 .skills_sublist:first-child {
+    width:63px;
     margin-right: 20px;
+}
+
+.skills_sublist:last-child {
+    width:84px;
 }
