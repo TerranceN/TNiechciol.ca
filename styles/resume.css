@@ -1,10 +1,22 @@
-.pdf {
-    width: 826px;
-    height: 1070px;
+#pageContent .resume_content * {
+    color: #CCC !important;
+}
+
+#pageContent .resume_content a {
+    text-decoration:underline;
+    color: #A00 !important;
+}
+
+#pageContent .resume_content a:hover {
+    color: #F22 !important;
 }
 
 #pageContent {
     margin: 5px;
     margin-top: 10px;
     padding-bottom: 65px;
+}
+
+#wrapper {
+    width: 910px;
 }

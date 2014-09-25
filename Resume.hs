@@ -1,4 +1,8 @@
-module Resume where
+module Resume
+( resume
+, resumePage
+, oswaldFont
+) where
 
 import Control.Monad
 
@@ -56,83 +60,91 @@ projectImage url = do
 
 placeholder = "/images/placeholder.jpg"
 
-resume urlOptions request = do
+resume = do
+    tag "div" [("class", "resume_content")] $ do
+        tag "div" [("id", "resume_wrapper")] $ do
+        tag "div" [("id", "header_relative")] $ do
+            header
+            tag "div" [("id", "resume_body")] $ do
+                section "Skills" $ do
+                    subsection "Languages" $ do
+                        tag "div" [("class", "skills_sublist")] $ do
+                            ulist [text "C/C++"
+                                  ,text "Java"
+                                  ,text "Python"
+                                  ,text "Scala"
+                                  ]
+                        tag "div" [("class", "skills_sublist")] $ do
+                            ulist [text "Javascript"
+                                  ,text "Haskell"
+                                  ,text "Lisp"
+                                  ]
+                    subsection "Platforms" $ do
+                        ulist [text "Web"
+                              ,text "Desktop"
+                              ,text "IOS"
+                              ,text "Android"
+                              ]
+                    subsection "Technologies/Libraries" $ do
+                        ulist [text "OpenGL/GLSL"
+                              ,text "GLES 2.0 (both Android and WebGL)"
+                              ,text "LWJGL"
+                              ,text "LibGDX"
+                              ,text "SFML"
+                              ]
+                section "Work Experience" $ do
+                    subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
+                        ulist [text "Developed the iOS frontend of a prototype poker app focusing on home games. Eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
+                              ,text "Created and improved analytics tools on the metrics team"
+                              ,text "Developed frontend features for a 3d racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+                              ]
+                    subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
+                        ulist [text "Created front end for an infintely scrolling webpage that predicts user's product preferences"
+                              ,text "Server code written in Python with Django, and fontend in Sass/Javascript with jQuery"
+                              ,text "As the 5th member of the company, able to keep up in a fast-paced, small startup"
+                              ]
+                section "Personal Projects" $ do
+                    tag "div" [("class", "project_descriptions")] $ do
+                        subsectionWithUrl "Geometry Wars Clone" "/Projects/GeoWarsClone/" $ do
+                            ulist [text "2D, top down space shooter with deformable grid, particle effects, and a neon glow effect"
+                                  ,text "Particle simulation (including grid) runs on the GPU by using framebuffers to store position/velocity, with shaders to update the simulation"
+                                  ,text "Written in Scala using LWJGL"
+                                  ]
+                        subsectionWithUrl "ATA Co-op Hackathon Game" "/Projects/ATAHackathonGame/" $ do
+                            ulist [text "2D multiplayer platformer deathmatch game, where players have the ability to create spheres of influence that remove collision with the level"
+                                  ,text "Created for a 48-hour co-op student hackathon at A Thinking Ape with two other engineering co-ops and two full-time artists"
+                                  ,text "Written in Java and libGDX"
+                                  ]
+                        subsectionWithUrl "Defered Renderer with SSAO" "/Projects/DeferedRenderer/" $ do
+                            ulist [text "Albedo, depth, and surface normals are stored in two textures, then combined for the lighting pass, which only has to be run per-pixel instead of per-fragment"
+                                  ,text "SSAO is implemented Crysis-style by sampling the depth information in the " >> (tag "div" [] $ text "G-Buffer to approximate the scene geometry")
+                                  ,text "Written in Scala using LWJGL"
+                                  ]
+                        subsectionWithUrl "TNiechciol.ca" "http://TNiechciol.ca" $ do
+                            ulist [text "Haskell webapp running on top of lighttpd"
+                                  ]
+                    tag "div" [("class", "project_images")] $ do
+                        projectImage "/images/geometry_wars_clone_v2.png"
+                        projectImage "/images/ata_hackathon_game_merged.png"
+                        projectImage "/images/defered_renderer.png"
+                section "School" $ do
+                    text "Persuing a Bachelor's in Computer Science from the University of Waterloo"
+
+oswaldFont = do
+    tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
+               ,("rel", "stylesheet")
+               ,("type", "text/css")
+               ] noHtml
+
+resumePage urlOptions request = do
     httpResponse 200 $ do
         tag "html" [] $ do
             tag "head" [] $ do
-                tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
-                           ,("rel", "stylesheet")
-                           ,("type", "text/css")
-                           ] noHtml
+                oswaldFont
                 stylesheet "/styles/base_resume.css"
+                stylesheet "/styles/resume_page.css"
             tag "body" [] $ do
-                tag "div" [("id", "wrapper")] $ do
-                tag "div" [("id", "header_relative")] $ do
-                    header
-                    tag "div" [("id", "content")] $ do
-                        section "Skills" $ do
-                            subsection "Languages" $ do
-                                tag "div" [("class", "skills_sublist")] $ do
-                                    ulist [text "C/C++"
-                                          ,text "Java"
-                                          ,text "Python"
-                                          ,text "Scala"
-                                          ]
-                                tag "div" [("class", "skills_sublist")] $ do
-                                    ulist [text "Javascript"
-                                          ,text "Haskell"
-                                          ,text "Lisp"
-                                          ]
-                            subsection "Platforms" $ do
-                                ulist [text "Web"
-                                      ,text "Desktop"
-                                      ,text "IOS"
-                                      ,text "Android"
-                                      ]
-                            subsection "Technologies/Libraries" $ do
-                                ulist [text "OpenGL/GLSL"
-                                      ,text "GLES 2.0 (both Android and WebGL)"
-                                      ,text "LWJGL"
-                                      ,text "LibGDX"
-                                      ,text "SFML"
-                                      ]
-                        section "Work Experience" $ do
-                            subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
-                                ulist [text "Developed the iOS frontend of a prototype poker app focusing on home games. Eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
-                                      ,text "Created and improved analytics tools on the metrics team"
-                                      ,text "Developed frontend features for a 3d racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
-                                      ]
-                            subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
-                                ulist [text "Created front end for an infintely scrolling webpage that predicts user's product preferences"
-                                      ,text "Server code written in Python with Django, and fontend in Sass/Javascript with jQuery"
-                                      ,text "As the 5th member of the company, able to keep up in a fast-paced, small startup"
-                                      ]
-                        section "Personal Projects" $ do
-                            tag "div" [("class", "project_descriptions")] $ do
-                                subsectionWithUrl "Geometry Wars Clone" "/Projects/GeoWarsClone/" $ do
-                                    ulist [text "2D, top down space shooter with deformable grid, particle effects, and a neon glow effect"
-                                          ,text "Particle simulation (including grid) runs on the GPU by using framebuffers to store position/velocity, with shaders to update the simulation"
-                                          ,text "Written in Scala using LWJGL"
-                                          ]
-                                subsectionWithUrl "ATA Co-op Hackathon Game" "/Projects/ATAHackathonGame/" $ do
-                                    ulist [text "2D multiplayer platformer deathmatch game, where players have the ability to create spheres of influence that remove collision with the level"
-                                          ,text "Created for a 48-hour co-op student hackathon at A Thinking Ape with two other engineering co-ops and two full-time artists"
-                                          ,text "Written in Java and libGDX"
-                                          ]
-                                subsectionWithUrl "Defered Renderer with SSAO" "/Projects/DeferedRenderer/" $ do
-                                    ulist [text "Albedo, depth, and surface normals are stored in two textures, then combined for the lighting pass, which only has to be run per-pixel instead of per-fragment"
-                                          ,text "SSAO is implemented Crysis-style by sampling the depth information in the " >> (tag "div" [] $ text "G-Buffer to approximate the scene geometry")
-                                          ,text "Written in Scala using LWJGL"
-                                          ]
-                                subsectionWithUrl "TNiechciol.ca" "http://TNiechciol.ca" $ do
-                                    ulist [text "Haskell webapp running on top of lighttpd"
-                                          ]
-                            tag "div" [("class", "project_images")] $ do
-                                projectImage "/images/geometry_wars_clone_v2.png"
-                                projectImage "/images/ata_hackathon_game_merged.png"
-                                projectImage "/images/defered_renderer.png"
-                        section "School" $ do
-                            text "Persuing a Bachelor's in Computer Science from the University of Waterloo"
+                resume
   where
     head = do
         noHtml

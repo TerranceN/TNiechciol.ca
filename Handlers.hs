@@ -60,9 +60,11 @@ resumePage urlOptions request =
   where
     head = do
         title "Resume"
+        Resume.oswaldFont
         stylesheet "/styles/resume.css"
+        stylesheet "/styles/base_resume.css"
     content = do
-        tag "embed" [("class", "pdf"), ("src", "/files/Resume.pdf")] $ return ()
+        Resume.resume
 
 projectsPage urlOptions request =
     mainLayout head content
@@ -331,5 +333,5 @@ handlers =
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)
     ,(string "/blog/" >> blogUrl, blogRouter)
-    ,(exactly "/base_resume/", Resume.resume)
+    ,(exactly "/base_resume/", Resume.resumePage)
     ]

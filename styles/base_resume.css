@@ -1,23 +1,23 @@
-html * {
+.resume_content * {
     font-family: 'Oswald', sans-serif !important;
     color: #444 !important;
-    font-size: 1em;
+    font-size: 16px;
 }
 
-html body a {
+.resume_content a {
     text-decoration:underline;
     color: #A00 !important;
 }
 
-#wrapper {
+.resume_content #resume_wrapper {
     width: 900px;
 }
 
-#header_relative {
+.resume_content #header_relative {
     position:relative;
 }
 
-#header {
+.resume_content #header {
     position: absolute;
     top: 0;
     right: 0;
@@ -25,98 +25,94 @@ html body a {
     margin-top: -20px;
 }
 
-body {
-    margin: 0;
-}
-
-#content {
+.resume_content #resume_body {
     padding-top: 25px;
 }
 
-h1 {
+.resume_content h1, .resume_content h1 * {
     padding:0;
     margin:0;
-    font-size: 4em;
+    font-size: 64px;
 }
 
-h2 {
-    font-size: 2em;
+.resume_content h2 * {
+    font-size: 32px;
 }
 
-h2, h3 {
+.resume_content h2, .resume_content h3 {
     margin-bottom: 0;
     margin-top: 0;
 }
 
-h3 {
-    font-size: 1.5em;
+.resume_content h3 * {
+    font-size: 24px;
 }
 
-.subsection_wrapper {
+.resume_content .subsection_wrapper {
     position:relative;
 }
 
-.section_wrapper ul {
+.resume_content .section_wrapper ul {
     padding-left: 20px;
     margin-top:0;
     margin-bottom:0;
 }
 
-.subsection_wrapper .right_info {
+.resume_content .subsection_wrapper .right_info {
     position:absolute;
     right:10px;
     top:8px;
-    font-size: 0.80em;
+    font-size: 13px;
 }
 
-#work-experience_section_wrapper {
+.resume_content #work-experience_section_wrapper {
     margin-top: -25px;
 }
 
-#work-experience_section_wrapper .subsection_wrapper {
+.resume_content #work-experience_section_wrapper .subsection_wrapper {
     width: 440px;
     display: inline-block;
     vertical-align: top;
 }
 
-#skills_section_wrapper .subsection_wrapper {
+.resume_content #skills_section_wrapper .subsection_wrapper {
     display: inline-block;
     vertical-align: top;
     min-width: 150px;
 }
 
-#languages_subsection_wrapper, #platforms_subsection_wrapper {
+.resume_content #languages_subsection_wrapper, .resume_content #platforms_subsection_wrapper {
     margin-right: 55px;
 }
 
-#languages_subsection_wrapper ul {
+.resume_content #languages_subsection_wrapper ul {
     padding-left: 0px;
 }
 
-#languages_subsection_wrapper ul li {
+.resume_content #languages_subsection_wrapper ul li {
     margin-left: 20px;
 }
 
-#a-thinking-ape_subsection_wrapper {
+.resume_content #a-thinking-ape_subsection_wrapper {
     margin-right: 20px
 }
 
-#personal-projects_section_wrapper {
+.resume_content #personal-projects_section_wrapper {
     position:relative;
 }
 
-#personal-projects_section_wrapper .project_descriptions {
+.resume_content #personal-projects_section_wrapper .project_descriptions {
     width: 550px;
 }
 
-.project_images {
+.resume_content .project_images {
     position: absolute;
     width: 350px;
     top: 55px;
     right: 0;
 }
 
-.project_images img {
+.resume_content .project_images img {
     display: block;
     margin: auto;
     margin-top: 12px;
@@ -128,12 +124,12 @@ h3 {
     border-radius:5px;
 }
 
-h1, h2, h3 {
+.resume_content h1, .resume_content h2, .resume_content h3 {
     margin-bottom:0;
     padding-bottom:0;
 }
 
-.seperator {
+.resume_content .seperator {
     width:75%;
     height:3px;
     margin-top:0;
@@ -142,39 +138,39 @@ h1, h2, h3 {
     border:none;
 }
 
-.vertical_seperator_table {
+.resume_content .vertical_seperator_table {
     display: table;
     border-spacing: 10px 5px;
 }
 
-.vertical_seperator {
+.resume_content .vertical_seperator {
     width: 1px;
     height: 100%;
     display: table-cell;
     vertical-align: top;
 }
 
-.subsection_seperated_content {
+.resume_content .subsection_seperated_content {
     display: table-cell;
     vertical-align: top;
     height: 100%;
 }
 
-.subsection_seperated_content .inner_content {
+.resume_content .subsection_seperated_content .inner_content {
 }
 
-.skills_sublist {
+.resume_content .skills_sublist {
     float: left;
 }
 
-.skills_sublist:first-child {
+.resume_content .skills_sublist:first-child {
     width:63px;
     margin-right: 20px;
 }
 
-.skills_sublist:last-child {
+.resume_content .skills_sublist:last-child {
     width:84px;
 }
 
-.project_images img {
+.resume_content .project_images img {
 }
