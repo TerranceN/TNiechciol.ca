@@ -36,7 +36,7 @@ index urlOptions request =
             text ". I also have a "
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
-        tag "br" [] noHtml
+        uText "<br />"
         tag "p" [] $ do
             text "You can also find this "
             link "https://github.com/TerranceN/TNiechciol.ca""website on github"

@@ -1,5 +1,9 @@
+.pageContent ul {
+    margin: 0;
+}
+
 .section_body {
-    margin: 20px 20px;
+    margin: 10px 20px;
 }
 
 .screenshots .section_body {
@@ -17,6 +21,7 @@
 
 .screenshots img {
     max-height: 304px;
+    max-width: 790px;
 }
 
 .youtube_video {
