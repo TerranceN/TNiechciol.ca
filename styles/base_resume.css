@@ -120,8 +120,12 @@ h3 {
     display: block;
     margin: auto;
     margin-top: 12px;
-    width: 350px;
+    width: 275px;
     height: 155px;
+    background: #F22;
+    padding: 3px;
+    background: #F22;
+    border-radius:5px;
 }
 
 h1, h2, h3 {
@@ -170,4 +174,7 @@ h1, h2, h3 {
 
 .skills_sublist:last-child {
     width:84px;
+}
+
+.project_images img {
 }

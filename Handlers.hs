@@ -83,13 +83,46 @@ geometryWarsPage urlOptions request =
         title "Geometry Wars Clone"
     content = do
         tag "h1" [] $ text "Geometry Wars Clone"
+        tag "hr" [] noHtml
         projectSection "Description" $ do
             tag "p" [] $ do
-                text "A clone of the Xbox Live Arcade game "
+                text "Complete rewrite of the old version, which you can find "
+                link "/Projects/GeoWarsCloneOld/" "here"
+            tag "p" [] $ do
+                text "A clone of the game "
                 link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars"
-                text ", written in Java with "
+                text " including a bloom effect, a huge number of particles, and a deformable grid (also implemented as particles). "
+                text "Uses framebuffers to store particle position and velocity, allowing all particle simulation to be done on the GPU using shaders."
+            tag "p" [] $ do
+                text "Created using Scala and "
                 link "http://www.lwjgl.org/" "LWJGL"
-                text ". Created during my final semester of high school (Feb. 2011 - June 2011)."
+                text " during Nov. 2013 - Dec. 2013."
+        projectSection "Screenshots" $ do
+            screenshot "/images/geometry_wars_clone_v2.png" "Particles everywhere!"
+        projectSection "Downloads" $ do
+            tag "ul" [] $ do
+                tag "li" [] $ do
+                    link "https://github.com/TerranceN/Geometry-Wars-Clone-V2" "Source on Github"
+
+geometryWarsOldPage urlOptions request =
+    projectLayout head content
+  where
+    head =
+        title "Geometry Wars Clone (old version)"
+    content = do
+        tag "h1" [] $ text "Geometry Wars Clone (old version)"
+        tag "hr" [] noHtml
+        projectSection "Description" $ do
+            tag "p" [] $ do
+                text "See the new, updated version "
+                link "/Projects/GeoWarsClone/" "here"
+            tag "p" [] $ do
+                text "A clone of the Xbox Live Arcade game "
+                link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars."
+            tag "p" [] $ do
+                text "Created using Java and "
+                link "http://www.lwjgl.org/" "LWJGL"
+                text " during my final semester of high school (Feb. 2011 - June 2011)."
         projectSection "Video" $ do
             tag "div" [("class", "youtube_video")] $ do
                 youtube_video "2-HFsanORGw" 560 315
@@ -105,6 +138,58 @@ geometryWarsPage urlOptions request =
                     link "https://github.com/TerranceN/GeometryWarsClone" "here"
                     text "."
 
+ataHackathonPage urlOptions request =
+    projectLayout head content
+  where
+    head =
+        title "ATA Hackathon Game"
+    content = do
+        tag "h1" [] $ text "ATA Hackathon Game"
+        tag "hr" [] noHtml
+        projectSection "Description" $ do
+            tag "p" [] $ do
+                text "Created for a 48-hour hackathon while working for my previous employer "
+                link "http://www.athinkingape.com/" "A Thinking Ape"
+                text " with a team of 2 other engineers on co-op there, as well as two full-time artists."
+            tag "p" [] $ do
+                text "Created using Java and "
+                link "http://libgdx.badlogicgames.com/" "LibGDX"
+                text " during Apr. 8-10, 2014."
+        projectSection "Screenshots" $ do
+            screenshot "/images/ata_hackathon_game_merged.png" "Game"
+        projectSection "Downloads" $ do
+            tag "ul" [] $ do
+                tag "li" [] $ do
+                    link "https://github.com/TerranceN/ATAHackathonW14" "Source on Github"
+
+deferedRendererPage urlOptions request =
+    projectLayout head content
+  where
+    head =
+        title "Defered Renderer"
+    content = do
+        tag "h1" [] $ text "Defered Renderer"
+        tag "hr" [] noHtml
+        projectSection "Description" $ do
+            tag "p" [] $ do
+                text "3D Renderer that stores all albedo, depth, normal, and specular information into a series of textures,"
+                text " then combines those textures and lighting information to make the final image."
+                text " This allows lighting calculations to be done once per pixel, instead of once per fragnent."
+            tag "p" [] $ do
+                text "The renderer also computes ambient occlusion information using the scene information in the G-Buffer."
+                text " Ambient occlusion is computed in a style similar to Crysis, but uses normal-oriented hemispheres instead of full spheres."
+                text " This allows the normal map to be used, allowing for fine details in the computed occlusion map."
+            tag "p" [] $ do
+                text "Created using Scala and "
+                link "http://www.lwjgl.org/" "LWJGL"
+                text " during Sep. 2013 - Oct. 2013."
+        projectSection "Screenshots" $ do
+            screenshot "/images/defered_renderer.png" "Game"
+        projectSection "Downloads" $ do
+            tag "ul" [] $ do
+                tag "li" [] $ do
+                    link "https://github.com/TerranceN/Deferred-Renderer" "Source on Github"
+
 springPhysicsPage urlOptions request =
     projectLayout head content
   where
@@ -112,11 +197,13 @@ springPhysicsPage urlOptions request =
         title "Spring Physics Demo"
     content = do
         tag "h1" [] $ text "Spring Physics Demo"
+        tag "hr" [] noHtml
         projectSection "Description" $ do
             tag "p" [] $ do
-                text "A physics simulation of a blob of springs that can control its own springiness. Created in C++ using "
-                link "http://www.sfml-dev.org/" "SFML"
-                text " in a week in April 2012."
+                text "A physics simulation of a blob of springs that can control its own springiness."
+            tag "p" [] $ do
+                text "Created using C++ and "
+                link "http://www.sfml-dev.org/" "SFML."
         projectSection "Video" $ do
             tag "div" [("class", "youtube_video")] $ do
                 youtube_video "OS00DNj0GgI" 560 315
@@ -140,6 +227,7 @@ lightingDemoPage urlOptions request =
         title "2D Lighting Demo"
     content = do
         tag "h1" [] $ text "2D Lighting Demo"
+        tag "hr" [] noHtml
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "This demo creates and displays shadow geometry based on arbitrary shapes in the scene. Coded in Java with "
@@ -164,6 +252,7 @@ paradoxTowerPage urlOptions request =
         title "Paradox Tower"
     content = do
         tag "h1" [] $ text "Paradox Tower"
+        tag "hr" [] noHtml
         tag "p" [] $ do
             text "This project is hosted on the Global Jam Jam site "
             link "http://archive.globalgamejam.org/2012/paradox-tower" "here"
@@ -232,6 +321,9 @@ handlers =
     ,(exactly "/resume/", resumePage)
     ,(exactly "/projects/", projectsPage)
     ,(exactly "/projects/geowarsclone/", geometryWarsPage)
+    ,(exactly "/projects/geowarscloneold/", geometryWarsOldPage)
+    ,(exactly "/projects/atahackathongame/", ataHackathonPage)
+    ,(exactly "/projects/deferedrenderer/", deferedRendererPage)
     ,(exactly "/projects/springphysics/", springPhysicsPage)
     ,(exactly "/projects/lightingdemo/", lightingDemoPage)
     ,(exactly "/projects/paradoxtower/", paradoxTowerPage)

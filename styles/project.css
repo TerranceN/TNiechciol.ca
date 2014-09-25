@@ -1,5 +1,5 @@
 .section_body {
-    margin: 20px 0px;
+    margin: 20px 20px;
 }
 
 .screenshots .section_body {
@@ -15,12 +15,28 @@
     border-radius: 5px;
 }
 
+.screenshots img {
+    max-height: 304px;
+}
+
 .youtube_video {
     width: 560px;
     margin: auto;
 }
 
+.description p {
+    margin-bottom: 20px;
+}
+
 .problems p {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+hr {
+    margin-top: 0;
+
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid #F22;
+    padding: 0; 
 }
