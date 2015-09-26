@@ -22,16 +22,16 @@ html, body {
 } 
 
 body {
-    background-color: #3C3C3C;
+    background-color: #FFF;
 }
 
 #navBar {
-    background: #222;
-    position:absolute;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#F0F0F0), color-stop(.6,#FFFFFF));
+    position:fixed;
     top:0;
     left:0;
     width:100%;
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid #222;
     font-size: 24px;
 }
 
@@ -42,7 +42,7 @@ body {
 #navBar a
 {
     text-decoration: none;
-    color: #CCC;
+    color: #222;
 }
 
 #navBar ul
@@ -72,8 +72,7 @@ body {
 
 #navBar li a {
     display: block;
-    background-color: #222;
-    border: 1px solid #222;
+    background-color: transparent;
     padding: 7px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -95,6 +94,10 @@ body {
     -moz-transform:scale(1.2); /* Firefox */
     -webkit-transform:scale(1.2); /* Safari and Chrome */
     -o-transform:scale(1.2); /* Opera */
+}
+
+#navBar > ul > li:hover > div a {
+    border: 2px solid #222;
 }
 
 #navBar li li {
@@ -121,8 +124,8 @@ body {
 
 #navBar li:hover > a, #navBar li:hover > div > a
 {
-    background-color: #A00;
-    color: #CCC;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#DD0000), to(#DD0000), color-stop(.6,#FF0000));
+    color: #EEE;
 }
 
 #navBar li ul
@@ -144,6 +147,7 @@ body {
 
 #navBar li li
 {
+    margin: 0;
     float: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -152,6 +156,8 @@ body {
 
 #navBar li li a
 {
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#F0F0F0), color-stop(.6,#FFFFFF));
+    border: 1px solid #222;
 }
 
 #wrapper {
@@ -160,7 +166,7 @@ body {
     width:800px;
     min-height:100%;
     padding-bottom:1px;
-    background: #333;
+    background: #F6F6F6;
 
     -moz-box-shadow: 0px 8px 16px 0px #000;
     -webkit-box-shadow: 0px 8px 16px 0px #000;
@@ -176,7 +182,7 @@ body {
 }
 
 .textsection {
-    color: #CCC;
+    color: #222;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -191,7 +197,7 @@ body {
 #footer {
     position: absolute;
     bottom:0;
-    background: #333;
+    background: #EEE;
     width:100%;
     height:40px;
     text-align: center;
