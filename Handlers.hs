@@ -53,7 +53,7 @@ contactPage urlOptions request =
         tag "p" [] $ do
             text "Email: "
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
-        tag "p" [] $ text "Phone Number: 1-519-721-1435"
+        tag "p" [] $ text "Phone Number: 1-614-721-5649"
 
 resumePage urlOptions request =
     mainLayout head content
