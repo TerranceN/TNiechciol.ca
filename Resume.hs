@@ -17,7 +17,7 @@ header = do
             tag "div" [] $ linkNewTab "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
             tag "div" [] $ linkNewTab "http://github.com/TerranceN/" "github.com/TerranceN"
             tag "div" [] $ linkNewTab "tel:+15197211435" "+1-519-721-1435"
-            tag "div" [] $ linkNewTab "http://TNiechciol.ca" "TNiechciol.ca"
+            tag "div" [] $ linkNewTab "http://eat.sleep.build" "eat.sleep.build"
 
 section name content = do
     tag "div" [("class", "section_wrapper"), ("id", (slugify name) ++ "_section_wrapper")] $ do
@@ -93,15 +93,15 @@ resume = do
                               ,text "SFML"
                               ]
                 section "Work Experience" $ do
+                    subsectionWithDateAndUrl "Remind" (text "Jan. 2015 - Aug. 2015") "https://www.remind.com/" $ do
+                        ulist [text "Replaced a prototype chat backend with a separate chat service named hermes, that stores messages using dynamoDB"
+                              ,text "Updated SMS and Email handling to support chat"
+                              ,text "Rewrote major parts of the web dashboard using React to bring it to feature parity with the mobile clients"
+                              ]
                     subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
                         ulist [text "Developed the iOS frontend of a prototype poker app focusing on home games. Eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,text "Created and improved analytics tools on the metrics team"
                               ,text "Developed frontend features for a 3d racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
-                              ]
-                    subsectionWithDateAndUrl "Willet" (text "Sept. 2012 - Dec. 2012") "http://www.secondfunnel.com/" $ do
-                        ulist [text "Created front end for an infintely scrolling webpage that predicts user's product preferences"
-                              ,text "Server code written in Python with Django, and fontend in Sass/Javascript with jQuery"
-                              ,text "As the 5th member of the company, able to keep up in a fast-paced, small startup"
                               ]
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
@@ -120,7 +120,7 @@ resume = do
                                   ,text "SSAO is implemented Crysis-style by sampling the depth information in the " >> (tag "div" [] $ text "G-Buffer to approximate the scene geometry")
                                   ,text "Written in Scala using LWJGL"
                                   ]
-                        subsectionWithUrl "TNiechciol.ca" "http://TNiechciol.ca" $ do
+                        subsectionWithUrl "eat.sleep.build" "http://eat.sleep.build" $ do
                             ulist [text "Haskell webapp running on top of lighttpd"
                                   ]
                     tag "div" [("class", "project_images")] $ do
