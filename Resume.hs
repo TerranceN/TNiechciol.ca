@@ -128,7 +128,7 @@ resume = do
                         projectImage "/images/ata_hackathon_game_merged_small.png"
                         projectImage "/images/defered_renderer_small.png"
                 section "School" $ do
-                    text "Persuing a Bachelor's in Computer Science from the University of Waterloo"
+                    text "Pursuing a Bachelor's in Computer Science from the University of Waterloo"
 
 oswaldFont = do
     tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
