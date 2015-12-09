@@ -8,6 +8,7 @@
 
 .screenshots .section_body {
     text-align:center;
+    margin: 10px 0px;
 }
 
 .screenshots .screenshot, .youtube_video {
@@ -32,7 +33,7 @@
 }
 
 .screenshots .screenshot img {
-    max-height: 280px;
+    max-height: 294px;
     max-width: 790px;
 }
 
