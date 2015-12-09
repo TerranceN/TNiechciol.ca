@@ -124,9 +124,9 @@ resume = do
                             ulist [text "Haskell webapp running on top of lighttpd"
                                   ]
                     tag "div" [("class", "project_images")] $ do
-                        projectImage "/images/geometry_wars_clone_v2.png"
-                        projectImage "/images/ata_hackathon_game_merged.png"
-                        projectImage "/images/defered_renderer.png"
+                        projectImage "/images/geometry_wars_clone_v2_small.png"
+                        projectImage "/images/ata_hackathon_game_merged_small.png"
+                        projectImage "/images/defered_renderer_small.png"
                 section "School" $ do
                     text "Persuing a Bachelor's in Computer Science from the University of Waterloo"
 
