@@ -104,16 +104,19 @@ projectSection name body =
         tag "div" [("class", "section_body")] $ body
 
 youtube_video id width height =
-    tag "iframe" [("src", "http://www.youtube.com/embed/" ++ id)
-                 ,("width", show width)
-                 ,("height", show height)
-                 ,("frameborder", "0")
-                 ,("allowfullscreen", "true")] noHtml
+    tag "div" [("class", "youtube_video")] $ do
+        tag "div" [("class", "youtube_video_border")] $ do
+            tag "iframe" [("src", "http://www.youtube.com/embed/" ++ id)
+                         ,("width", show width)
+                         ,("height", show height)
+                         ,("frameborder", "0")
+                         ,("allowfullscreen", "true")] noHtml
 
 screenshot url alt =
-    tag "img" [("src", url)
-              ,("alt", alt)
-              ,("title", alt)] noHtml
+    tag "div" [("class", "screenshot")] $ do
+        tag "img" [("src", url)
+                  ,("alt", alt)
+                  ,("title", alt)] noHtml
 
 exactly :: String -> Parser (Map.HashMap String String)
 exactly str = (mapM char str) >>= (\x -> eof >> return (Map.fromList [("url", x)]))

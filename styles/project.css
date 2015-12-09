@@ -10,17 +10,29 @@
     text-align:center;
 }
 
-.screenshots img, .youtube_video {
+.screenshots .screenshot, .youtube_video {
     margin: 0px 20px;
-    border: 2px solid #eee;
+    border: 20px solid #ddd;
+    background-color: #ddd;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
-    border-radius: 5px;
+    border-radius: 20px;
 }
 
-.screenshots img {
-    max-height: 304px;
+.screenshots img, .youtube_video > .youtube_video_border {
+    border: 3px solid black;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.screenshots .screenshot {
+    display: inline-block;
+}
+
+.screenshots .screenshot img {
+    max-height: 280px;
     max-width: 790px;
 }
 

@@ -126,8 +126,7 @@ geometryWarsOldPage urlOptions request =
                 link "http://www.lwjgl.org/" "LWJGL"
                 text " during my final semester of high school (Feb. 2011 - June 2011)."
         projectSection "Video" $ do
-            tag "div" [("class", "youtube_video")] $ do
-                youtube_video "2-HFsanORGw" 560 315
+            youtube_video "2-HFsanORGw" 560 315
         projectSection "Screenshots" $ do
             screenshot "/images/GWClone_grid.png" "Grid Effects"
             screenshot "/images/GWClone_dragon.png" "Dragons!"
@@ -207,8 +206,7 @@ springPhysicsPage urlOptions request =
                 text "Created using C++ and "
                 link "http://www.sfml-dev.org/" "SFML."
         projectSection "Video" $ do
-            tag "div" [("class", "youtube_video")] $ do
-                youtube_video "OS00DNj0GgI" 560 315
+            youtube_video "OS00DNj0GgI" 560 315
         projectSection "Downloads" $ do
             tag "h3" [] $ text "Binaries"
             tag "ul" [] $ do
