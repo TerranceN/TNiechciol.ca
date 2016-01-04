@@ -12,9 +12,9 @@
 }
 
 .screenshots .screenshot, .youtube_video {
-    margin: 0px 20px;
-    border: 20px solid #ddd;
-    background-color: #ddd;
+    margin: 0px 10px;
+    border: 10px solid #ccc;
+    background-color: #eee;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
