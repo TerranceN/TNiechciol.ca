@@ -82,7 +82,11 @@
 }
 
 .resume_content #languages_subsection_wrapper, .resume_content #platforms_subsection_wrapper {
-    margin-right: 55px;
+    margin-right: 46px;
+}
+
+.resume_content #technologieslibraries_subsection_wrapper {
+  margin-left: -1px;
 }
 
 .resume_content #languages_subsection_wrapper ul {
@@ -144,19 +148,16 @@
 }
 
 .resume_content .vertical_seperator {
-    width: 1px;
+    width: 2px;
     height: 100%;
     display: table-cell;
     vertical-align: top;
 }
 
-.resume_content .subsection_seperated_content {
-    display: table-cell;
-    vertical-align: top;
-    height: 100%;
-}
-
-.resume_content .subsection_seperated_content .inner_content {
+.resume_content .vertical_seperator_content {
+  display: table-cell;
+  vertical-align: top;
+  height: 100%;
 }
 
 .resume_content .skills_sublist {
@@ -170,7 +171,4 @@
 
 .resume_content .skills_sublist:last-child {
     width:84px;
-}
-
-.resume_content .project_images img {
 }

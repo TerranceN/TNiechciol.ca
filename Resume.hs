@@ -19,6 +19,13 @@ header = do
             tag "div" [] $ linkNewTab "tel:+15197211435" "+1-519-721-1435"
             tag "div" [] $ linkNewTab "http://eat.sleep.build" "eat.sleep.build"
 
+withVertialSeperator content = do
+  tag "div" [("class", "vertical_seperator_table")] $ do
+      tag "img" [("class", "vertical_seperator"), ("src", "/images/resume_gradient_vertical.png")] noHtml
+      tag "div" [("class", "vertical_seperator_content")] $ do
+        content
+  
+
 section name content = do
     tag "div" [("class", "section_wrapper"), ("id", (slugify name) ++ "_section_wrapper")] $ do
         tag "h2" [] $ tag "b" [] $ text name
@@ -35,17 +42,15 @@ subsectionWithDateAndUrl name date url content = subsectionBase name (Just date)
 
 subsectionBase name date link content = do
     tag "div" [("class", "subsection_wrapper"), ("id", (slugify name) ++ "_subsection_wrapper")] $ do
-        tag "div" [("class", "vertical_seperator_table")] $ do
-            tag "img" [("class", "vertical_seperator"), ("src", "/images/resume_gradient_vertical.png")] noHtml
-            tag "div" [("class", "subsection_seperated_content")] $ do
-                tag "h3" [] $ tag "b" [] $ do
-                    case link of
-                        Nothing -> text name
-                        Just url -> linkNewTab url name
-                case date of
-                    Nothing -> noHtml
-                    Just date -> dateDiv date
-                tag "div" [("class", "inner_content")] content
+      withVertialSeperator $ do
+          tag "h3" [] $ tag "b" [] $ do
+              case link of
+                  Nothing -> text name
+                  Just url -> linkNewTab url name
+          case date of
+              Nothing -> noHtml
+              Just date -> dateDiv date
+          tag "div" [("class", "inner_content")] content
   where
     dateDiv date = do
         tag "div" [("class", "right_info")] $ do
@@ -78,6 +83,7 @@ resume = do
                             ulist [text "Javascript"
                                   ,text "Haskell"
                                   ,text "Lisp"
+                                  ,text "Nimrod"
                                   ]
                     subsection "Platforms" $ do
                         ulist [text "Web"
@@ -128,7 +134,9 @@ resume = do
                         projectImage "/images/ata_hackathon_game_merged_small.png"
                         projectImage "/images/defered_renderer_small.png"
                 section "School" $ do
-                    text "Pursuing a Bachelor's in Computer Science from the University of Waterloo"
+                  withVertialSeperator $ do
+                    tag "p" [] $ do
+                      text "Pursuing a Bachelor's in Computer Science from the University of Waterloo"
 
 oswaldFont = do
     tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
