@@ -11,9 +11,9 @@
     margin: 10px 0px;
 }
 
-.screenshots .screenshot, .youtube_video {
+.screenshot, .youtube_video {
     margin: 0px 10px;
-    border: 10px solid #ccc;
+    border: 15px solid #eee;
     background-color: #eee;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -21,18 +21,18 @@
     border-radius: 20px;
 }
 
-.screenshots img, .youtube_video > .youtube_video_border {
+.screenshot img, .youtube_video > .youtube_video_border {
     border: 3px solid black;
     border-radius: 10px;
     overflow: hidden;
     background-color: black;
 }
 
-.screenshots .screenshot {
+.screenshot {
     display: inline-block;
 }
 
-.screenshots .screenshot img {
+.screenshot img {
     max-height: 294px;
     max-width: 790px;
 }
@@ -57,4 +57,34 @@ hr {
     display: block; height: 1px;
     border: 0; border-top: 2px solid #F22;
     padding: 0; 
+}
+
+/* Project preview stuff */
+.preview {
+    width: 760px;
+}
+
+.preview .image {
+    float: right;
+}
+
+.preview_separator {
+    clear: both;
+    margin: 20px 100px 40px 100px;
+    border: none;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#DDD), to(#fff));
+}
+
+.preview .image {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.preview .image img {
+    max-width: 280px;
+    max-height: 200px;
+}
+
+.preview .description {
+    margin: 10px 20px;
 }

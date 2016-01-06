@@ -223,3 +223,32 @@ a:hover {
     color: #F22;
 }
 
+html .button {
+    display: inline-block;
+    text-decoration: none;
+    border: 1px solid #333;
+    padding: 10px;
+    border-radius: 7px;
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #FFF;
+    color: #333;
+
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    transition: all 0.1s ease;
+}
+
+html .button:hover {
+    background-color: #F00;
+    color: #FFF;
+
+    transition-duration: 0.1s;
+    transform:scale(1.1);
+    -ms-transform:scale(1.1); /* IE 9 */
+    -moz-transform:scale(1.1); /* Firefox */
+    -webkit-transform:scale(1.1); /* Safari and Chrome */
+    -o-transform:scale(1.1); /* Opera */
+}

@@ -8,7 +8,6 @@ module PageStructure
 , exactly
 , screenshot
 , youtube_video
-, projectLayout
 , projectSection
 , title
 , module PageTypes
@@ -92,11 +91,6 @@ mainPage head content = do
 mainLayout :: Html -> Html -> IO Response
 mainLayout head content = do
     httpResponse 200 $ mainPage head content
-
-projectLayout head body =
-    mainLayout (customHead >> head) body
-  where
-    customHead = stylesheet "/styles/project.css"
 
 projectSection name body =
     tag "div" [("class", "section " ++ (map toLower name))] $ do
