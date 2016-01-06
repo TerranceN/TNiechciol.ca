@@ -1,6 +1,7 @@
 module PageStructure
 ( link
 , linkNewTab
+, button
 , navBar
 , stylesheet
 , mainPage
@@ -32,6 +33,11 @@ linkNewTab :: String -> String -> Html
 linkNewTab url "" = link url url
 linkNewTab url string = do
     tag "a" [("href", url), ("target", "_blank")] $ text string
+
+button :: String -> String -> Html
+button url "" = button url url
+button url string = do
+    tag "a" [("href", url), ("class", "button")] $ text string
 
 stylesheet :: String -> Html
 stylesheet url = do

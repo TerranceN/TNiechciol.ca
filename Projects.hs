@@ -15,7 +15,7 @@ projectPreview name link image description = do
             tag "hr" [] noHtml
             tag "div" [("class", "description")] $ do
                 description
-                tag "a" [("href", "/Projects" ++ link), ("class", "button")] $ text "Go to project page"
+                button ("/Projects" ++ link) "Go to project page"
 
 projectLayout head body =
     mainLayout (customHead >> head) body
@@ -73,9 +73,7 @@ geometryWarsPage urlOptions request =
         projectSection "Screenshots" $ do
             screenshot "/images/geometry_wars_clone_v2_small.png" "Particles everywhere!"
         projectSection "Downloads" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ do
-                    link "https://github.com/TerranceN/Geometry-Wars-Clone-V2" "Source on Github"
+            button "https://github.com/TerranceN/Geometry-Wars-Clone-V2" "Source"
 
 geometryWarsOldPage urlOptions request =
     projectLayout head content
@@ -102,13 +100,8 @@ geometryWarsOldPage urlOptions request =
             screenshot "/images/GWClone_grid.png" "Grid Effects"
             screenshot "/images/GWClone_dragon.png" "Dragons!"
         projectSection "Downloads" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ link "/files/Geometry_Wars_Clone.zip" "JAR"
-                tag "li" [] $ do
-                    link "/files/GWCloneSrc.zip" "Source"
-                    text ", and on GitHub "
-                    link "https://github.com/TerranceN/GeometryWarsClone" "here"
-                    text "."
+            button "/files/Geometry_Wars_Clone.zip" "JAR"
+            button "https://github.com/TerranceN/GeometryWarsClone" "Source"
 
 ataHackathonPage urlOptions request =
     projectLayout head content
@@ -130,9 +123,7 @@ ataHackathonPage urlOptions request =
         projectSection "Screenshots" $ do
             screenshot "/images/ata_hackathon_game_merged_small.png" "Game"
         projectSection "Downloads" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ do
-                    link "https://github.com/TerranceN/ATAHackathonW14" "Source on Github"
+            button "https://github.com/TerranceN/ATAHackathonW14" "Source"
 
 deferedRendererPage urlOptions request =
     projectLayout head content
@@ -158,9 +149,7 @@ deferedRendererPage urlOptions request =
         projectSection "Screenshots" $ do
             screenshot "/images/defered_renderer_small.png" "Game"
         projectSection "Downloads" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ do
-                    link "https://github.com/TerranceN/Deferred-Renderer" "Source on Github"
+            button "https://github.com/TerranceN/Deferred-Renderer" "Source"
 
 springPhysicsPage urlOptions request =
     projectLayout head content
@@ -179,17 +168,9 @@ springPhysicsPage urlOptions request =
         projectSection "Video" $ do
             youtube_video "OS00DNj0GgI" 560 315
         projectSection "Downloads" $ do
-            tag "h3" [] $ text "Binaries"
-            tag "ul" [] $ do
-                tag "li" [] $ link "/files/SpringPhysicsW32.zip" "Windows"
-                tag "li" [] $ link "/files/SpringPhysicsLinux.zip" "Linux"
-            tag "h3" [] $ text "Source"
-            tag "ul" [] $ do
-                tag "li" [] $ do
-                    link "/files/SpringPhysicsSrc.zip" "Source"
-                    text ", and on GitHub "
-                    link "https://github.com/TerranceN/SpringPhysicsDemo" "here"
-                    text "."
+            button "/files/SpringPhysicsW32.zip" "Windows"
+            button "/files/SpringPhysicsLinux.zip" "Linux"
+            button "https://github.com/TerranceN/SpringPhysicsDemo" "Source"
 
 lightingDemoPage urlOptions request = 
     projectLayout head content
@@ -208,13 +189,8 @@ lightingDemoPage urlOptions request =
             screenshot "/images/LightingDemo1_web.png" ""
             screenshot "/images/LightingDemo2_web.png" ""
         projectSection "Downloads" $ do
-            tag "ul" [] $ do
-                tag "li" [] $ link "/files/2DShadows.zip" "JAR"
-                tag "li" [] $ do
-                    link "/files/2DShadowsSrc.zip" "Source"
-                    text ", and on GitHub "
-                    link "https://github.com/TerranceN/2DLightingDemo" "here"
-                    text "."
+            button "/files/2DShadows.zip" "JAR"
+            button "https://github.com/TerranceN/2DLightingDemo" "Source"
 
 paradoxTowerPage urlOptions request =
     projectLayout head content

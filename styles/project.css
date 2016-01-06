@@ -59,6 +59,10 @@ hr {
     padding: 0; 
 }
 
+.section.downloads .button {
+    margin-right: 10px;
+}
+
 /* Project preview stuff */
 .preview {
     width: 760px;
