@@ -13,12 +13,29 @@
 
 .screenshot, .youtube_video {
     margin: 0px 10px;
-    border: 15px solid #eee;
+    border: 10px solid #eee;
     background-color: #eee;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
     border-radius: 20px;
+
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.screenshot:hover, .youtube_video:hover {
+    border-color: #f00;
+    background-color: #f00;
+
+    transform:scale(1.01);
+    -ms-transform:scale(1.01); /* IE 9 */
+    -moz-transform:scale(1.01); /* Firefox */
+    -webkit-transform:scale(1.01); /* Safari and Chrome */
+    -o-transform:scale(1.01); /* Opera */
 }
 
 .screenshot img, .youtube_video > .youtube_video_border {
