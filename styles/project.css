@@ -62,11 +62,18 @@
 
 .description p {
     margin-bottom: 20px;
+    text-indent: 2em;
 }
 
 .problems p {
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 5px;
+    margin-left: -15px;
+    font-size: 1.125em;
 }
 
 hr {
@@ -117,8 +124,14 @@ hr {
 
 
 /* Screenshot popup */
+body.popup {
+    overflow: visible;
+    position: fixed;
+}
+
 .overlay {
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -129,6 +142,7 @@ hr {
 
 .popup_container {
     position: fixed;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 100%;
@@ -136,6 +150,12 @@ hr {
 
     text-align: center;
     pointer-events: none;
+
+    transform:scale(0.25);
+    -ms-transform:scale(0.25); /* IE 9 */
+    -moz-transform:scale(0.25); /* Firefox */
+    -webkit-transform:scale(0.25); /* Safari and Chrome */
+    -o-transform:scale(0.25); /* Opera */
 }
 
 .popup_container:before {
@@ -146,11 +166,43 @@ hr {
     margin-right: -0.25em;
 }
 
+.overlay, .popup_container {
+    opacity: 0;
+    pointer-events: none;
+
+    -webkit-transition: all 0.25s ease;
+    -moz-transition: all 0.25s ease;
+    -o-transition: all 0.25s ease;
+    -ms-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+}
+
+.overlay.visible, .popup_container.visible {
+}
+
+.overlay.visible {
+    opacity: 0.3;
+    pointer-events: all;
+}
+
+.popup_container.visible {
+    opacity: 1;
+
+    transform:scale(1);
+    -ms-transform:scale(1); /* IE 9 */
+    -moz-transform:scale(1); /* Firefox */
+    -webkit-transform:scale(1); /* Safari and Chrome */
+    -o-transform:scale(1); /* Opera */
+}
+
+.popup_container.visible .popup_content {
+    pointer-events: all;
+}
+
 .popup_content {
     position: relative;
     display: inline-block;
     vertical-align: middle;
-    pointer-events: all;
 }
 
 .screenshot_popup {
@@ -176,11 +228,11 @@ hr {
     font-size: 30px;
     text-decoration: none;
 
-    -webkit-transition: all 0.10s ease;
-    -moz-transition: all 0.10s ease;
-    -o-transition: all 0.10s ease;
-    -ms-transition: all 0.10s ease;
-    transition: all 0.10s ease;
+    -webkit-transition: all 0.50s ease;
+    -moz-transition: all 0.50s ease;
+    -o-transition: all 0.50s ease;
+    -ms-transition: all 0.50s ease;
+    transition: all 0.50s ease;
 }
 
 .screenshot_popup .close:hover {

@@ -18,12 +18,16 @@ projectPreview name link image description = do
                 button ("/Projects" ++ link) "Go to project page"
 
 projectLayout head body =
-    mainLayout (customHead >> head) body
+    mainLayout (customHead >> head) (body >> popup)
   where
     customHead = do
-      script "/scripts/jquery-2.2.0.min.js"
-      script "/scripts/screenshots.js"
-      stylesheet "/styles/project.css"
+        script "/scripts/jquery-2.2.0.min.js"
+        script "/scripts/screenshots.js"
+        stylesheet "/styles/project.css"
+    popup = do
+        tag "div" [("class", "overlay")] noHtml
+        tag "div" [("class", "popup_container")] $ do
+            tag "div" [("class", "popup_content")] noHtml
 
 projectsPage urlOptions request =
     projectLayout head content
@@ -62,17 +66,14 @@ geometryWarsPage urlOptions request =
         tag "hr" [] noHtml
         projectSection "Description" $ do
             tag "p" [] $ do
-                text "Complete rewrite of the old version, which you can find "
-                link "/Projects/GeoWarsCloneOld/" "here"
-            tag "p" [] $ do
                 text "A clone of the game "
                 link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars"
                 text " including a bloom effect, a huge number of particles, and a deformable grid (also implemented as particles). "
                 text "Uses framebuffers to store particle position and velocity, allowing all particle simulation to be done on the GPU using shaders."
-            tag "p" [] $ do
-                text "Created using Scala and "
-                link "http://www.lwjgl.org/" "LWJGL"
-                text " during Nov. 2013 - Dec. 2013."
+            tag "h3" [] $ text "Particle Simulation"
+            tag "p" [] $ text "Particles and the deformable grid are simulated using an old-school style GPGPU technique. Particles' positions and velocities are stored as textures on the GPU where the index of each pixel represents each particle, and the red and green values represent the x and y components of each vector. To find the acceleration for each particle is simply the direction towards its initial position, but the process for the grid is a bit more complex."
+            tag "p" [] $ text "For the grid, each intersection point is simulated as a particle. In order to have multiple pull and push effects on the grid, an acceleration texture is generated in screen space, where each pixel represents the acceleration that a particle at that position would experience."
+            tag "p" [] $ text "textUsing the previous positions and velocities of the particles, and the generated acceleration texture, an update shader takes the old position, uses it to look up the acceleration at that position, and then calculates a new position and velocity and stores it in the appropriate textures. Because each update operation only looks at a single pixel, the same textures are used for both input and output."
         projectSection "Screenshots" $ do
             screenshot "/images/geometry_wars_clone_v2_small.png" "Particles everywhere!"
         projectSection "Downloads" $ do
