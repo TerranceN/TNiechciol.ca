@@ -6,3 +6,6 @@ google*.html
 *.o
 *.sw*
 Blog/*/Main
+deployStaging
+deployRelease
+runLocal

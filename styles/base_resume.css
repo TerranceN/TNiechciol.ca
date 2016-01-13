@@ -147,17 +147,23 @@
     border-spacing: 10px 5px;
 }
 
+.resume_content .vertical_seperator_wrapper {
+    display: table-cell;
+}
+
 .resume_content .vertical_seperator {
     width: 2px;
     height: 100%;
-    display: table-cell;
-    vertical-align: top;
 }
 
 .resume_content .vertical_seperator_content {
   display: table-cell;
   vertical-align: top;
   height: 100%;
+}
+
+.resume_content p {
+  margin: 0;
 }
 
 .resume_content .skills_sublist {
