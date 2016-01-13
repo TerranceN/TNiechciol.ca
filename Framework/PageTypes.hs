@@ -43,7 +43,7 @@ httpResponse statusCode html = do
     content <- execStateT html (fromList "")
     return Response { responseStatus = statusCode
                     , responseContentType = "text/html"
-                    , responseBody = toList $ (fromList "<DOCTYPE! html>\n") `append` content
+                    , responseBody = toList $ (fromList "<!DOCTYPE html>\n") `append` content
                     }
 
 validHtmlChars = ['a'..'z'] ++ ['A'..'Z'] ++ ['0'..'9'] ++ "-_.,!@#$%^() "

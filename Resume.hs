@@ -21,7 +21,8 @@ header = do
 
 withVertialSeperator content = do
   tag "div" [("class", "vertical_seperator_table")] $ do
-      tag "img" [("class", "vertical_seperator"), ("src", "/images/resume_gradient_vertical.png")] noHtml
+      tag "div" [("class", "vertical_seperator_wrapper")] $ do
+        tag "img" [("class", "vertical_seperator"), ("src", "/images/resume_gradient_vertical.png")] noHtml
       tag "div" [("class", "vertical_seperator_content")] $ do
         content
   
