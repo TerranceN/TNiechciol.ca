@@ -50,6 +50,7 @@
 }
 
 .screenshot img {
+    vertical-align: middle;
     max-height: 294px;
     max-width: 790px;
 }
@@ -74,6 +75,10 @@ hr {
     display: block; height: 1px;
     border: 0; border-top: 2px solid #F22;
     padding: 0; 
+}
+
+.section.downloads p {
+    margin-bottom: 10px;
 }
 
 .section.downloads .button {
@@ -108,4 +113,80 @@ hr {
 
 .preview .description {
     margin: 10px 20px;
+}
+
+
+/* Screenshot popup */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.3;
+}
+
+.popup_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    pointer-events: none;
+}
+
+.popup_container:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+}
+
+.popup_content {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    pointer-events: all;
+}
+
+.screenshot_popup {
+    background-color: #F22;
+    border: 10px solid #F22;
+    border-radius: 10px;
+}
+
+.screenshot_popup img {
+    vertical-align: middle;
+
+    width: auto;
+    height: auto;
+    max-width: 90vw;
+    max-height: 90vh;
+}
+
+.screenshot_popup .close {
+    position: absolute;
+    right: 15px;
+    top: 0px;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+
+    -webkit-transition: all 0.10s ease;
+    -moz-transition: all 0.10s ease;
+    -o-transition: all 0.10s ease;
+    -ms-transition: all 0.10s ease;
+    transition: all 0.10s ease;
+}
+
+.screenshot_popup .close:hover {
+    transform:scale(1.25);
+    -ms-transform:scale(1.25); /* IE 9 */
+    -moz-transform:scale(1.25); /* Firefox */
+    -webkit-transform:scale(1.25); /* Safari and Chrome */
+    -o-transform:scale(1.25); /* Opera */
 }

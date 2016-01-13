@@ -20,7 +20,10 @@ projectPreview name link image description = do
 projectLayout head body =
     mainLayout (customHead >> head) body
   where
-    customHead = stylesheet "/styles/project.css"
+    customHead = do
+      script "/scripts/jquery-2.2.0.min.js"
+      script "/scripts/screenshots.js"
+      stylesheet "/styles/project.css"
 
 projectsPage urlOptions request =
     projectLayout head content

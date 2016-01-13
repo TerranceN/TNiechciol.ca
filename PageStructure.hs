@@ -3,6 +3,7 @@ module PageStructure
 , linkNewTab
 , button
 , navBar
+, script
 , stylesheet
 , mainPage
 , mainLayout
@@ -38,6 +39,12 @@ button :: String -> String -> Html
 button url "" = button url url
 button url string = do
     tag "a" [("href", url), ("class", "button")] $ text string
+
+script :: String -> Html
+script url = do
+    tag "script" [("rel", "stylesheet")
+                 ,("type", "text/javascript")
+                 ,("src", url)] noHtml
 
 stylesheet :: String -> Html
 stylesheet url = do
@@ -113,7 +120,7 @@ youtube_video id width height =
                          ,("allowfullscreen", "true")] noHtml
 
 screenshot url alt =
-    tag "div" [("class", "screenshot")] $ do
+    tag "a" [("href", "javascript:void(0)"), ("class", "screenshot")] $ do
         tag "img" [("src", url)
                   ,("alt", alt)
                   ,("title", alt)] noHtml
