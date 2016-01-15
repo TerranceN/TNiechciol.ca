@@ -13,7 +13,7 @@ import HelperFunctions
 header = do
     tag "div" [("id", "header")] $ do
         tag "h1" [] $ text "Terrance Niechciol"
-        tag "div" [] $ do
+        tag "div" [("class", "contact_info")] $ do
             tag "div" [] $ linkNewTab "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
             tag "div" [] $ linkNewTab "http://github.com/TerranceN/" "github.com/TerranceN"
             tag "div" [] $ linkNewTab "tel:+15197211435" "+1-519-721-1435"
@@ -43,15 +43,14 @@ subsectionWithDateAndUrl name date url content = subsectionBase name (Just date)
 
 subsectionBase name date link content = do
     tag "div" [("class", "subsection_wrapper"), ("id", (slugify name) ++ "_subsection_wrapper")] $ do
-      withVertialSeperator $ do
-          tag "h3" [] $ tag "b" [] $ do
-              case link of
-                  Nothing -> text name
-                  Just url -> linkNewTab url name
-          case date of
-              Nothing -> noHtml
-              Just date -> dateDiv date
-          tag "div" [("class", "inner_content")] content
+        tag "h3" [] $ tag "b" [] $ do
+            case link of
+                Nothing -> text name
+                Just url -> linkNewTab url name
+        case date of
+            Nothing -> noHtml
+            Just date -> dateDiv date
+        tag "div" [("class", "inner_content")] content
   where
     dateDiv date = do
         tag "div" [("class", "right_info")] $ do
@@ -59,10 +58,6 @@ subsectionBase name date link content = do
 
 ulist items = do
     tag "ul" [] $ mapM_ (\x -> tag "li" [] x) items
-
-projectImage url = do
-    tag "div" [("class", "project_image")] $ do
-        tag "img" [("src", url)] noHtml
 
 placeholder = "/images/placeholder.jpg"
 
@@ -72,33 +67,6 @@ resume = do
         tag "div" [("id", "header_relative")] $ do
             header
             tag "div" [("id", "resume_body")] $ do
-                section "Skills" $ do
-                    subsection "Languages" $ do
-                        tag "div" [("class", "skills_sublist")] $ do
-                            ulist [text "C/C++"
-                                  ,text "Java"
-                                  ,text "Python"
-                                  ,text "Scala"
-                                  ]
-                        tag "div" [("class", "skills_sublist")] $ do
-                            ulist [text "Javascript"
-                                  ,text "Haskell"
-                                  ,text "Lisp"
-                                  ,text "Nimrod"
-                                  ]
-                    subsection "Platforms" $ do
-                        ulist [text "Web"
-                              ,text "Desktop"
-                              ,text "IOS"
-                              ,text "Android"
-                              ]
-                    subsection "Technologies/Libraries" $ do
-                        ulist [text "OpenGL/GLSL"
-                              ,text "GLES 2.0 (both Android and WebGL)"
-                              ,text "LWJGL"
-                              ,text "LibGDX"
-                              ,text "SFML"
-                              ]
                 section "Work Experience" $ do
                     subsectionWithDateAndUrl "Remind" (text "Jan. 2015 - Aug. 2015") "https://www.remind.com/" $ do
                         ulist [text "Replaced a prototype chat backend with a separate chat service named hermes, that stores messages using dynamoDB"
@@ -130,14 +98,9 @@ resume = do
                         subsectionWithUrl "eat.sleep.build" "http://eat.sleep.build" $ do
                             ulist [text "Haskell webapp running on top of lighttpd"
                                   ]
-                    tag "div" [("class", "project_images")] $ do
-                        projectImage "/images/geometry_wars_clone_v2_small.png"
-                        projectImage "/images/ata_hackathon_game_merged_small.png"
-                        projectImage "/images/defered_renderer_small.png"
                 section "School" $ do
-                  withVertialSeperator $ do
-                    tag "p" [] $ do
-                      text "Pursuing a Bachelor's in Computer Science from the University of Waterloo"
+                  tag "p" [] $ do
+                    text "Pursuing a Bachelor's in Computer Science from the University of Waterloo"
 
 oswaldFont = do
     tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
