@@ -5,6 +5,7 @@ module Resume
 ) where
 
 import Control.Monad
+import Data.Maybe
 
 import PageTypes
 import PageStructure
@@ -28,33 +29,21 @@ withVertialSeperator content = do
   
 
 section name content = do
-    tag "div" [("class", "section_wrapper"), ("id", (slugify name) ++ "_section_wrapper")] $ do
-        tag "h2" [] $ tag "b" [] $ text name
+    tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
+        tag "h2" [] $ text name
         tag "img" [("class", "seperator"), ("src", "/images/resume_gradient.png")] noHtml
-        tag "div" [] content
+        tag "div" [("class", "section_content")] content
 
-subsection name content = subsectionBase name Nothing Nothing content
-
-subsectionWithUrl name url content = subsectionBase name Nothing (Just url) content
-
-subsectionWithDate name date content = subsectionBase name (Just date) Nothing content
-
-subsectionWithDateAndUrl name date url content = subsectionBase name (Just date) (Just url) content
-
-subsectionBase name date link content = do
-    tag "div" [("class", "subsection_wrapper"), ("id", (slugify name) ++ "_subsection_wrapper")] $ do
-        tag "h3" [] $ tag "b" [] $ do
-            case link of
-                Nothing -> text name
-                Just url -> linkNewTab url name
-        case date of
-            Nothing -> noHtml
-            Just date -> dateDiv date
-        tag "div" [("class", "inner_content")] content
+subsection name sideInfo content = do
+    tag "div" [("class", "subsection"), ("id", (slugify name) ++ "_subsection")] $ do
+        tag "div" [] $ do
+            tag "h3" [] $ text name
+            tag "div" [("class", "inner_content")] content
+            tag "div" [("class", "right_info")] $ do
+                wrapDivs sideInfo
   where
-    dateDiv date = do
-        tag "div" [("class", "right_info")] $ do
-            date
+    wrapDivs = mapM_ wrapDiv
+    wrapDiv thing = tag "div" [] thing
 
 ulist items = do
     tag "ul" [] $ mapM_ (\x -> tag "li" [] x) items
@@ -68,35 +57,70 @@ resume = do
             header
             tag "div" [("id", "resume_body")] $ do
                 section "Work Experience" $ do
-                    subsectionWithDateAndUrl "Remind" (text "Jan. 2015 - Aug. 2015") "https://www.remind.com/" $ do
+                    subsection "Remind"
+                      [(link "https://www.remind.com/about" "remind.com/about")
+                      ,(text "Jan. 2015 - Aug. 2015")
+                      ,(text "Ruby, Go, Javascript")
+                      ,(text "Rails, React.js")
+                      ] $ do
                         ulist [text "Replaced a prototype chat backend with a separate chat service named hermes, that stores messages using dynamoDB"
                               ,text "Updated SMS and Email handling to support chat"
                               ,text "Rewrote major parts of the web dashboard using React to bring it to feature parity with the mobile clients"
                               ]
-                    subsectionWithDateAndUrl "A Thinking Ape" (text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014") "http://www.athinkingape.com/" $ do
+                    tag "hr" [("class", "subsection_separator")] noHtml
+                    subsection "A Thinking Ape"
+                      [(link "http://www.athinkingape.com/about" "athinkingape.com/about")
+                      ,(text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014")
+                      ,(text "Objective C, Python, Javascript, Java")
+                      ,(text "iOS, Django, Android, GLES 2.0")
+                      ] $ do
                         ulist [text "Developed the iOS frontend of a prototype poker app focusing on home games. Eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,text "Created and improved analytics tools on the metrics team"
                               ,text "Developed frontend features for a 3d racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
                               ]
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
-                        subsectionWithUrl "Geometry Wars Clone" "/Projects/GeoWarsClone/" $ do
+                        subsection "Geometry Wars Clone"
+                          [(link "/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone")
+                          ,(text "Sept. 2013 - Dec. 2013")
+                          ,(text "Scala")
+                          ,(text "LWJGL, OpenGL, GPGPU")
+                          ] $ do
                             ulist [text "2D, top down space shooter with deformable grid, particle effects, and a neon glow effect"
                                   ,text "Particle simulation (including grid) runs on the GPU by using framebuffers to store position/velocity, with shaders to update the simulation"
                                   ,text "Written in Scala using LWJGL"
                                   ]
-                        subsectionWithUrl "ATA Co-op Hackathon Game" "/Projects/ATAHackathonGame/" $ do
+                        tag "hr" [("class", "subsection_separator")] noHtml
+                        subsection "ATA Co-op Hackathon Game"
+                          [(link "/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame")
+                          ,(text "Two days during April 2014")
+                          ,(text "Java")
+                          ,(text "libGDX, OpenGL")
+                          ] $ do
                             ulist [text "2D multiplayer platformer deathmatch game, where players have the ability to create spheres of influence that remove collision with the level"
                                   ,text "Created for a 48-hour co-op student hackathon at A Thinking Ape with two other engineering co-ops and two full-time artists"
                                   ,text "Written in Java and libGDX"
                                   ]
-                        subsectionWithUrl "Defered Renderer with SSAO" "/Projects/DeferedRenderer/" $ do
+                        tag "hr" [("class", "subsection_separator")] noHtml
+                        subsection "Defered Renderer with SSAO"
+                          [(link "/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer")
+                          ,(text "Sept. 2014 - Dec. 2014")
+                          ,(text "Scala")
+                          ,(text "LWJGL, OpenGL")
+                          ] $ do
                             ulist [text "Albedo, depth, and surface normals are stored in two textures, then combined for the lighting pass, which only has to be run per-pixel instead of per-fragment"
-                                  ,text "SSAO is implemented Crysis-style by sampling the depth information in the " >> (tag "div" [] $ text "G-Buffer to approximate the scene geometry")
+                                  ,text "SSAO is implemented Crysis-style by sampling the depth information in the G-Buffer to approximate the scene geometry"
                                   ,text "Written in Scala using LWJGL"
                                   ]
-                        subsectionWithUrl "eat.sleep.build" "http://eat.sleep.build" $ do
+                        tag "hr" [("class", "subsection_separator")] noHtml
+                        subsection "eat.sleep.build"
+                          [(link "http://eat.sleep.build" "eat.sleep.build")
+                          ,(text "Nov. 2012 - present")
+                          ,(text "Haskell")
+                          ,(text "lighttpd")
+                          ] $ do
                             ulist [text "Haskell webapp running on top of lighttpd"
+                                  ,text "Created an Html Monad to programmatically compose html"
                                   ]
                 section "School" $ do
                   tag "p" [] $ do
