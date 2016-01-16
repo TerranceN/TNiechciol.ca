@@ -1,10 +1,5 @@
 #pageContent .resume_content a {
     text-decoration:underline;
-    color: #A00 !important;
-}
-
-#pageContent .resume_content a:hover {
-    color: #F22 !important;
 }
 
 #pageContent {
