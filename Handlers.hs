@@ -1,3 +1,6 @@
+-- Needed for Parsec
+{-# LANGUAGE GADTs #-}
+
 module Handlers
 ( handlers
 ) where
