@@ -171,3 +171,14 @@
 .resume_content p {
     margin: 0;
 }
+
+.resume_content .subsection_header > * {
+  display: inline-block;
+}
+
+.resume_content .header_info {
+  margin-left: 10px;
+  font-size: 12px;
+  vertical-align: top;
+  margin-top: 13px;
+}
