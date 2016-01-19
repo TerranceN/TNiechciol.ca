@@ -74,8 +74,8 @@ resume = do
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
                         subsection "Geometry Wars Clone"
-                          [link "/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
-                          ,link "https://youtu.be/2-HFsanORGw" "youtu.be/2-HFsanORGw"
+                          [link "http://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
+                          ,link "https://youtu.be/Xv-3VLCFOQM" "youtu.be/Xv-3VLCFOQM"
                           ,text "Sept. 2013 - Dec. 2013"
                           ,text "Scala"
                           ,text "LWJGL, OpenGL, GPGPU"
@@ -85,8 +85,8 @@ resume = do
                                   ,text "Created a dynamic music system that plays more intense music when more enemies are present"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
-                          [link "/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
-                          ,link "https://youtu.be/2-HFsanORGw" "youtu.be/2-HFsanORGw"
+                          [link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
+                          ,link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
                           ,text "Two days during April 2014"
                           ,text "Java"
                           ,text "libGDX, OpenGL"
@@ -95,8 +95,8 @@ resume = do
                                   ,text "Added the ability for players to phase through walls in order to add variety to the combat"
                                   ]
                         subsection "Defered Renderer with SSAO"
-                          [link "/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
-                          ,link "https://youtu.be/2-HFsanORGw" "youtu.be/2-HFsanORGw"
+                          [link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
+                          ,link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
                           ,text "Sept. 2014 - Dec. 2014"
                           ,text "Scala"
                           ,text "LWJGL, OpenGL"

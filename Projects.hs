@@ -64,6 +64,7 @@ geometryWarsPage urlOptions request =
     content = do
         tag "h1" [] $ text "Geometry Wars Clone"
         tag "hr" [] noHtml
+        youtube_video "Xv-3VLCFOQM" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "A clone of the game "
@@ -73,7 +74,7 @@ geometryWarsPage urlOptions request =
             tag "h3" [] $ text "Particle Simulation"
             tag "p" [] $ text "Particles and the deformable grid are simulated using an old-school style GPGPU technique. Particles' positions and velocities are stored as textures on the GPU where the index of each pixel represents each particle, and the red and green values represent the x and y components of each vector. To find the acceleration for each particle is simply the direction towards its initial position, but the process for the grid is a bit more complex."
             tag "p" [] $ text "For the grid, each intersection point is simulated as a particle. In order to have multiple pull and push effects on the grid, an acceleration texture is generated in screen space, where each pixel represents the acceleration that a particle at that position would experience."
-            tag "p" [] $ text "textUsing the previous positions and velocities of the particles, and the generated acceleration texture, an update shader takes the old position, uses it to look up the acceleration at that position, and then calculates a new position and velocity and stores it in the appropriate textures. Because each update operation only looks at a single pixel, the same textures are used for both input and output."
+            tag "p" [] $ text "Using the previous positions and velocities of the particles, and the generated acceleration texture, an update shader takes the old position, uses it to look up the acceleration at that position, and then calculates a new position and velocity and stores it in the appropriate textures. Because each update operation only looks at a single pixel, the same textures are used for both input and output."
         projectSection "Screenshots" $ do
             screenshot "/images/geometry_wars_clone_v2_small.png" "Particles everywhere!"
         projectSection "Downloads" $ do
@@ -87,6 +88,7 @@ geometryWarsOldPage urlOptions request =
     content = do
         tag "h1" [] $ text "Geometry Wars Clone (old version)"
         tag "hr" [] noHtml
+        youtube_video "2-HFsanORGw" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "See the new, updated version "
@@ -98,12 +100,11 @@ geometryWarsOldPage urlOptions request =
                 text "Created using Java and "
                 link "http://www.lwjgl.org/" "LWJGL"
                 text " during my final semester of high school (Feb. 2011 - June 2011)."
-        projectSection "Video" $ do
-            youtube_video "2-HFsanORGw" 560 315
         projectSection "Screenshots" $ do
             screenshot "/images/GWClone_grid.png" "Grid Effects"
             screenshot "/images/GWClone_dragon.png" "Dragons!"
         projectSection "Downloads" $ do
+            tag "p" [] $ text "Doesn't currently work on Macs, sorry!"
             button "/files/Geometry_Wars_Clone.zip" "JAR"
             button "https://github.com/TerranceN/GeometryWarsClone" "Source"
 
@@ -115,6 +116,7 @@ ataHackathonPage urlOptions request =
     content = do
         tag "h1" [] $ text "ATA Hackathon Game"
         tag "hr" [] noHtml
+        youtube_video "y7BLvpp1HlY" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "Created for a 48-hour hackathon while working for my previous employer "
@@ -137,6 +139,7 @@ deferedRendererPage urlOptions request =
     content = do
         tag "h1" [] $ text "Defered Renderer"
         tag "hr" [] noHtml
+        youtube_video "eJY72rMtFx4" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "3D Renderer that stores all albedo, depth, normal, and specular information into a series of textures,"
@@ -163,14 +166,13 @@ springPhysicsPage urlOptions request =
     content = do
         tag "h1" [] $ text "Spring Physics Demo"
         tag "hr" [] noHtml
+        youtube_video "OS00DNj0GgI" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "A physics simulation of a blob of springs that can control its own springiness."
             tag "p" [] $ do
                 text "Created using C++ and "
                 link "http://www.sfml-dev.org/" "SFML."
-        projectSection "Video" $ do
-            youtube_video "OS00DNj0GgI" 560 315
         projectSection "Downloads" $ do
             button "/files/SpringPhysicsW32.zip" "Windows"
             button "/files/SpringPhysicsLinux.zip" "Linux"
@@ -193,6 +195,7 @@ lightingDemoPage urlOptions request =
             screenshot "/images/LightingDemo1_web.png" ""
             screenshot "/images/LightingDemo2_web.png" ""
         projectSection "Downloads" $ do
+            tag "p" [] $ text "Doesn't currently work on Macs, sorry!"
             button "/files/2DShadows.zip" "JAR"
             button "https://github.com/TerranceN/2DLightingDemo" "Source"
 
