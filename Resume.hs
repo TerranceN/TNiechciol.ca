@@ -69,7 +69,7 @@ resume = do
                       ] (Just "(Co-op evaluations: Excellent/Excellent)") $ do
                         ulist [text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
-                              ,text "Developed frontend features for a 3d racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+                              ,text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
                               ]
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
