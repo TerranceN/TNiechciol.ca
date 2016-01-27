@@ -95,10 +95,11 @@ todoPage urlOptions request =
         [text "Work at a video game development company that targets consoles or PC (i.e. 'real' game development)"
         ,text "Create and release a video game that makes me at least $1 (basically the " >> link "http://ludumdare.com/compo/2014/09/29/october-challenge-2014/" "ludum dare October 2014 challenge" >> text ")"
         ]
-      tag "h2" [] $ text "Health"
+      tag "h2" [] $ text "Health/Food"
       ulist 
         [text "Learn to cook my own meals by cooking at least 5/7 days a week " >> link "http://knowyourmeme.com/memes/5-7" "(thats a perfect score, right?)"
         ,text "Reduce my body fat percentage to 10-12% in order to have visible abs, and maintain that for at least a year"
+        ,text "Learn to roast my own coffee beans and experiment with adding flavours"
         ]
       tag "h2" [] $ text "Travel"
       ulist 
