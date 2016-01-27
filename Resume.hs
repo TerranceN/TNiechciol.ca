@@ -39,9 +39,6 @@ subsection name sideInfo headerInfo content = do
     wrapDivs = mapM_ wrapDiv
     wrapDiv thing = tag "div" [] thing
 
-ulist items = do
-    tag "ul" [] $ mapM_ (\x -> tag "li" [] x) items
-
 placeholder = "/images/placeholder.jpg"
 
 resume = do

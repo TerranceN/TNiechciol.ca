@@ -46,6 +46,10 @@ index urlOptions request =
         tag "p" [] $ do
             text "I'm a Computer Science student at the University of Waterloo in my 4th year. I'm taking an extra year though so I can do an additional co-op and take some harder CS courses (Computer Graphics, Computational Audio, and Real-time Programming). In my spare time I play badminton, and I've dabbled in learning the violin and learning french. I also have a love of coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)"
         tag "p" [("class", "noindent")] $ do
+            text "Here's my "
+            link "/todo/" "todo list"
+            text "."
+        tag "p" [("class", "noindent")] $ do
             text "You can also find "
             link "https://github.com/TerranceN/TNiechciol.ca""this website on github"
             text "."
@@ -73,6 +77,44 @@ resumePage urlOptions request =
         stylesheet "/styles/base_resume.css"
     content = do
         Resume.resume
+
+todoPage urlOptions request =
+    mainLayout head content
+  where
+    head = do
+      title "TODO"
+      stylesheet "/styles/todo.css"
+    content = do
+      tag "h1" [] $ text "// TODO:"
+      tag "hr" [] noHtml
+      tag "p" [] $ do
+        text "A big list of things I want to accomplish by the time I'm 30. I've always kept a list of things like this in the back of my head, but I've been inspired to flesh it out and put it online after looking at "
+        link "http://www.evykassirer.com/todo" "Evy Kassier's todo page" >> text "."
+      tag "h2" [] $ text "Tech"
+      ulist
+        [text "Work at a video game development company that targets consoles or PC (i.e. 'real' game development)"
+        ,text "Create and release a video game that makes me at least $1 (basically the " >> link "http://ludumdare.com/compo/2014/09/29/october-challenge-2014/" "ludum dare October 2014 challenge" >> text ")"
+        ]
+      tag "h2" [] $ text "Health"
+      ulist 
+        [text "Learn to cook my own meals by cooking at least 5/7 days a week " >> link "http://knowyourmeme.com/memes/5-7" "(thats a perfect score, right?)"
+        ,text "Reduce my body fat percentage to 10-12% in order to have visible abs, and maintain that for at least a year"
+        ]
+      tag "h2" [] $ text "Travel"
+      ulist 
+        [text "Go to Oktoberfest in Munich"
+        ]
+      tag "h2" [] $ text "Music"
+      ulist
+        [text "Become competent at violin"
+        ,text "Make music for a video game (even if it's my own game)"
+        ]
+      tag "h2" [] $ text "Languages"
+      ulist 
+        [text "Learn French"
+        ,text "Learn German"
+        ,text "Learn Mandarin"
+        ]
 
 notFoundPage urlOptions request = do
     httpResponse 404 $ mainPage noHtml $ tag "p" [] $ do
@@ -141,6 +183,7 @@ handlers =
     [(exactly "/", index)
     ,(exactly "/contact/", contactPage)
     ,(exactly "/resume/", resumePage)
+    ,(exactly "/todo/", todoPage)
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)

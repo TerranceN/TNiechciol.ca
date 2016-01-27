@@ -1,6 +1,7 @@
 module PageStructure
 ( link
 , linkNewTab
+, ulist
 , button
 , navBar
 , script
@@ -35,6 +36,9 @@ linkNewTab :: String -> String -> Html
 linkNewTab url "" = link url url
 linkNewTab url string = do
     tag "a" [("href", url), ("target", "_blank")] $ text string
+
+ulist items = do
+    tag "ul" [] $ mapM_ (\x -> tag "li" [] x) items
 
 button :: String -> String -> Html
 button url "" = button url url

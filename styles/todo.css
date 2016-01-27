@@ -1,0 +1,17 @@
+#pageContent ul {
+  margin-top: 5px;
+  font-size: 0.8em;
+}
+
+#pageContent p {
+    margin: 10px 20px;
+    text-indent: 2em;
+}
+
+hr {
+    margin-top: 0;
+
+    display: block; height: 1px;
+    border: 0; border-top: 2px solid #F22;
+    padding: 0; 
+}
