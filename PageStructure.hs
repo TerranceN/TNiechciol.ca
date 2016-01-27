@@ -87,6 +87,7 @@ meta = do
 
 mainPage :: Html -> Html -> Html
 mainPage head content = do
+    uText "<!--  \"Terrance is a state of mind, he isn't a person.\" -Awn  -->"
     tag "html" [] $ do
         tag "head" [] $ do
             meta
