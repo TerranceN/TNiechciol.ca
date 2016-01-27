@@ -8,6 +8,7 @@ module PageStructure
 , mainPage
 , mainLayout
 , exactly
+, image
 , screenshot
 , youtube_video
 , projectSection
@@ -119,11 +120,13 @@ youtube_video id width height =
                          ,("frameborder", "0")
                          ,("allowfullscreen", "true")] noHtml
 
+image url alt = 
+    tag "img" [("src", url)
+              ,("alt", alt)
+              ,("title", alt)] noHtml
+
 screenshot url alt =
-    tag "a" [("href", "javascript:void(0)"), ("class", "screenshot")] $ do
-        tag "img" [("src", url)
-                  ,("alt", alt)
-                  ,("title", alt)] noHtml
+    tag "a" [("href", "javascript:void(0)"), ("class", "screenshot")] $ image url alt
 
 exactly :: String -> Parser (Map.HashMap String String)
 exactly str = (mapM char str) >>= (\x -> eof >> return (Map.fromList [("url", x)]))

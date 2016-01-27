@@ -27,10 +27,12 @@ import qualified Projects
 index urlOptions request =
     mainLayout head content
   where
-    head =
+    head = do
         tag "title" [] $ text "Terrance Niechciol's Website"
+        stylesheet "/styles/index.css"
     content = do
         tag "h1" [] $ text "Terrance Niechciol's Personal Website"
+        image "/images/profile_pic.jpg" "A picture of me!"
         tag "p" [] $ do
             text "Welcome to my personal website where you can find my "
             link "/Resume/" "resume"
@@ -41,10 +43,11 @@ index urlOptions request =
             text ". I also have a "
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
-        uText "<br />"
         tag "p" [] $ do
-            text "You can also find this "
-            link "https://github.com/TerranceN/TNiechciol.ca""website on github"
+            text "I'm a Computer Science student at the University of Waterloo in my 4th year. I'm taking an extra year though so I can do an additional co-op and take some harder CS courses (Computer Graphics, Computational Audio, and Real-time Programming). In my spare time I play badminton, and I've dabbled in learning the violin and learning french. I also have a love of coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)"
+        tag "p" [("class", "noindent")] $ do
+            text "You can also find "
+            link "https://github.com/TerranceN/TNiechciol.ca""this website on github"
             text "."
 
 contactPage urlOptions request = 

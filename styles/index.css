@@ -1,0 +1,16 @@
+.textsection p {
+  margin: 10px 20px;
+  margin-bottom: 20px;
+  text-indent: 2em;
+}
+
+.textsection p.noindent {
+  text-indent: 0;
+}
+
+.textsection img {
+    max-width: 200px;
+    border-radius: 10px;
+    float: right;
+    margin: 18px 28px;
+}
