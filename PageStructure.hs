@@ -25,7 +25,7 @@ import Text.ParserCombinators.Parsec
 import PageTypes
 
 title :: String -> Html
-title str = tag "title" [] $ text (str ++ " | TNiechciol.ca")
+title str = tag "title" [] $ text (str ++ " | eat.sleep.build")
 
 link :: String -> String -> Html
 link url "" = link url url
