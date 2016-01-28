@@ -27,6 +27,17 @@
     transition: all 0.25s ease;
 }
 
+.description .screenshot {
+    position: relative;
+    left: -50%;
+    margin-left: 450px;
+    margin-bottom: 15px;
+}
+
+.description .screenshot img {
+    max-width: 500px;
+}
+
 .screenshot:hover, .youtube_video:hover {
     border-color: #f00;
     background-color: #f00;
