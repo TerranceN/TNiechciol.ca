@@ -62,7 +62,7 @@
 
 .description p {
     margin-bottom: 20px;
-    text-indent: 2em;
+    text-indent: 40px;
 }
 
 .problems p {
@@ -73,13 +73,13 @@
 h3 {
     margin-bottom: 5px;
     margin-left: -15px;
-    font-size: 1.125em;
+    font-size: 22px;
 }
 
 .right_info {
     float: right;
     text-align: right;
-    font-size: 0.9em;
+    font-size: 17px;
     line-height: 18px;
     margin-top: 10px;
 }
@@ -171,7 +171,6 @@ body.popup {
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-    margin-right: -0.25em;
 }
 
 .overlay, .popup_container {

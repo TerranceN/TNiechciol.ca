@@ -229,7 +229,7 @@ a:visited {
 
 a:hover {
     color: #F22;
-    text-shadow: 0 0 0.2em #F87, 0 0 0.2em #F87
+    text-shadow: 0 0 2px #F87, 0 0 2px #F87
 }
 
 html .button {
@@ -238,7 +238,6 @@ html .button {
     border: 1px solid #333;
     padding: 10px;
     border-radius: 7px;
-    font-size: 1em;
     font-weight: bold;
     background-color: #FFF;
     color: #333;

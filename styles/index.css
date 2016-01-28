@@ -1,7 +1,7 @@
 .textsection p {
   margin: 10px 20px;
   margin-bottom: 20px;
-  text-indent: 2em;
+  text-indent: 40px;
 }
 
 .textsection p.noindent {
