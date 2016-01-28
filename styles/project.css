@@ -76,12 +76,22 @@ h3 {
     font-size: 1.125em;
 }
 
+.right_info {
+    float: right;
+    text-align: right;
+    font-size: 0.9em;
+    line-height: 18px;
+    margin-top: 10px;
+}
+
 hr {
     margin-top: 0;
 
     display: block; height: 1px;
     border: 0; border-top: 2px solid #F22;
     padding: 0; 
+
+    clear: both;
 }
 
 .section.downloads p {

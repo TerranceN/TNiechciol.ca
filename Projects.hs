@@ -62,6 +62,9 @@ geometryWarsPage urlOptions request =
     head =
         title "Geometry Wars Clone"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Sept. 2014 - Dec. 2014"
+          tag "div" [] $ text "Scala and LWJGL"
         tag "h1" [] $ text "Geometry Wars Clone"
         tag "hr" [] noHtml
         youtube_video "Xv-3VLCFOQM" 560 315
@@ -86,6 +89,9 @@ geometryWarsOldPage urlOptions request =
     head =
         title "Geometry Wars Clone (old version)"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Feb. 2011 - June. 2011"
+          tag "div" [] $ text "Java and LWJGL"
         tag "h1" [] $ text "Geometry Wars Clone (old version)"
         tag "hr" [] noHtml
         youtube_video "2-HFsanORGw" 560 315
@@ -114,6 +120,9 @@ ataHackathonPage urlOptions request =
     head =
         title "ATA Hackathon Game"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Apr. 8-10 2014"
+          tag "div" [] $ text "Java and LibGDX"
         tag "h1" [] $ text "ATA Hackathon Game"
         tag "hr" [] noHtml
         youtube_video "y7BLvpp1HlY" 560 315
@@ -137,6 +146,9 @@ deferedRendererPage urlOptions request =
     head =
         title "Defered Renderer"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Sept. 2013 - Oct. 2013"
+          tag "div" [] $ text "Scala and LWJGL"
         tag "h1" [] $ text "Defered Renderer"
         tag "hr" [] noHtml
         youtube_video "eJY72rMtFx4" 560 315
@@ -164,6 +176,9 @@ springPhysicsPage urlOptions request =
     head =
         title "Spring Physics Demo"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Feb. 2012 - March. 2012"
+          tag "div" [] $ text "C++ and SFML"
         tag "h1" [] $ text "Spring Physics Demo"
         tag "hr" [] noHtml
         youtube_video "OS00DNj0GgI" 560 315
@@ -184,6 +199,9 @@ lightingDemoPage urlOptions request =
     head =
         title "2D Lighting Demo"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Oct. 2011 - Jan. 2012"
+          tag "div" [] $ text "Java and LWJGL"
         tag "h1" [] $ text "2D Lighting Demo"
         tag "hr" [] noHtml
         projectSection "Description" $ do
@@ -205,6 +223,9 @@ paradoxTowerPage urlOptions request =
     head =
         title "Paradox Tower"
     content = do
+        tag "div" [("class", "right_info")] $ do
+          tag "div" [] $ text "Global Game Jam 2012"
+          tag "div" [] $ text "Java"
         tag "h1" [] $ text "Paradox Tower"
         tag "hr" [] noHtml
         tag "p" [] $ do
