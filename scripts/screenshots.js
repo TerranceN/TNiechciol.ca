@@ -3,8 +3,8 @@ $(function() {
   var popupContainer = $(".popup_container");
   var body = $("body");
   $(".screenshot").click(function() {
-    var newSrc = $("img", $(this))[0].src.replace(/^(.*)_small.png$/, function(match, p1) {
-      return p1 + "_large.png";
+    var newSrc = $("img", $(this))[0].src.replace(/^(.*)_small.jpg$/, function(match, p1) {
+      return p1 + "_large.jpg";
     });
     var popup = $('<div class="screenshot_popup"><a href="javascript:none(0);" class="close">x</a><img src="' + newSrc + '"/></div>');
     var scrollAmount = body.scrollTop();

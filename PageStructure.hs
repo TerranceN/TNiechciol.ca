@@ -94,7 +94,7 @@ mainPage head content = do
             stylesheet "/styles/main.css"
             stylesheet "http://fonts.googleapis.com/css?family=Source+Sans+Pro"
             head
-        tag "body" [("background", "/images/confectionary.png")] $ do
+        tag "body" [("background", "/images/confectionary.jpg")] $ do
             tag "div" [("id", "wrapper")] $ do
                 tag "div" [("id", "navSpacing")] noHtml
                 tag "div" [("id", "pageContent"), ("class", "textsection")] content

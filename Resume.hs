@@ -23,7 +23,7 @@ header = do
 section name content = do
     tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
         tag "h2" [] $ text name
-        tag "img" [("class", "seperator"), ("src", "/images/resume_gradient.png")] noHtml
+        tag "img" [("class", "seperator"), ("src", "/images/resume_gradient.jpg")] noHtml
         tag "div" [("class", "section_content")] content
 
 subsection name sideInfo headerInfo content = do
