@@ -3,7 +3,7 @@
 }
 
 .section_body {
-    margin: 10px 20px;
+    margin: 10px 0px;
 }
 
 .screenshots .section_body {
@@ -27,10 +27,12 @@
     transition: all 0.25s ease;
 }
 
+.description .screenshot_container {
+    text-align: center;
+}
+
 .description .screenshot {
-    position: relative;
-    left: -50%;
-    margin-left: 300px;
+    display: inline-block;
 }
 
 .description .screenshot img {
@@ -71,9 +73,8 @@
 }
 
 .description p {
-    margin-bottom: 20px;
-    margin-top: 20px;
     text-indent: 40px;
+    margin: 20px;
 }
 
 .problems p {
@@ -83,7 +84,7 @@
 
 h3 {
     margin-bottom: 5px;
-    margin-left: -15px;
+    margin-left: 10px;
     font-size: 22px;
 }
 

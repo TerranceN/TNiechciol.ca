@@ -131,7 +131,8 @@ image url alt =
               ,("title", alt)] noHtml
 
 screenshot url alt =
-    tag "a" [("href", "javascript:void(0)"), ("class", "screenshot")] $ image url alt
+    tag "div" [("class", "screenshot_container")] $ do
+      tag "a" [("href", "javascript:void(0)"), ("class", "screenshot")] $ image url alt
 
 exactly :: String -> Parser (Map.HashMap String String)
 exactly str = (mapM char str) >>= (\x -> eof >> return (Map.fromList [("url", x)]))
