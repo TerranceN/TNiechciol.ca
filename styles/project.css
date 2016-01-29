@@ -30,8 +30,7 @@
 .description .screenshot {
     position: relative;
     left: -50%;
-    margin-left: 450px;
-    margin-bottom: 15px;
+    margin-left: 300px;
 }
 
 .description .screenshot img {
@@ -68,11 +67,12 @@
 
 .youtube_video {
     width: 560px;
-    margin: auto;
+    margin: 20px auto;
 }
 
 .description p {
     margin-bottom: 20px;
+    margin-top: 20px;
     text-indent: 40px;
 }
 
@@ -113,7 +113,7 @@ hr {
 
 /* Project preview stuff */
 .preview {
-    width: 760px;
+    width: 720px;
 }
 
 .preview .image {

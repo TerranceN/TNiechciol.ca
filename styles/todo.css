@@ -1,11 +1,18 @@
 #pageContent ul {
   margin-top: 5px;
-  font-size: 15.3px;
 }
 
 #pageContent p {
-    margin: 10px 20px;
+    margin: 15px 20px;
     text-indent: 40px;
+}
+
+.textsection li {
+    margin: 15px 0px;
+}
+
+.textsection h2 {
+    margin-top: 20px;
 }
 
 hr {

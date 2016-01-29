@@ -1,0 +1,35 @@
+/* Project preview stuff */
+
+.textsection {
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.preview {
+    width: 720px;
+}
+
+.preview .image {
+    float: right;
+}
+
+.preview_separator {
+    clear: both;
+    margin: 20px 100px 40px 100px;
+    border: none;
+    background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#DDD), to(#fff));
+}
+
+.preview .image {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.preview .image img {
+    max-width: 280px;
+    max-height: 200px;
+}
+
+.preview .description {
+    margin: 10px 20px;
+}

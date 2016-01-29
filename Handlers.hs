@@ -31,9 +31,8 @@ index urlOptions request =
         tag "title" [] $ text "Terrance Niechciol's Website"
         stylesheet "/styles/index.css"
     content = do
-        tag "h1" [] $ text "Terrance Niechciol's Personal Website"
         image "/images/profile_pic.jpg" "A picture of me!"
-        tag "p" [] $ do
+        tag "p" [("class", "first")] $ do
             text "Welcome to my personal website where you can find my "
             link "/Resume/" "resume"
             text ", and some small "
@@ -61,7 +60,6 @@ contactPage urlOptions request =
         title "Contact Information"
         stylesheet "/styles/contact.css"
     content = do
-        tag "h1" [] $ text "Contact"
         tag "p" [] $ do
             text "Email: "
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"

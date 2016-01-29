@@ -34,6 +34,7 @@ projectsPage urlOptions request =
   where
     head = do
         title "Projects"
+        stylesheet "/styles/project_previews.css"
     content = do
         projectPreview "Geometry Wars Clone" "/GeoWarsClone" "/images/geometry_wars_clone_v2_small.jpg" $ do
             tag "p" [] $ text "A clone of the Xbox Live Arcade game Geometry Wars. A 2D top down shooter on a deformable grid. The grid and particle effects are computed on the GPU using an old-school style of GPGPU using OpenGL textures and shaders."
