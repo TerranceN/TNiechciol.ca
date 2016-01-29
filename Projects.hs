@@ -89,12 +89,12 @@ geometryWarsOldPage urlOptions request =
     projectLayout head content
   where
     head =
-        title "Geometry Wars Clone (old version)"
+        title "Geometry Wars Clone (old)"
     content = do
         tag "div" [("class", "right_info")] $ do
           tag "div" [] $ text "Feb. 2011 - June. 2011"
           tag "div" [] $ text "Java and LWJGL"
-        tag "h1" [] $ text "Geometry Wars Clone (old version)"
+        tag "h1" [] $ text "Geometry Wars Clone (old)"
         tag "hr" [] noHtml
         youtube_video "2-HFsanORGw" 560 315
         projectSection "Description" $ do
