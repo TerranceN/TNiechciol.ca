@@ -33,17 +33,15 @@ index urlOptions request =
     content = do
         image "/images/profile_pic.jpg" "A picture of me!"
         tag "p" [("class", "first")] $ do
-            text "Welcome to my personal website where you can find my "
+            text "Hi, I'm Terrance Niechciol, and this is my personal website where you can find my "
             link "/Resume/" "resume"
             text ", and some small "
             link "/Projects/" "projects"
-            text " that I've made for fun. If you need to get in touch with me, you check out my "
-            link "/Contact/" "contact information"
-            text ". I also have a "
+            text " that I've made for fun. I also have a "
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
         tag "p" [] $ do
-            text "I'm a Computer Science student at the University of Waterloo in my 4th year. I'm taking an extra year though so I can do an additional co-op and take some harder CS courses (Computer Graphics, Computational Audio, and Real-time Programming). In my spare time I play badminton, and I've dabbled in learning the violin and learning french. I also have a love of coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)"
+            text "I'm a Computer Science student at the University of Waterloo in my 4th year. I'm taking an extra year though so I can do an additional co-op and take some harder CS courses (Computer Graphics, Computational Audio, and Real-time Programming). In my spare time I play badminton, and I've dabbled in learning the violin and learning french. I also have a love of coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
         tag "p" [("class", "noindent")] $ do
             text "Here's my "
             link "/todo/" "todo list"
