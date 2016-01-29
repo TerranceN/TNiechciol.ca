@@ -7,11 +7,11 @@
     text-indent: 40px;
 }
 
-.textsection li {
+#pageContent li {
     margin: 15px 0px;
 }
 
-.textsection h2 {
+#pageContent h2 {
     margin-top: 20px;
 }
 

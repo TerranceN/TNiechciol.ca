@@ -2,23 +2,24 @@
   margin-top: 0px;
 }
 
-.textsection p.first {
-  margin-top: 30px;
+#pageContent p.first {
+  margin-top: 20px;
 }
 
-.textsection p {
+#pageContent p {
   margin: 10px 20px;
   margin-bottom: 20px;
   text-indent: 40px;
 }
 
-.textsection p.noindent {
+#pageContent p.noindent {
   text-indent: 0;
 }
 
-.textsection img {
+#pageContent img {
     max-width: 200px;
     border-radius: 10px;
     float: right;
-    margin: 18px 28px;
+    margin: 18px;
+    margin-top: -6px;
 }

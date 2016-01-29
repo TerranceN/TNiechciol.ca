@@ -186,12 +186,12 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     padding-bottom: 60px;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
 .textsection {
     color: #333;
-    margin-left: 100px;
-    margin-right: 100px;
 }
 
 #footseperator {

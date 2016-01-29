@@ -52,18 +52,9 @@ index urlOptions request =
             text "You can also find "
             link "https://github.com/TerranceN/TNiechciol.ca""this website on github"
             text "."
-
-contactPage urlOptions request = 
-    mainLayout head content
-  where
-    head = do
-        title "Contact Information"
-        stylesheet "/styles/contact.css"
-    content = do
-        tag "p" [] $ do
-            text "Email: "
+        tag "p" [("class", "noindent")] $ do
+            text "Feel free to send me an email: "
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
-        tag "p" [] $ text "Phone Number: 1-614-721-5649"
 
 resumePage urlOptions request =
     mainLayout head content
@@ -180,7 +171,6 @@ subHandler prefix handlers =
 handlers :: [Handler]
 handlers =
     [(exactly "/", index)
-    ,(exactly "/contact/", contactPage)
     ,(exactly "/resume/", resumePage)
     ,(exactly "/todo/", todoPage)
     ,(exactly "/formtest/", formTest)

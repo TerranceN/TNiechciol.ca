@@ -75,8 +75,6 @@ navBar = do
                     tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
             tag "li" [] $ do
                 tag "div" [] $ link "/Resume/" "Resume"
-            tag "li" [] $ do
-                tag "div" [] $ link "/Contact/" "Contact"
 
 meta :: Html
 meta = do
