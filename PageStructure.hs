@@ -83,6 +83,21 @@ meta = do
     tag "meta" [ ("name", "description")
                , ("content", "My personal website where you can find my Resume and some small projects I've made for fun.")] noHtml
 
+clickyTrackingCode = " \n\
+  \<script type=\"text/javascript\"> \n\
+  \var clicky_site_ids = clicky_site_ids || []; \n\
+  \clicky_site_ids.push(100919464); \n\
+  \(function() { \n\
+  \  var s = document.createElement('script'); \n\
+  \  s.type = 'text/javascript'; \n\
+  \  s.async = true; \n\
+  \  s.src = '//static.getclicky.com/js'; \n\
+  \  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s ); \n\
+  \})(); \n\
+  \</script> \n\
+  \<noscript><p><img alt=\"Clicky\" width=\"1\" height=\"1\" src=\"//in.getclicky.com/100919464ns.gif\" /></p></noscript> \n\
+  \"
+
 mainPage :: Html -> Html -> Html
 mainPage head content = do
     uText "<!--  \"Terrance is a state of mind, he isn't a person.\" -Awn  -->"
@@ -104,6 +119,7 @@ mainPage head content = do
                             text "| Background obtained from "
                             link "http://subtlepatterns.com/" "SubtlePatterns.com"
             navBar
+            uText clickyTrackingCode
 
 mainLayout :: Html -> Html -> IO Response
 mainLayout head content = do
