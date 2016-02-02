@@ -71,7 +71,7 @@ geometryWarsPage urlOptions request =
         youtube_video "Xv-3VLCFOQM" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
-                text "A clone of the game "
+                text "TEST! A clone of the game "
                 link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars"
                 text " including a bloom effect, a huge number of particles, and a deformable grid (also implemented as particles). "
                 text "Uses framebuffers to store particle position and velocity, allowing all particle simulation to be done on the GPU using shaders."
