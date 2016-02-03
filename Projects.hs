@@ -102,16 +102,12 @@ geometryWarsOldPage urlOptions request =
         tag "hr" [] noHtml
         youtube_video "2-HFsanORGw" 560 315
         projectSection "Description" $ do
-            tag "p" [] $ do
+            tag "p" [("class", "noindent")] $ do
                 text "See the new, updated version "
                 link "/Projects/GeoWarsClone/" "here"
-            tag "p" [] $ do
+            tag "p" [("class", "noindent")] $ do
                 text "A clone of the Xbox Live Arcade game "
                 link "http://en.wikipedia.org/wiki/Geometry_Wars" "Geometry Wars."
-            tag "p" [] $ do
-                text "Created using Java and "
-                link "http://www.lwjgl.org/" "LWJGL"
-                text " during my final semester of high school (Feb. 2011 - June 2011)."
         projectSection "Screenshots" $ do
             screenshot "/images/GWClone_grid.jpg" "Grid Effects"
             screenshot "/images/GWClone_dragon.jpg" "Dragons!"
@@ -134,13 +130,16 @@ ataHackathonPage urlOptions request =
         youtube_video "y7BLvpp1HlY" 560 315
         projectSection "Description" $ do
             tag "p" [] $ do
-                text "Created for a 48-hour hackathon while working for my previous employer "
+                text "A 2D multiplayer platformer deathmatch game with wall-jumping, dashing, and the ability to surround yourself with a 'null sphere' that lets you temporarily phase through walls. Created for a 48-hour hackathon while working for my previous employer "
                 link "http://www.athinkingape.com/" "A Thinking Ape"
                 text " with a team of 2 other engineers on co-op there, as well as two full-time artists."
+            tag "h3" [] $ text "My Contributions"
             tag "p" [] $ do
-                text "Created using Java and "
-                link "http://libgdx.badlogicgames.com/" "LibGDX"
-                text " during Apr. 8-10, 2014."
+                text "My main responsibilities on the team was collision, including wall jumping, level wrapping, and the null spheres, and some visual effects like the desaturation effect for the null spheres, and (after the hackathon) adding a heat distortion effect on players bullets."
+            tag "p" [("class", "noindent")] $ do
+                text "You can see the full list of my contributions on GitHub "
+                link "https://github.com/TerranceN/ATAHackathonW14/commits/master?author=TerranceN" "here"
+                text "."
         projectSection "Screenshots" $ do
             screenshot "/images/ata_hackathon_game_merged_small.jpg" "Game"
         projectSection "Downloads" $ do
@@ -167,10 +166,6 @@ deferedRendererPage urlOptions request =
                 text "The renderer also computes ambient occlusion information using the scene information in the G-Buffer."
                 text " Ambient occlusion is computed in a style similar to Crysis, but uses normal-oriented hemispheres instead of full spheres."
                 text " This allows the normal map to be used, allowing for fine details in the computed occlusion map."
-            tag "p" [] $ do
-                text "Created using Scala and "
-                link "http://www.lwjgl.org/" "LWJGL"
-                text " during Sep. 2013 - Oct. 2013."
         projectSection "Screenshots" $ do
             screenshot "/images/defered_renderer_small.jpg" "Game"
         projectSection "Downloads" $ do
@@ -191,9 +186,6 @@ springPhysicsPage urlOptions request =
         projectSection "Description" $ do
             tag "p" [] $ do
                 text "A physics simulation of a blob of springs that can control its own springiness."
-            tag "p" [] $ do
-                text "Created using C++ and "
-                link "http://www.sfml-dev.org/" "SFML."
         projectSection "Downloads" $ do
             button "/files/SpringPhysicsW32.zip" "Windows"
             button "/files/SpringPhysicsLinux.zip" "Linux"

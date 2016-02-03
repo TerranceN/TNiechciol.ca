@@ -12,10 +12,6 @@
   text-indent: 40px;
 }
 
-#pageContent p.noindent {
-  text-indent: 0;
-}
-
 #pageContent img {
     max-width: 200px;
     border-radius: 10px;

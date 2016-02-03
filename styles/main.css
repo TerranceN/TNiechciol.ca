@@ -190,6 +190,10 @@ body {
     margin-right: 100px;
 }
 
+#pageContent p.noindent {
+  text-indent: 0;
+}
+
 .textsection {
     color: #333;
 }
