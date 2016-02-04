@@ -57,13 +57,17 @@
     background-color: black;
 }
 
-.screenshot {
+.screenshot_container {
     display: inline-block;
+}
+
+.screenshot {
+  display: block;
 }
 
 .screenshot img {
     vertical-align: middle;
-    max-height: 294px;
+    max-height: 250px;
     max-width: 790px;
 }
 
