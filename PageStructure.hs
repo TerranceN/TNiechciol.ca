@@ -98,9 +98,17 @@ clickyTrackingCode = " \n\
   \<noscript><p><img alt=\"Clicky\" width=\"1\" height=\"1\" src=\"//in.getclicky.com/100919464ns.gif\" /></p></noscript> \n\
   \"
 
+quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
+         ,("I can't be a productive member of society until I get laid", "Luz")
+         ]
+
+renderQuote (quote, author) = uText ("\"" ++ quote ++ "\"" ++ " --" ++ author ++ "\n")
+
 mainPage :: Html -> Html -> Html
 mainPage head content = do
-    uText "<!--  \"Terrance is a state of mind, he isn't a person.\" -Awn  -->"
+    uText "<!\n\nHere's some funny quotes!\n"
+    mapM_ renderQuote quotes
+    uText "\n-->"
     tag "html" [] $ do
         tag "head" [] $ do
             meta
