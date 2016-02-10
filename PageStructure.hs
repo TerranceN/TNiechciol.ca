@@ -99,7 +99,20 @@ clickyTrackingCode = " \n\
   \"
 
 quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
-         ,("I can't be a productive member of society until I get laid", "Luz")
+         ,("I can't be a productive member of society until I get laid.", "Luz")
+         ,("I was just talking to a guy over there who would be ideal for beating.", "Golla")
+         ,("I'll never look like anything.", "Christina")
+         ,("Rice just kills everything bad.", "Bogdan")
+         ,("In this day and age no one uses idioms anymore.", "Liz")
+         ,("Movies don't lie, Terrance, they're a real life depiction of real life.", "Flan")
+         ,("Never have I ever... Wait, I don't know how to play this game.", "Vic")
+         ,("I'd rather rest in a state of mediocrity.", "Kianna")
+         ,("Damn, you could break a chair with that ass!", "Ally")
+         ,("Sometimes I have a hard time telling the difference between popcorn and carpet.", "Lydia")
+         ,("Dude, suitcases are so much easier than women.", "Patrick")
+         ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
+         ,("I love that you think you're normal.", "Olga")
+         ,("At this point I feel more like a cougar.", "Melissa")
          ]
 
 renderQuote (quote, author) = uText ("\"" ++ quote ++ "\"" ++ " --" ++ author ++ "\n")
