@@ -21,8 +21,10 @@ module PageStructure
 import Data.Char
 import qualified Data.HashMap.Lazy as Map
 import Text.ParserCombinators.Parsec
+import Control.Monad.Trans
 
 import PageTypes
+import GitHash
 
 title :: String -> Html
 title str = tag "title" [] $ text (str ++ " | eat.sleep.build")
@@ -47,15 +49,17 @@ button url string = do
 
 script :: String -> Html
 script url = do
+    hashedUrl <- lift $ hashifyUrl url ".js"
     tag "script" [("rel", "stylesheet")
                  ,("type", "text/javascript")
-                 ,("src", url)] noHtml
+                 ,("src", hashedUrl)] noHtml
 
 stylesheet :: String -> Html
 stylesheet url = do
+    hashedUrl <- lift $ hashifyUrl url ".css"
     tag "link" [("rel", "stylesheet")
                ,("type", "text/css")
-               ,("href", url)] noHtml
+               ,("href", hashedUrl)] noHtml
 
 navBar :: Html
 navBar = do
