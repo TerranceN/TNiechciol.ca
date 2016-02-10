@@ -27,7 +27,10 @@ projectLayout head body =
     popup = do
         tag "div" [("class", "overlay")] noHtml
         tag "div" [("class", "popup_container")] $ do
-            tag "div" [("class", "popup_content")] noHtml
+            tag "div" [("class", "popup_content")] $ do
+              tag "div" [("class", "screenshot_popup")] $ do
+                tag "a" [("href", "javascript:void(0)"), ("class", "close")] $ text "x"
+                image "" ""
 
 projectsPage urlOptions request =
     projectLayout head content

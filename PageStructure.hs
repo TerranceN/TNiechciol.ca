@@ -161,9 +161,11 @@ youtube_video id width height =
                          ,("allowfullscreen", "true")] noHtml
 
 image url alt = 
-    tag "img" [("src", url)
-              ,("alt", alt)
-              ,("title", alt)] noHtml
+    tag "div" [("class", "image_container loading")] $ do
+        tag "img" [("src", url)
+                  ,("alt", alt)
+                  ,("title", alt)
+                  ,("onload", "this.parentNode.classList.remove('loading')")] noHtml
 
 screenshot url alt =
     tag "div" [("class", "screenshot_container")] $ do
