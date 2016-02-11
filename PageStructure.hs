@@ -117,13 +117,15 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
          ,("I love that you think you're normal.", "Olga")
          ,("At this point I feel more like a cougar.", "Melissa")
+         ,("He was intellectually masturbating the entire interview, but he just couldn't cum.", "Louie")
+         ,("Brendan is a master as massacring girls with his balls.", "Kenshi")
          ]
 
 renderQuote (quote, author) = uText ("\"" ++ quote ++ "\"" ++ " --" ++ author ++ "\n")
 
 mainPage :: Html -> Html -> Html
 mainPage head content = do
-    uText "<!\n\nHere's some funny quotes!\n"
+    uText "<!\n\nHere's some funny quotes I've gathered over the years (in no particular order):\n"
     mapM_ renderQuote quotes
     uText "\n-->"
     tag "html" [] $ do
