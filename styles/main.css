@@ -82,10 +82,16 @@ body {
 #navBar li a {
     display: block;
     background-color: transparent;
-    padding: 7px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 6px 10px 8px 10px;
+}
+
+#navBar li li a {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 #navBar > ul > li > div {
@@ -248,7 +254,7 @@ html .button {
     display: inline-block;
     text-decoration: none;
     padding: 10px;
-    border-radius: 7px;
+    border-radius: 5px;
     font-weight: bold;
     background-color: #FFF;
     color: #333;
