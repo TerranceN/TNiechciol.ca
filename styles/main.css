@@ -149,7 +149,17 @@ body {
 
 #navBar li ul
 {
-    display: none;
+    pointer-events: none;
+    opacity: 0;
+    transform-origin: top left;
+    transform: scale(0);
+
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+
     position: absolute;
     padding: 0;
     background-color:#FFF;
@@ -165,7 +175,9 @@ body {
 
 #navBar li:hover ul
 {
-    display: block; 
+    pointer-events: all;
+    opacity: 1;
+    transform: scale(1);
 }
 
 #navBar li li
