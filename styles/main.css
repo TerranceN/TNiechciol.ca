@@ -276,11 +276,11 @@ html .button {
     background-color: #FFF;
     color: #333;
 
-    -webkit-transition: all 0.1s ease;
-    -moz-transition: all 0.1s ease;
-    -o-transition: all 0.1s ease;
-    -ms-transition: all 0.1s ease;
-    transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease-in;
+    -moz-transition: all 0.1s ease-in;
+    -o-transition: all 0.1s ease-in;
+    -ms-transition: all 0.1s ease-in;
+    transition: all 0.1s ease-in;
 
     -moz-box-shadow: 0px 1px 4px 0px #777;
     -webkit-box-shadow: 0px 1px 4px 0px #777;
