@@ -135,7 +135,15 @@ ataHackathonPage urlOptions request =
             tag "p" [] $ do
                 text "A 2D multiplayer platformer deathmatch game with wall-jumping, dashing, and the ability to surround yourself with a 'null sphere' that lets you temporarily phase through walls. Created for a 48-hour hackathon while working for my previous employer "
                 link "http://www.athinkingape.com/" "A Thinking Ape"
-                text " with a team of 2 other engineers on co-op there, as well as two full-time artists."
+                text " with a team of 2 other engineers on co-op there ("
+                link "http://www.almostmatt.com/matthew-hyndman/" "Matt Hyndman"
+                text ", and "
+                link "https://twitter.com/ggollmer" "Geoff Gollmer"
+                text "), as well as two full-time artists ("
+                link "http://www.joelfurtado.com/" "Joel Furtado"
+                text ", and "
+                link "http://mechanical-bunnies.com/" "Jennifer Duong"
+                text ")."
             tag "h3" [] $ text "My Contributions"
             tag "p" [] $ do
                 text "My main responsibilities on the team was collision, including wall jumping, level wrapping, and the null spheres, and some visual effects like the desaturation effect for the null spheres, and (after the hackathon) adding a heat distortion effect on players bullets."
