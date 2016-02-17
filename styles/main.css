@@ -264,7 +264,7 @@ a:visited {
 
 a:hover {
     color: #F22;
-    text-shadow: 0 0 2px #F87, 0 0 2px #F87
+    text-shadow: 0 0 2px #F87, 0 0 2px #F87;
 }
 
 html .button {

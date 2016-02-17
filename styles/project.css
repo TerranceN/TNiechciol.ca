@@ -220,18 +220,23 @@ body.popup {
     color: white;
     font-size: 30px;
     text-decoration: none;
+    z-index: 2;
 
-    -webkit-transition: all 0.50s ease;
-    -moz-transition: all 0.50s ease;
-    -o-transition: all 0.50s ease;
-    -ms-transition: all 0.50s ease;
-    transition: all 0.50s ease;
+    text-shadow: 0 0 1px #000, 0 0 1px #000;
+
+    -webkit-transition: all 0.10s ease-in;
+    -moz-transition: all 0.10s ease-in;
+    -o-transition: all 0.10s ease-in;
+    -ms-transition: all 0.10s ease-in;
+    transition: all 0.10s ease-in;
 }
 
 .screenshot_popup .close:hover {
-    transform:scale(1.25);
-    -ms-transform:scale(1.25); /* IE 9 */
-    -moz-transform:scale(1.25); /* Firefox */
-    -webkit-transform:scale(1.25); /* Safari and Chrome */
-    -o-transform:scale(1.25); /* Opera */
+    text-shadow: 0 0 1px #F00, 0 0 1px #F00;
+
+    transform:scale(1.2);
+    -ms-transform:scale(1.2); /* IE 9 */
+    -moz-transform:scale(1.2); /* Firefox */
+    -webkit-transform:scale(1.2); /* Safari and Chrome */
+    -o-transform:scale(1.2); /* Opera */
 }
