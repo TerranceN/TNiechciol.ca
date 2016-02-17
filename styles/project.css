@@ -28,6 +28,7 @@
 }
 
 .description .screenshot_container {
+    width: 100%;
     text-align: center;
 }
 
