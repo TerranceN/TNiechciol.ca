@@ -115,6 +115,9 @@ body {
 }
 
 #navBar li li {
+    position: relative;
+    z-index: 1;
+
     -webkit-transition: all 0.1s ease;
     -moz-transition: all 0.1s ease;
     -o-transition: all 0.1s ease;
@@ -123,6 +126,8 @@ body {
 }
 
 #navBar li li:hover {
+    z-index: 2;
+
     transition-duration: 0.1s;
     transform:scale(1.1);
     -ms-transform:scale(1.1); /* IE 9 */
