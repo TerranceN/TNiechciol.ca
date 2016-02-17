@@ -118,7 +118,7 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          ,("I love that you think you're normal.", "Olga")
          ,("At this point I feel more like a cougar.", "Melissa")
          ,("He was intellectually masturbating the entire interview, but he just couldn't cum.", "Louie")
-         ,("Brendan is a master as massacring girls with his balls.", "Kenshi")
+         ,("Brendan is a master at massacring girls with his balls.", "Kenshi")
          ,("You suck, and everything you touch sucks. You're like the anti-King Midas.", "Warsaba")
          ]
 
