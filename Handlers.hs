@@ -15,7 +15,6 @@ import Control.Monad.Trans
 
 import Text.ParserCombinators.Parsec
 
-import Template
 import HelperFunctions
 
 
