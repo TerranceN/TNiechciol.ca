@@ -1,16 +1,20 @@
 Website
 =======
 
-This is my personal website, hosted at [TNiechciol.ca](http://TNiechciol.ca).
+This is my personal website, hosted at [eat.sleep.build](http://eat.sleep.build). It used to be at [TNiechciol.ca](http://TNiechciol.ca), but my last name is hard to spell, so I switched to an easier-to-spell domain name.
 
-It has been created using apache2 and a program written in [Haskell](http://www.haskell.org/haskellwiki/Haskell) that reads the environment to display the correct page.
+My website is built with [Haskell](http://www.haskell.org/haskellwiki/Haskell) and runs on top of [lighttpd](https://www.lighttpd.net/).
 
-Using a State monad, I have been able to easily write html as Haskell code instead of injecting values into templates.
+Html Generation
+---------------
+
+Using a State monad, I have been able to write html as Haskell code instead of injecting values into templates:
 
 ```haskell
--- Note I am using DLists to ensure that string appending is done right assiciatively.
--- (a ++ (b ++ c) instead of ((a ++ b) ++ c))
--- I know I probably shouldn't use the IO monad here, I will probably split this up later.
+-- I am using DLists to ensure that string appending is done right assiciatively.
+--   (a ++ (b ++ c)) instead of ((a ++ b) ++ c)
+-- The IO monad is added as well so that I can do things like cache busting based on the current commit hash
+--   (see https://github.com/TerranceN/TNiechciol.ca/commit/77cfabdf9fa7e10a72ac7dc710f1196206d76ff4).
 type Html = StateT (DList Char) IO ()
 
 uText :: String -> Html
@@ -84,7 +88,7 @@ examplePage =
     pageTemplate head content
   where
     head = tag "title" [] $ text "Example Page"
-    body = do
+    content = do
         tag "h1" [] $ text "Example Page"
         tag "p" [] $ text "Hello, world!"
 ```
