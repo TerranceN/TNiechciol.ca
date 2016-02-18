@@ -19,7 +19,6 @@ import HelperFunctions
 
 
 import PageStructure
-import qualified Blog
 import qualified Resume
 import qualified Projects
 
@@ -147,18 +146,6 @@ formTest urlOptions request =
             tag "input" [("type", "textbox"), ("name", "str")] noHtml
             tag "input" [("type", "submit")] noHtml
 
-blogRouter urlOptions request = do
-    let blogOption = Map.lookup "blogName" urlOptions
-    case blogOption of
-        Nothing -> notFoundPage urlOptions request
-        Just blogName -> Blog.renderBlog blogName urlOptions request
-
-blogUrl :: Parser (Map.HashMap String String)
-blogUrl = do
-    blogName <- many validHtmlChar
-    char '/'
-    return $ Map.fromList [("blogName", blogName)]
-
 subHandler :: String -> [Handler] -> [Handler]
 subHandler prefix handlers =
     map addPrefix handlers
@@ -173,6 +160,5 @@ handlers =
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
     ,(exactly "/404/", notFoundPage)
-    ,(string "/blog/" >> blogUrl, blogRouter)
     ,(exactly "/base_resume/", Resume.resumePage)
     ] ++ (subHandler "/projects" Projects.handlers)
