@@ -103,20 +103,38 @@ clickyTrackingCode = " \n\
   \"
 
 quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
-         ,("I can't be a productive member of society until I get laid.", "Luz")
-         ,("I was just talking to a guy over there who would be ideal for beating.", "Golla")
-         ,("I'll never look like anything.", "Christina")
-         ,("Rice just kills everything bad.", "Bogdan")
-         ,("In this day and age no one uses idioms anymore.", "Liz")
-         ,("Movies don't lie, Terrance, they're a real life depiction of real life.", "Flan")
-         ,("Never have I ever... Wait, I don't know how to play this game.", "Vic")
-         ,("I'd rather rest in a state of mediocrity.", "Kianna")
+
+         -- Quotes from SF crew
+         ,("When I realized becoming an actress wouldn't pan out, I decided my life would be like a movie.", "Luz")
+         ,("I'm not here for babies, I'm here for art!", "Philippe")
          ,("Damn, you could break a chair with that ass!", "Ally")
+         ,("I really don't think anyone thought I was a lesbian in high school.", "Chelsea")
+         ,("Do the trains go on a schedule?", "Sam")
          ,("Sometimes I have a hard time telling the difference between popcorn and carpet.", "Lydia")
          ,("Dude, suitcases are so much easier than women.", "Patrick")
+
+         -- Quotes from Vancouver crew
+         ,("In this day and age no one uses idioms anymore.", "Liz")
+         ,("I'm not rude, I tell it like it is.", "Melissa")
+         ,("Movies don't lie, Terrance, they're a real life depiction of real life.", "Flan")
+
+         -- Quotes from Flan's friends
+         ,("Never have I ever... Wait, I don't know how to play this game.", "Vic")
+         ,("Rice just kills everything bad.", "Bogdan")
+         ,("I was just talking to a guy over there who would be ideal for beating.", "Golla")
+
+        -- Quotes from OCC people
+         ,("I don't do effort.", "Kristin")
+         ,("I had to iron my cat.", "Salahub")
+         ,("I'm irrationally terrified of fireman poles.", "Tori")
+
+         -- Quotes from other people
+         ,("I'd rather rest in a state of mediocrity.", "Kianna")
+         ,("I'll never look like anything.", "Christina")
+
+         -- Quotes from coworkers
          ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
          ,("I love that you think you're normal.", "Olga")
-         ,("At this point I feel more like a cougar.", "Melissa")
          ,("He was intellectually masturbating the entire interview, but he just couldn't cum.", "Louie")
          ,("Brendan is a master at massacring girls with his balls.", "Kenshi")
          ,("You suck, and everything you touch sucks. You're like the anti-King Midas.", "Warsaba")
