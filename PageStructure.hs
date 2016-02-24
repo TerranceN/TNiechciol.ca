@@ -25,6 +25,7 @@ import Control.Monad.Trans
 
 import PageTypes
 import GitHash
+import Clicky
 
 title :: String -> Html
 title str = tag "title" [] $ text (str ++ " | eat.sleep.build")
@@ -86,21 +87,6 @@ meta = do
                , ("content", "Terrance Terry Niechciol")] noHtml
     tag "meta" [ ("name", "description")
                , ("content", "My personal website where you can find my Resume and some small projects I've made for fun.")] noHtml
-
-clickyTrackingCode = " \n\
-  \<script type=\"text/javascript\"> \n\
-  \var clicky_site_ids = clicky_site_ids || []; \n\
-  \clicky_site_ids.push(100919464); \n\
-  \(function() { \n\
-  \  var s = document.createElement('script'); \n\
-  \  s.type = 'text/javascript'; \n\
-  \  s.async = true; \n\
-  \  s.src = '//static.getclicky.com/js'; \n\
-  \  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s ); \n\
-  \})(); \n\
-  \</script> \n\
-  \<noscript><p><img alt=\"Clicky\" width=\"1\" height=\"1\" src=\"//in.getclicky.com/100919464ns.gif\" /></p></noscript> \n\
-  \"
 
 quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
 
