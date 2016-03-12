@@ -105,18 +105,20 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          ,("Movies don't lie, Terrance, they're a real life depiction of real life.", "Flan")
 
          -- Quotes from Flan's friends
+         ,("Why can't I seduce my own roommate?", "Malecki")
          ,("Never have I ever... Wait, I don't know how to play this game.", "Vic")
          ,("Rice just kills everything bad.", "Bogdan")
          ,("I was just talking to a guy over there who would be ideal for beating.", "Golla")
 
         -- Quotes from OCC people
          ,("I don't do effort.", "Kristin")
-         ,("I had to iron my cat.", "Salahub")
+         ,("Go suck face somewhere else.", "Salahub")
          ,("I'm irrationally terrified of fireman poles.", "Tori")
 
          -- Quotes from other people
          ,("I'd rather rest in a state of mediocrity.", "Kianna")
          ,("I'll never look like anything.", "Christina")
+         ,("I'm so tempted to show you my bag of condiments.", "Valerie")
 
          -- Quotes from coworkers
          ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
