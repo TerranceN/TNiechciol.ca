@@ -114,11 +114,16 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          ,("I don't do effort.", "Kristin")
          ,("Go suck face somewhere else.", "Salahub")
          ,("I'm irrationally terrified of fireman poles.", "Tori")
+         ,("Coincidentally you know her, and I want to put my penis in her.", "Brendo")
+         ,("You were playing with his hair, I was playing with your butt.", "Akhi")
 
          -- Quotes from other people
          ,("I'd rather rest in a state of mediocrity.", "Kianna")
          ,("I'll never look like anything.", "Christina")
          ,("I'm so tempted to show you my bag of condiments.", "Valerie")
+
+         -- Quotes from profs
+         ,("I kinda ran out of gas here... I ran out of stuff. You gotta go home now.", "Computational Audio Prof.")
 
          -- Quotes from coworkers
          ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
