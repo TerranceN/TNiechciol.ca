@@ -156,7 +156,7 @@ mainPage head content = do
                     tag "div" [("class", "textsection")] $ do
                         tag "p" [] $ do
                             text "© Terrance Niechciol "
-                            text "| Background obtained from "
+                            text "| Background from "
                             link "http://subtlepatterns.com/" "SubtlePatterns.com"
             navBar
             uText clickyTrackingCode
