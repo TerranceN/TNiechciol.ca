@@ -90,7 +90,7 @@ meta = do
 
 quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
 
-         -- Quotes from SF crew
+         -- Quotes from SF crew 2015
          ,("When I realized becoming an actress wouldn't pan out, I decided my life would be like a movie.", "Luz")
          ,("I'm not here for babies, I'm here for art!", "Philippe")
          ,("Damn, you could break a chair with that ass!", "Ally")
@@ -98,6 +98,10 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          ,("Do the trains go on a schedule?", "Sam")
          ,("Sometimes I have a hard time telling the difference between popcorn and carpet.", "Lydia")
          ,("Dude, suitcases are so much easier than women.", "Patrick")
+
+        -- Quotes from SF crew 2016
+        ,("Heterosexual sex is the gayest thing in the world.", "Joe")
+        ,("Puppy killing is universal.", "Alexis")
 
          -- Quotes from Vancouver crew
          ,("In this day and age no one uses idioms anymore.", "Liz")
@@ -129,6 +133,7 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
          -- Quotes from coworkers
          ,("We had to get the social worker involved, because kids were covered in lube.", "Lauren")
          ,("I love that you think you're normal.", "Olga")
+         ,("Through physics I just ended up in his crotch.", "Dave")
          ,("He was intellectually masturbating the entire interview, but he just couldn't cum.", "Louie")
          ,("Brendan is a master at massacring girls with his balls.", "Kenshi")
          ,("You suck, and everything you touch sucks. You're like the anti-King Midas.", "Warsaba")
