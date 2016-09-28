@@ -12,3 +12,7 @@
 #wrapper {
     width: 930px;
 }
+
+#pageContent .resume_content {
+  padding-left: 0;
+}

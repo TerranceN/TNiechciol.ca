@@ -23,7 +23,6 @@ header = do
 section name content = do
     tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
         tag "h2" [] $ text name
-        tag "img" [("class", "seperator"), ("src", "/images/resume_gradient.png")] noHtml
         tag "div" [("class", "section_content")] content
 
 subsection name sideInfo headerInfo content = do
@@ -31,7 +30,7 @@ subsection name sideInfo headerInfo content = do
         tag "div" [] $ do
             tag "div" [("class", "subsection_header")] $ do
               tag "h3" [] $ text name
-              maybe noHtml (\headerInfo -> tag "div" [("class", "header_info")] $ text headerInfo) headerInfo
+              maybe noHtml (\headerInfo -> tag "div" [("class", "header_info")] $ headerInfo) headerInfo
             tag "div" [("class", "inner_content")] content
             tag "div" [("class", "right_info")] $ do
                 wrapDivs sideInfo
@@ -53,7 +52,7 @@ resume = do
                       ,text "Jan. 2015 - Aug. 2015"
                       ,text "Ruby, Go, Javascript"
                       ,text "Rails, DynamoDB, React.js"
-                      ] (Just "(Co-op evaluations: Outstanding/Excellent)") $ do
+                      ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
                         ulist [text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
                               ,text "Updated the SMS and Email processing to support new chat features/safety requirements"
                               ,text "Rewrote major parts of the web dashboard using React for feature parity with the mobile client"
@@ -63,7 +62,7 @@ resume = do
                       ,text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
                       ,text "Objective C, Python, Javascript, Java"
                       ,text "iOS, Django, Android, GLES 2.0"
-                      ] (Just "(Co-op evaluations: Excellent/Excellent)") $ do
+                      ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
                         ulist [text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
                               ,text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
@@ -84,7 +83,7 @@ resume = do
                         subsection "ATA Co-op Hackathon Game"
                           [link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
                           ,link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
-                          ,text "Two days during April 2014"
+                          ,text "Two days in April 2014"
                           ,text "Java"
                           ,text "libGDX, OpenGL"
                           ] Nothing $ do
