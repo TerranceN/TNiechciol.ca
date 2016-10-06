@@ -49,13 +49,14 @@ resume = do
                 section "Work Experience" $ do
                     subsection "Remind"
                       [link "https://www.remind.com/about" "remind.com/about"
-                      ,text "Jan. 2015 - Aug. 2015"
-                      ,text "Ruby, Go, Javascript"
-                      ,text "Rails, DynamoDB, React.js"
+                      ,text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
+                      ,text "Ruby, Go, Javascript, Java"
+                      ,text "Rails, DynamoDB, React.js, Android"
                       ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
                         ulist [text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
-                              ,text "Updated the SMS and Email processing to support new chat features/safety requirements"
                               ,text "Rewrote major parts of the web dashboard using React for feature parity with the mobile client"
+                              ,text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
+                              ,text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
                               ]
                     subsection "A Thinking Ape"
                       [link "http://www.athinkingape.com/about" "athinkingape.com/about"
@@ -89,6 +90,7 @@ resume = do
                           ] Nothing $ do
                             ulist [text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
                                   ,text "Added the ability for players to phase through walls in order to add variety to the combat"
+                                  ,text "Responsible for movement and level collision, including wall jumping and dashing, and graphical effects like the bullet trails and the desaturation effect when phasing through walls"
                                   ]
                         subsection "Defered Renderer with SSAO"
                           [link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"

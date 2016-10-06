@@ -75,6 +75,7 @@ html body * {
     margin-left: 10px !important;
     padding-left: 0 !important;
     position: relative;
+    padding-bottom: 0 !important;
 }
 
 .resume_content h2, .resume_content h3 {
@@ -181,7 +182,7 @@ html body * {
 .section h2:after {
   content: "";
   position: absolute;
-  bottom: 22px;
+  bottom: 18px;
   margin-left: 10px;
   width: 100%;
   border-top: 1px solid #FAA;
