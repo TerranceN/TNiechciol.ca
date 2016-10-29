@@ -38,7 +38,11 @@ subsection name sideInfo headerInfo content = do
     wrapDivs = mapM_ wrapDiv
     wrapDiv thing = tag "div" [] thing
 
-placeholder = "/images/placeholder.jpg"
+linkIcon = image "/images/link_icon.png" "link"
+calendarIcon = image "/images/calendar_icon.png" "date"
+videoIcon = image "/images/video_icon.png" "video"
+langIcon = image "/images/lang_icon.png" "language(s)"
+toolIcon = image "/images/tool_icon.png" "APIs/frameworks used"
 
 resume = do
     tag "div" [("class", "resume_content")] $ do
@@ -48,21 +52,21 @@ resume = do
             tag "div" [("id", "resume_body")] $ do
                 section "Work Experience" $ do
                     subsection "Remind"
-                      [link "https://www.remind.com/about" "remind.com/about"
-                      ,text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
-                      ,text "Ruby, Go, Javascript, Java"
-                      ,text "Rails, DynamoDB, React.js, Android"
+                      [linkIcon >> link "https://www.remind.com/about" "remind.com/about"
+                      ,calendarIcon >> text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
+                      ,langIcon >> text "Ruby, Go, Javascript, Java"
+                      ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
                       ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
                         ulist [text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
-                              ,text "Rewrote major parts of the web dashboard using React for feature parity with the mobile client"
+                              ,text "Rewrote the web dashboard using React for feature parity with the mobile clients"
                               ,text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
                               ,text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
                               ]
                     subsection "A Thinking Ape"
-                      [link "http://www.athinkingape.com/about" "athinkingape.com/about"
-                      ,text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
-                      ,text "Objective C, Python, Javascript, Java"
-                      ,text "iOS, Django, Android, GLES 2.0"
+                      [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
+                      ,calendarIcon >> text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
+                      ,langIcon >> text "Objective C, Python, Javascript, Java"
+                      ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
                       ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
                         ulist [text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
@@ -71,44 +75,44 @@ resume = do
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
                         subsection "Geometry Wars Clone"
-                          [link "http://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
-                          ,link "https://youtu.be/Xv-3VLCFOQM" "youtu.be/Xv-3VLCFOQM"
-                          ,text "Sept. 2013 - Dec. 2013"
-                          ,text "Scala"
-                          ,text "LWJGL, OpenGL, GPGPU"
+                          [linkIcon >> link "http://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
+                          ,videoIcon >> link "https://youtu.be/Xv-3VLCFOQM" "youtu.be/Xv-3VLCFOQM"
+                          ,calendarIcon >> text "Sept. 2013 - Dec. 2013"
+                          ,langIcon >> text "Scala"
+                          ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
                           ] Nothing $ do
                             ulist [text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how effects like the deformable grid, and bloom are implemented"
                                   ,text "Coded the particle simulation to run on the GPU in order to have hundreds of thousands of particles without slowdown"
-                                  ,text "Created a dynamic music system that plays more intense music when more enemies are present"
+                                  ,text "Created a dynamic music system that plays more intense music when there's more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
-                          [link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
-                          ,link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
-                          ,text "Two days in April 2014"
-                          ,text "Java"
-                          ,text "libGDX, OpenGL"
+                          [linkIcon >> link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
+                          ,videoIcon >> link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
+                          ,calendarIcon >> text "A weekend in April 2014"
+                          ,langIcon >> text "Java"
+                          ,toolIcon >> text "libGDX, OpenGL"
                           ] Nothing $ do
                             ulist [text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
                                   ,text "Added the ability for players to phase through walls in order to add variety to the combat"
                                   ,text "Responsible for movement and level collision, including wall jumping and dashing, and graphical effects like the bullet trails and the desaturation effect when phasing through walls"
                                   ]
                         subsection "Defered Renderer with SSAO"
-                          [link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
-                          ,link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
-                          ,text "Sept. 2014 - Dec. 2014"
-                          ,text "Scala"
-                          ,text "LWJGL, OpenGL"
+                          [linkIcon >> link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
+                          ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
+                          ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
+                          ,langIcon >> text "Scala"
+                          ,toolIcon >> text "LWJGL, OpenGL"
                           ] Nothing $ do
                             ulist [text "Created a tech demo to learn how to implement some modern graphics techniques"
                                   ,text "Implemented normal mapping and specular mapping to make walls look more detailed"
                                   ,text "Implemented defered rendering in order to efficiently render many lights"
-                                  ,text "Used depth information from the defered rendering process in order to create a screen space approximation of ambient occlusion, in order to have light falloff more realistically around corners"
+                                  ,text "Used depth information from the defered rendering process in order to create a screen space approximation of ambient occlusion, in order to have light falloff more realistically in corners"
                                   ]
                         subsection "eat.sleep.build"
-                          [link "http://eat.sleep.build" "eat.sleep.build"
-                          ,text "Nov. 2012 - present"
-                          ,text "Haskell"
-                          ,text "lighttpd"
+                          [linkIcon >> link "http://eat.sleep.build" "eat.sleep.build"
+                          ,calendarIcon >> text "Nov. 2012 - present"
+                          ,langIcon >> text "Haskell"
+                          ,toolIcon >> text "lighttpd"
                           ] Nothing $ do
                             ulist [text "Created a Haskell webapp running on top of lighttpd"
                                   ,text "Created an Html DSL using monads to programmatically compose html"

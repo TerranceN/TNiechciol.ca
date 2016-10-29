@@ -14,12 +14,6 @@ html body * {
     padding:5px;
 }
 
-@media print {
-  .resume_content {
-    margin-top: 20px;
-  }
-}
-
 .resume_content * {
     font-family: 'Oswald', sans-serif !important;
     color: #444 !important;
@@ -59,11 +53,12 @@ html body * {
     margin-top: 23px;
     display: inline-block;
     float: right;
-    width: 230px;
+    width: 273px;
 }
 
 .resume_content .contact_info > div {
   margin-top: -7px;
+  margin-left: 24px;
 }
 
 .resume_content .contact_info a {
@@ -104,12 +99,11 @@ html body * {
 .resume_content .subsection {
     position:relative;
     padding: 3px 0px 5px 0px;
-    //box-shadow: 1px 1px 0px 1px rgba(0,0,0,0.16),-1px -1px 0px 1px rgba(0,0,0,0.07);
     border-radius: 3px;
 }
 
 .resume_content .subsection .inner_content {
-    width: 630px;
+    width: 600px;
     display: inline-block;
     margin-left: 4px;
 }
@@ -118,11 +112,11 @@ html body * {
     float: right;
     text-align: left;
     margin-top: 0px;
-    width: 230px;
+    width: 273px;
 }
 
 .resume_content .subsection .right_info * {
-    font-size: 13px;
+    font-size: 14px;
 }
 
 .resume_content #personal-projects_section {
@@ -185,5 +179,18 @@ html body * {
   bottom: 18px;
   margin-left: 10px;
   width: 100%;
-  border-top: 1px solid #FAA;
+  border-top: 2px solid #F66;
+}
+
+.inner_content li, .right_info div {
+    line-height: 22px;
+}
+
+.right_info .image_container {
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.right_info .image_container img {
+  margin-bottom: -4px;
 }
