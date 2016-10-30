@@ -57,10 +57,10 @@ resume = do
                       ,langIcon >> text "Ruby, Go, Javascript, Java"
                       ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
                       ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
-                        ulist [text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
-                              ,text "Rewrote the web dashboard using React for feature parity with the mobile clients"
-                              ,text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
-                              ,text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
+                        ulist [tag "span" [] $ text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
+                              ,tag "span" [] $ text "Rewrote the web dashboard using React for feature parity with the mobile clients"
+                              ,tag "span" [] $ text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
+                              ,tag "span" [] $ text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
                               ]
                     subsection "A Thinking Ape"
                       [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
@@ -68,9 +68,9 @@ resume = do
                       ,langIcon >> text "Objective C, Python, Javascript, Java"
                       ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
                       ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
-                        ulist [text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
-                              ,text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
-                              ,text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+                        ulist [tag "span" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
+                              ,tag "span" [] $ text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
+                              ,tag "span" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
                               ]
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
@@ -81,9 +81,9 @@ resume = do
                           ,langIcon >> text "Scala"
                           ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
                           ] Nothing $ do
-                            ulist [text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how effects like the deformable grid, and bloom are implemented"
-                                  ,text "Coded the particle simulation to run on the GPU in order to have hundreds of thousands of particles without slowdown"
-                                  ,text "Created a dynamic music system that plays more intense music when there's more enemies"
+                            ulist [tag "span" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how effects like the deformable grid, and bloom are implemented"
+                                  ,tag "span" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
+                                  ,tag "span" [] $ text "Created a dynamic music system that plays more intense music when there's more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
                           [linkIcon >> link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
@@ -92,9 +92,9 @@ resume = do
                           ,langIcon >> text "Java"
                           ,toolIcon >> text "libGDX, OpenGL"
                           ] Nothing $ do
-                            ulist [text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
-                                  ,text "Added the ability for players to phase through walls in order to add variety to the combat"
-                                  ,text "Responsible for movement and level collision, including wall jumping and dashing, and graphical effects like the bullet trails and the desaturation effect when phasing through walls"
+                            ulist [tag "span" [] $ text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
+                                  ,tag "span" [] $ text "Added the ability for players to phase through walls to add variety to the combat"
+                                  ,tag "span" [] $ text "Responsible for movement and level collision, including wall jumping and dashing, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
                                   ]
                         subsection "Defered Renderer with SSAO"
                           [linkIcon >> link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
@@ -103,10 +103,10 @@ resume = do
                           ,langIcon >> text "Scala"
                           ,toolIcon >> text "LWJGL, OpenGL"
                           ] Nothing $ do
-                            ulist [text "Created a tech demo to learn how to implement some modern graphics techniques"
-                                  ,text "Implemented normal mapping and specular mapping to make walls look more detailed"
-                                  ,text "Implemented defered rendering in order to efficiently render many lights"
-                                  ,text "Used depth information from the defered rendering process in order to create a screen space approximation of ambient occlusion, in order to have light falloff more realistically in corners"
+                            ulist [tag "span" [] $ text "Created a tech demo to learn how to implement some modern graphics techniques"
+                                  ,tag "span" [] $ text "Implemented normal mapping and specular mapping to make walls look more detailed"
+                                  ,tag "span" [] $ text "Implemented defered rendering to efficiently render many lights"
+                                  ,tag "span" [] $ text "Used depth information from the defered rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
                                   ]
                         subsection "eat.sleep.build"
                           [linkIcon >> link "http://eat.sleep.build" "eat.sleep.build"
@@ -114,9 +114,9 @@ resume = do
                           ,langIcon >> text "Haskell"
                           ,toolIcon >> text "lighttpd"
                           ] Nothing $ do
-                            ulist [text "Created a Haskell webapp running on top of lighttpd"
-                                  ,text "Created an Html DSL using monads to programmatically compose html"
-                                  ,text "Built from a \"Hello World\" Haskell application into a full website in order to better understand other frameworks like Django and Rails"
+                            ulist [tag "span" [] $ text "Created a Haskell webapp running on top of lighttpd"
+                                  ,tag "span" [] $ text "Created an Html DSL using monads to programmatically compose html"
+                                  ,tag "span" [] $ text "Built from a \"Hello World\" Haskell application into a full website to better understand how other frameworks like Django and Rails work"
                                   ]
                 section "School" $ do
                   tag "p" [] $ do

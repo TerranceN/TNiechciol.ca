@@ -94,6 +94,12 @@ html body * {
     padding-left: 20px;
     margin-top:0;
     margin-bottom:0;
+    margin-left: 10px;
+}
+
+.resume_content .section ul li > span {
+    position: relative;
+    left: -8px;
 }
 
 .resume_content .subsection {
@@ -147,6 +153,7 @@ html body * {
 
 .resume_content .subsection_header > * {
   display: inline-block;
+  margin-left: 10px;
 }
 
 .resume_content .header_info {
