@@ -37,6 +37,7 @@ body {
     left:0;
     width:100%;
     font-size: 24px;
+    z-index: 100;
 
     -moz-box-shadow: 0px 1px 8px 0px #777;
     -webkit-box-shadow: 0px 1px 8px 0px #777;
@@ -253,17 +254,13 @@ p {
 }
 
 a {
-    color: #B11;
+    color: #F00;
 
     -webkit-transition: text-shadow 0.2s ease, color 0.2s ease;
     -moz-transition: text-shadow 0.2s ease, color 0.2s ease;
     -o-transition: text-shadow 0.2s ease, color 0.2s ease;
     -ms-transition: text-shadow 0.2s ease, color 0.2s ease;
     transition: text-shadow 0.2s ease, color 0.2s ease;
-}
-
-a:visited {
-    color: #B11;
 }
 
 a:hover {

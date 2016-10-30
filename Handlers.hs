@@ -61,6 +61,7 @@ resumePage urlOptions request =
         stylesheet "/styles/resume.css"
         stylesheet "/styles/base_resume.css"
     content = do
+        tag "div" [("class", "pdf_link")] $ link "/files/Resume.pdf" "Printable PDF"
         Resume.resume
 
 todoPage urlOptions request =

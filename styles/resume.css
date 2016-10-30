@@ -14,5 +14,13 @@
 }
 
 #pageContent .resume_content {
-  padding-left: 0;
+    padding-left: 0;
+}
+
+#pageContent .pdf_link {
+    float: right;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+    margin-top: -10px;
 }
