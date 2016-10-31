@@ -81,8 +81,9 @@ resume = do
                           ,langIcon >> text "Scala"
                           ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
                           ] Nothing $ do
-                            ulist [tag "span" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how effects like the deformable grid, and bloom are implemented"
+                            ulist [tag "span" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
                                   ,tag "span" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
+                                  ,tag "span" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
                                   ,tag "span" [] $ text "Created a dynamic music system that plays more intense music when there's more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
