@@ -124,7 +124,7 @@ resume = do
                     text "4B Computer Science at University of Waterloo –– Expected graduation: April 2017"
 
 oswaldFont = do
-    tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700")
+    tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700|Roboto Condensed")
                ,("rel", "stylesheet")
                ,("type", "text/css")
                ] noHtml
