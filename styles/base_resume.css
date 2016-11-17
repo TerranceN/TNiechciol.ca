@@ -181,7 +181,11 @@ html body * {
 }
 
 .inner_content li, .right_info div {
-    line-height: 22px;
+  line-height: 22px;
+}
+
+.right_info > div {
+  height: 22px;
 }
 
 .right_info .image_container {
