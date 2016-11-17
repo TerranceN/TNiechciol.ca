@@ -47,14 +47,14 @@ html body * {
 
 .resume_content .contact_info {
     margin-left: 2px;
-    margin-top: 13px;
+    margin-top: 17px;
     display: inline-block;
     float: right;
     width: 277px;
 }
 
 .resume_content .contact_info > div {
-  margin-bottom: -6px;
+  margin-bottom: -2px;
 }
 
 .resume_content .contact_info a {
@@ -186,14 +186,25 @@ html body * {
 
 .contact_info .image_container, .right_info .image_container {
   display: inline-block;
-  margin-right: 3px;
+  margin-right: 5px;
 }
 
-.contact_info .image_container, .right_info .image_container img {
-  margin-bottom: -4px;
+.contact_info .image_container img, .right_info .image_container img {
+  margin-bottom: -2px;
+  max-width: 16px;
+  max-height: 16px;
+}
+
+.resume_content .subsection .right_info img {
+  margin-bottom: -3px;
 }
 
 .contact_info .image_container {
-    position: relative;
-    top: 6px;
+  position: relative;
+  top: 2px;
+}
+
+/* Fix for pdf rendering; makes the email icon a bit higher so it seems centered */
+.contact_info .image_container:nth-child(1) {
+  top: 0;
 }

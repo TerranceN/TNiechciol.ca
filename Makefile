@@ -1,10 +1,9 @@
+.PHONY: main
+
 SOURCE=$(wildcard *.hs)
 INC_DIRS=-iFramework
 
-all: $(SOURCE) before main
-
-before:
-	@rm -f Main Main.exe
+all: $(SOURCE) main
 
 main:
 	@ghc --make -O2 Main -o TMPMain $(INC_DIRS)

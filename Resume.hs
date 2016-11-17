@@ -38,14 +38,14 @@ subsection name sideInfo headerInfo content = do
     wrapDivs = mapM_ wrapDiv
     wrapDiv thing = tag "div" [] thing
 
-linkIcon = image "/images/link_icon.png" "link"
-calendarIcon = image "/images/calendar_icon.png" "date"
-videoIcon = image "/images/video_icon.png" "video"
-langIcon = image "/images/lang_icon.png" "language(s)"
-toolIcon = image "/images/tool_icon.png" "APIs/frameworks used"
-githubIcon = image "/images/github_icon.png" "link"
-mailIcon = image "/images/mail_icon.png" "link"
-phoneIcon = image "/images/phone_icon.png" "link"
+linkIcon = image "/images/link_icon.svg" "link"
+calendarIcon = image "/images/calendar_icon.svg" "date"
+videoIcon = image "/images/video_icon.svg" "video"
+langIcon = image "/images/lang_icon.svg" "language(s)"
+toolIcon = image "/images/gear_icon.svg" "APIs/frameworks used"
+githubIcon = image "/images/github_icon.svg" "link"
+mailIcon = image "/images/email_icon.svg" "link"
+phoneIcon = image "/images/phone_icon.svg" "link"
 
 resume = do
     tag "div" [("class", "resume_content")] $ do
