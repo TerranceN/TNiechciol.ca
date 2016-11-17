@@ -127,7 +127,7 @@ resume = do
                                   ]
                 section "School" $ do
                   tag "p" [] $ do
-                    text "4B Computer Science at University of Waterloo –– Expected graduation: April 2017"
+                    uText "Computer Science student at the University of Waterloo &mdash; Expected graduation: April 2017"
 
 oswaldFont = do
     tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700|Roboto Condensed")
