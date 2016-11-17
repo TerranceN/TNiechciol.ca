@@ -46,6 +46,7 @@ toolIcon = image "/images/gear_icon.svg" "APIs/frameworks used"
 githubIcon = image "/images/github_icon.svg" "link"
 mailIcon = image "/images/email_icon.svg" "link"
 phoneIcon = image "/images/phone_icon.svg" "link"
+locationIcon = image "/images/location_icon.svg" "location"
 
 resume = do
     tag "div" [("class", "resume_content")] $ do
@@ -56,6 +57,7 @@ resume = do
                 section "Work Experience" $ do
                     subsection "Remind"
                       [linkIcon >> link "https://www.remind.com/about" "remind.com/about"
+                      ,locationIcon >> text "San Francisco"
                       ,calendarIcon >> text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
                       ,langIcon >> text "Ruby, Go, Javascript, Java"
                       ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
@@ -67,6 +69,7 @@ resume = do
                               ]
                     subsection "A Thinking Ape"
                       [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
+                      ,locationIcon >> text "Vancouver"
                       ,calendarIcon >> text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
                       ,langIcon >> text "Objective C, Python, Javascript, Java"
                       ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
