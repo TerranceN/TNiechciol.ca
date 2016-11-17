@@ -87,7 +87,7 @@ resume = do
                             ulist [tag "span" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
                                   ,tag "span" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
                                   ,tag "span" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
-                                  ,tag "span" [] $ text "Created a dynamic music system that plays more intense music when there's more enemies"
+                                  ,tag "span" [] $ text "The dynamic music system plays more intense music when there's more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
                           [linkIcon >> link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
@@ -98,7 +98,7 @@ resume = do
                           ] Nothing $ do
                             ulist [tag "span" [] $ text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
                                   ,tag "span" [] $ text "Added the ability for players to phase through walls to add variety to the combat"
-                                  ,tag "span" [] $ text "Responsible for movement and level collision, including wall jumping and dashing, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
+                                  ,tag "span" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
                                   ]
                         subsection "Defered Renderer with SSAO"
                           [linkIcon >> link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"

@@ -12,6 +12,7 @@ html body * {
     margin-left: -450px;
     width: 900px;
     padding:5px;
+    margin-top: -20px;
 }
 
 .resume_content * {
@@ -27,10 +28,6 @@ html body * {
 
 .resume_content #resume {
     width: 900px;
-}
-
-.resume_content #header {
-    margin-top: -20px;
 }
 
 .resume_content #header_relative {
@@ -50,14 +47,14 @@ html body * {
 
 .resume_content .contact_info {
     margin-left: 2px;
-    margin-top: 19px;
+    margin-top: 13px;
     display: inline-block;
     float: right;
     width: 277px;
 }
 
 .resume_content .contact_info > div {
-  margin-top: -6px;
+  margin-bottom: -6px;
 }
 
 .resume_content .contact_info a {
