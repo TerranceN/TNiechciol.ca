@@ -50,15 +50,14 @@ html body * {
 
 .resume_content .contact_info {
     margin-left: 2px;
-    margin-top: 20px;
+    margin-top: 19px;
     display: inline-block;
     float: right;
     width: 277px;
 }
 
 .resume_content .contact_info > div {
-  margin-top: -2px;
-  margin-left: 24px;
+  margin-top: -6px;
 }
 
 .resume_content .contact_info a {
@@ -188,11 +187,16 @@ html body * {
   height: 22px;
 }
 
-.right_info .image_container {
+.contact_info .image_container, .right_info .image_container {
   display: inline-block;
   margin-right: 3px;
 }
 
-.right_info .image_container img {
+.contact_info .image_container, .right_info .image_container img {
   margin-bottom: -4px;
+}
+
+.contact_info .image_container {
+    position: relative;
+    top: 6px;
 }

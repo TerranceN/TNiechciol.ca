@@ -15,10 +15,10 @@ header = do
     tag "div" [("id", "header")] $ do
         tag "h1" [] $ text "Terrance Niechciol"
         tag "div" [("class", "contact_info")] $ do
-            tag "div" [] $ linkNewTab "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
-            tag "div" [] $ linkNewTab "http://github.com/TerranceN/" "github.com/TerranceN"
-            tag "div" [] $ linkNewTab "tel:+15197211435" "+1-519-721-1435"
-            tag "div" [] $ linkNewTab "http://eat.sleep.build" "eat.sleep.build"
+            tag "div" [] $ mailIcon >> linkNewTab "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
+            tag "div" [] $ githubIcon >> linkNewTab "http://github.com/TerranceN/" "github.com/TerranceN"
+            tag "div" [] $ phoneIcon >> linkNewTab "tel:+16147215649" "+1-614-721-5649"
+            tag "div" [] $ linkIcon >> linkNewTab "http://eat.sleep.build" "eat.sleep.build"
 
 section name content = do
     tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
@@ -43,6 +43,9 @@ calendarIcon = image "/images/calendar_icon.png" "date"
 videoIcon = image "/images/video_icon.png" "video"
 langIcon = image "/images/lang_icon.png" "language(s)"
 toolIcon = image "/images/tool_icon.png" "APIs/frameworks used"
+githubIcon = image "/images/github_icon.png" "link"
+mailIcon = image "/images/mail_icon.png" "link"
+phoneIcon = image "/images/phone_icon.png" "link"
 
 resume = do
     tag "div" [("class", "resume_content")] $ do
