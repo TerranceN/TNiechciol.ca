@@ -1,7 +1,7 @@
 module Resume
 ( resume
 , resumePage
-, oswaldFont
+, fonts
 ) where
 
 import Control.Monad
@@ -129,7 +129,7 @@ resume = do
                   tag "p" [] $ do
                     uText "Computer Science student at the University of Waterloo &mdash; Expected graduation: April 2017"
 
-oswaldFont = do
+fonts = do
     tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700|Roboto Condensed")
                ,("rel", "stylesheet")
                ,("type", "text/css")
@@ -139,7 +139,7 @@ resumePage urlOptions request = do
     httpResponse 200 $ do
         tag "html" [] $ do
             tag "head" [] $ do
-                oswaldFont
+                fonts
                 stylesheet "/styles/base_resume.css"
                 stylesheet "/styles/resume_page.css"
             tag "body" [] $ do

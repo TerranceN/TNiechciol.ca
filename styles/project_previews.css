@@ -15,7 +15,7 @@
 
 .preview_separator {
     clear: both;
-    margin: 20px 100px 40px 100px;
+    margin: 22px 100px 20px 100px;
     border: none;
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 350, from(#DDD), to(#fff));
 }

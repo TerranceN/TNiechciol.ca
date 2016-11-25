@@ -57,7 +57,7 @@ resumePage urlOptions request =
   where
     head = do
         title "Resume"
-        Resume.oswaldFont
+        Resume.fonts
         stylesheet "/styles/resume.css"
         stylesheet "/styles/base_resume.css"
     content = do
