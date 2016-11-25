@@ -64,6 +64,11 @@ stylesheet url = do
                ,("type", "text/css")
                ,("href", hashedUrl)] noHtml
 
+inlineStylesheet :: String -> Html
+inlineStylesheet file = do
+    contents <- lift $ readFile file
+    tag "style" [] $ uText contents
+
 navBar :: String -> Html
 navBar selected = do
     tag "div" [("id", "navBar")] $ do
@@ -163,7 +168,7 @@ mainPage head content options = do
     tag "html" [] $ do
         tag "head" [] $ do
             meta
-            stylesheet "/styles/main.css"
+            inlineStylesheet "./styles/main.css"
             stylesheet "http://fonts.googleapis.com/css?family=Raleway|Roboto Condensed"
             head
         tag "body" [("background", "/images/confectionary.jpg")] $ do
