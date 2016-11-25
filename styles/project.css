@@ -125,7 +125,7 @@ body.popup {
 
 .overlay {
     position: fixed;
-    z-index: 1;
+    z-index: 101;
     top: 0;
     left: 0;
     width: 100%;
@@ -136,7 +136,7 @@ body.popup {
 
 .popup_container {
     position: fixed;
-    z-index: 2;
+    z-index: 102;
     top: 0;
     left: 0;
     width: 100%;
@@ -220,7 +220,7 @@ body.popup {
     color: white;
     font-size: 30px;
     text-decoration: none;
-    z-index: 2;
+    z-index: 102;
 
     text-shadow: 0 0 1px #000, 0 0 1px #000;
 
