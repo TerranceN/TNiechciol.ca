@@ -63,8 +63,8 @@ body {
 #navBar ul
 {
     list-style: none;
-    margin: 0;
-    padding: 8px;
+    padding: 0;
+    margin: 5px auto 8px auto;
 }
 
 #navBar ul ul {
@@ -75,8 +75,6 @@ body {
 
 #navBar > ul {
     width: 800px;
-    margin: auto;
-    margin-top: -3px;
 }
 
 #navBar li
