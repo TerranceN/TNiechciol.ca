@@ -23,7 +23,7 @@ import qualified Resume
 import qualified Projects
 
 index urlOptions request =
-    mainLayout head content
+    mainLayout head content [("section", "home")]
   where
     head = do
         tag "title" [] $ text "Terrance Niechciol's Website"
@@ -53,7 +53,7 @@ index urlOptions request =
             link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
 
 resumePage urlOptions request =
-    mainLayout head content
+    mainLayout head content [("section", "resume")]
   where
     head = do
         title "Resume"
@@ -65,7 +65,7 @@ resumePage urlOptions request =
         Resume.resume
 
 todoPage urlOptions request =
-    mainLayout head content
+    mainLayout head content []
   where
     head = do
       title "TODO"
@@ -104,9 +104,12 @@ todoPage urlOptions request =
         ]
 
 notFoundPage urlOptions request = do
-    httpResponse 404 $ mainPage noHtml $ tag "p" [] $ do
-        tag "h1" [] $ text "404"
-        tag "p" [] $ text "Sorry, the page you requested cannot be found."
+    httpResponse 404 $ mainPage noHtml body []
+  where
+    body =
+      tag "p" [] $ do
+          tag "h1" [] $ text "404"
+          tag "p" [] $ text "Sorry, the page you requested cannot be found."
 
 urlDecoder :: Parser String
 urlDecoder = many (encoded <|> space <|> anyChar)
@@ -139,10 +142,15 @@ testPost = do
     text content
 
 postTest urlOptions request = do
-    mainLayout noHtml $ tag "p" [] $ testPost
+    mainLayout noHtml body []
+  where
+    body = tag "p" [] $ testPost
 
 formTest urlOptions request =
-    mainLayout noHtml $ tag "p" [] $ do
+    mainLayout noHtml body []
+  where
+    body =
+      tag "p" [] $ do
         tag "form" [("action", "/postTest/"), ("method", "post")] $ do
             tag "input" [("type", "textbox"), ("name", "str")] noHtml
             tag "input" [("type", "submit")] noHtml

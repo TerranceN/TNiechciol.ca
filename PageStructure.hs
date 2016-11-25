@@ -19,10 +19,12 @@ module PageStructure
 ) where
 
 import Data.Char
+import Data.Maybe
 import qualified Data.HashMap.Lazy as Map
 import Text.ParserCombinators.Parsec
 import Control.Monad.Trans
 
+import HelperFunctions
 import PageTypes
 import GitHash
 import Clicky
@@ -62,24 +64,36 @@ stylesheet url = do
                ,("type", "text/css")
                ,("href", hashedUrl)] noHtml
 
-navBar :: Html
-navBar = do
+navBar :: String -> Html
+navBar selected = do
     tag "div" [("id", "navBar")] $ do
-        tag "ul" [] $ do
-            tag "li" [] $ do
-                tag "div" [] $ link "/" "Home"
-            tag "li" [] $ do
-                tag "div" [] $ link "/Projects/" "Projects"
-                tag "ul" [] $ do
-                    tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
-                    tag "li" [] $ link "/Projects/ATAHackathonGame/" "ATA Hackathon Game"
-                    tag "li" [] $ link "/Projects/DeferedRenderer/" "Defered Renderer"
-                    tag "li" [] $ link "/Projects/GeoWarsCloneOld/" "Geometry Wars Clone (old)"
-                    tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
-                    tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
-                    tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
-            tag "li" [] $ do
-                tag "div" [] $ link "/Resume/" "Resume"
+        tag "ul" [] $ mapM_ selectSelected pages
+  where
+    selectSelected (name, html) =
+      if name == selected
+        then html [("class", "selected")]
+        else html []
+    home attrs = 
+      tag "li" attrs $ do
+          tag "div" [] $ link "/" "Home"
+    projects attrs = 
+      tag "li" attrs $ do
+          tag "div" [] $ link "/Projects/" "Projects"
+          tag "ul" [] $ do
+              tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
+              tag "li" [] $ link "/Projects/ATAHackathonGame/" "ATA Hackathon Game"
+              tag "li" [] $ link "/Projects/DeferedRenderer/" "Defered Renderer"
+              tag "li" [] $ link "/Projects/GeoWarsCloneOld/" "Geometry Wars Clone (old)"
+              tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
+              tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
+              tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
+    resume attrs = 
+      tag "li" attrs $ do
+          tag "div" [] $ link "/Resume/" "Resume"
+    pages = [("home", home)
+            ,("projects", projects)
+            ,("resume", resume)
+            ]
 
 meta :: Html
 meta = do
@@ -141,8 +155,8 @@ quotes = [("Terrance is a state of mind, he isn't a person.", "Awn")
 
 renderQuote (quote, author) = uText ("\"" ++ quote ++ "\"" ++ " --" ++ author ++ "\n")
 
-mainPage :: Html -> Html -> Html
-mainPage head content = do
+mainPage :: Html -> Html -> [(String, String)] -> Html
+mainPage head content options = do
     uText "<!\n\nHere's some funny quotes I've gathered over the years (in no particular order):\n"
     mapM_ renderQuote quotes
     uText "\n-->"
@@ -163,12 +177,12 @@ mainPage head content = do
                             text "© Terrance Niechciol "
                             text "| Background from "
                             link "http://subtlepatterns.com/" "SubtlePatterns.com"
-            navBar
+            navBar $ fromMaybe "" $ searchDict "section" options
             uText clickyTrackingCode
 
-mainLayout :: Html -> Html -> IO Response
-mainLayout head content = do
-    httpResponse 200 $ mainPage head content
+mainLayout :: Html -> Html -> [(String, String)] -> IO Response
+mainLayout head content options = do
+    httpResponse 200 $ mainPage head content options
 
 projectSection name body =
     tag "div" [("class", "section " ++ (map toLower name))] $ do

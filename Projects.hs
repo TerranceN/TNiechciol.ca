@@ -18,7 +18,7 @@ projectPreview name link image description = do
                 button ("/Projects" ++ link) "Go to project page"
 
 projectLayout head body =
-    mainLayout (customHead >> head) (body >> popup)
+    mainLayout (customHead >> head) (body >> popup) [("section", "projects")]
   where
     customHead = do
         script "/scripts/jquery-2.2.0.min.js"
