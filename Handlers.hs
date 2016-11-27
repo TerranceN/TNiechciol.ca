@@ -130,7 +130,7 @@ museumOfResumes urlOptions request = do
         tag "ul" [] $ do
           tag "li" [] $ text "Made with LaTeX."
           tag "li" [] $ text "Led to my job at A Thinking Ape!"
-          tag "li" [] $ text "After making my previous resume I really hated having it go onto two pages to I really cut my resume down to just the important stuff."
+          tag "li" [] $ text "After making my previous resume I really hated having it go onto two pages so I really cut my resume down to just the important stuff."
           tag "li" [] $ text "That revealed that I actually have a lack of important content to put on it (which is why there's so much empty space)."
           tag "li" [] $ text "Projects are now linked to directly."
           tag "li" [] $ text "Links lack a distinct style to visually identify them, which is a no-no."
