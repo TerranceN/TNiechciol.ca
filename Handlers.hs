@@ -62,7 +62,7 @@ resumePage urlOptions request =
         stylesheet "/styles/base_resume.css"
     content = do
         tag "div" [("class", "links")] $ do
-          link "/museum_of_resumes" "Museum of Resumes"
+          link "/MuseumOfResumes" "Museum of Resumes"
           link "/files/Resume.pdf" "Printable PDF"
         Resume.resume
 
@@ -235,7 +235,7 @@ handlers :: [Handler]
 handlers =
     [(exactly "/", index)
     ,(exactly "/resume/", resumePage)
-    ,(exactly "/museum_of_resumes/", museumOfResumes)
+    ,(exactly "/museumofresumes/", museumOfResumes)
     ,(exactly "/todo/", todoPage)
     ,(exactly "/formtest/", formTest)
     ,(exactly "/posttest/", postTest)
