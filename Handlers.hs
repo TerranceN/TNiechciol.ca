@@ -62,8 +62,8 @@ resumePage urlOptions request =
         stylesheet "/styles/base_resume.css"
     content = do
         tag "div" [("class", "links")] $ do
-          link "/MuseumOfResumes" "Museum of Resumes"
-          link "/files/Resume.pdf" "Printable PDF"
+          tag "div" [] $ link "/MuseumOfResumes" "Museum of Resumes"
+          tag "div" [] $ link "/files/Resume.pdf" "Printable PDF"
         Resume.resume
 
 todoPage urlOptions request =
