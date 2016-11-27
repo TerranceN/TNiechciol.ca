@@ -1,0 +1,25 @@
+#pageContent p {
+    margin: 15px 20px;
+    text-indent: 40px;
+}
+
+#pageContent li {
+    margin: 15px 0px;
+}
+
+.resume_section {
+  margin-top: 25px;
+}
+
+.resume_section h2 {
+  margin-bottom: 2px;
+}
+
+.resume_section ul {
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.resume_section a + a {
+  margin-left: 10px;
+}

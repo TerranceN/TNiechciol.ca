@@ -14,11 +14,3 @@
 #pageContent h2 {
     margin-top: 20px;
 }
-
-hr {
-    margin-top: 0;
-
-    display: block; height: 1px;
-    border: 0; border-top: 2px solid #F22;
-    padding: 0; 
-}

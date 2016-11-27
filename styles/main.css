@@ -355,3 +355,11 @@ img {
     animation: spinner .6s linear infinite;
     -webkit-animation: spinner .6s linear infinite;
 }
+
+hr {
+    margin-top: 0;
+
+    display: block; height: 1px;
+    border: 0; border-top: 2px solid #F22;
+    padding: 0; 
+}

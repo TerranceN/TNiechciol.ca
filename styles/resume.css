@@ -18,11 +18,16 @@
     margin-top: -29px;
 }
 
-#pageContent .pdf_link {
+#pageContent .links {
     position: absolute;
     z-index: 1;
     font-size: 14px;
-    top: 5px;
+    top: 6px;
     right: 5px;
+    text-align: right;
     font-family: 'Roboto Condensed', sans-serif;
+}
+
+#pageContent .links a {
+    display: block;
 }

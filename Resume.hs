@@ -15,10 +15,10 @@ header = do
     tag "div" [("id", "header")] $ do
         tag "h1" [] $ text "Terrance Niechciol"
         tag "div" [("class", "contact_info")] $ do
-            tag "div" [] $ mailIcon >> linkNewTab "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
-            tag "div" [] $ githubIcon >> linkNewTab "http://github.com/TerranceN/" "github.com/TerranceN"
-            tag "div" [] $ phoneIcon >> linkNewTab "tel:+16147215649" "+1-614-721-5649"
-            tag "div" [] $ linkIcon >> linkNewTab "http://eat.sleep.build" "eat.sleep.build"
+            tag "div" [] $ mailIcon >> link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
+            tag "div" [] $ githubIcon >> link "http://github.com/TerranceN/" "github.com/TerranceN"
+            tag "div" [] $ phoneIcon >> link "tel:+16147215649" "+1-614-721-5649"
+            tag "div" [] $ linkIcon >> link "http://eat.sleep.build" "eat.sleep.build"
 
 section name content = do
     tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
@@ -43,9 +43,9 @@ calendarIcon = image "/images/calendar_icon.svg" "date"
 videoIcon = image "/images/video_icon.svg" "video"
 langIcon = image "/images/lang_icon.svg" "language(s)"
 toolIcon = image "/images/gear_icon.svg" "APIs/frameworks used"
-githubIcon = image "/images/github_icon.svg" "link"
-mailIcon = image "/images/email_icon.svg" "link"
-phoneIcon = image "/images/phone_icon.svg" "link"
+githubIcon = image "/images/github_icon.svg" "github"
+mailIcon = image "/images/email_icon.svg" "email"
+phoneIcon = image "/images/phone_icon.svg" "phone number"
 locationIcon = image "/images/location_icon.svg" "location"
 
 resume = do
@@ -74,7 +74,7 @@ resume = do
                       ,langIcon >> text "Objective C, Python, Javascript, Java"
                       ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
                       ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
-                        ulist [tag "span" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> linkNewTab "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
+                        ulist [tag "span" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> link "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
                               ,tag "span" [] $ text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
                               ,tag "span" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
                               ]
