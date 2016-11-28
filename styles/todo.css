@@ -14,3 +14,8 @@
 #pageContent h2 {
     margin-top: 20px;
 }
+
+#pageContent ul p {
+    margin: 10px 0px;
+    text-indent: 0;
+}

@@ -39,7 +39,7 @@ index urlOptions request =
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
         tag "p" [] $ do
-            text "I'm a Computer Science student at the University of Waterloo in my 4th year. I'm taking an extra year though so I can do an additional co-op and take some harder CS courses (Computer Graphics, Computational Audio, and Real-time Programming). In my spare time I play badminton, and I've dabbled in learning the violin and learning french. I also have a love of coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
+            text "I'm a Computer Science student at the University of Waterloo in my 5th year. I'm taking a 5th year because I did an extra co-op term and only had 4 courses for a bunch of terms. In my spare time I lift weights, play badminton, and I've learned some violin and swing dancing, but I'm not that confident in either of those. I also love coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
         tag "p" [("class", "noindent")] $ do
             text "Here's my "
             link "/todo/" "todo list"
@@ -85,20 +85,41 @@ todoPage urlOptions request =
         ]
       tag "h2" [] $ text "Health/Food"
       ulist 
-        [text "Learn to cook my own meals by cooking at least 5/7 days a week " >> link "http://knowyourmeme.com/memes/5-7" "(thats a perfect score, right?)"
+        [do
+          tag "p" [] $ tag "strike" [] $ text "Learn to cook my own meals by cooking at least 5/7 days a week " >> link "http://knowyourmeme.com/memes/5-7" "(thats a perfect score, right?)"
+          tag "p" [] $ text "Now that I can survive on my own cooking abilities, I want to learn to cook specific things:"
+          tag "div" [] $ ulist
+            [tag "strike" [] $ text "Spaghetti"
+            ,tag "strike" [] $ text "Lasagna"
+            ,tag "strike" [] $ text "Scrambled Eggs"
+            ,tag "strike" [] $ text "Chicken Stir-Fry"
+            ,text "Shakshuka"
+            ,text "Omlettes"
+            ,text "Chicken/Turkey in the oven"
+            ,text "Chicken stock"
+            ,text "Cheesecake"
+            ]
         ,text "Reduce my body fat percentage to 10-12% in order to have visible abs, and maintain that for at least a year"
+        ,text "Squat 225lbs"
+        ,text "Bench 135lbs"
+        ,tag "strike" [] $ text "Brew my own coffee regularly"
         ,text "Learn to roast my own coffee beans and experiment with adding flavours"
         ]
       tag "h2" [] $ text "Travel"
       ulist 
-        [text "Go to Oktoberfest in Munich"
+        [text "Go to a beer festival in Germany"
+        ,text "Visit the Rocky Mountains in Alberta"
+        ,text "Visit Craftwork Wines in Montery California"
+        ,text "Hike " >> link "http://www.yosemitehikes.com/tioga-road/clouds-rest/clouds-rest.htm" "Cloud's Rest"
+        ,text "Hike " >> link "http://www.yosemitehikes.com/yosemite-valley/half-dome/half-dome.htm" "Half Dome"
         ]
       tag "h2" [] $ text "Music"
       ulist
-        [text "Become competent at violin"
+        [text "Become good enough at violin to play " >> link "https://www.youtube.com/watch?v=8Ilq8MmasjA&t=16s" "Bach Partita No. 3 Prelude"
         ,text "Make music for a video game (even if it's my own game)"
         ]
       tag "h2" [] $ text "Languages"
+      tag "p" [] $ text "These goals aren't very clearly defined because I'm not sure what counts as having 'learned' a language. I'll come back and clarify them once I feel like I can make a clear definition."
       ulist 
         [text "Learn French"
         ,text "Learn German"
