@@ -197,7 +197,7 @@ projectSection name body =
 youtube_video id width height =
     tag "div" [("class", "youtube_video")] $ do
         tag "div" [("class", "youtube_video_border")] $ do
-            tag "iframe" [("src", "http://www.youtube.com/embed/" ++ id)
+            tag "iframe" [("src", "https://www.youtube.com/embed/" ++ id)
                          ,("width", show width)
                          ,("height", show height)
                          ,("frameborder", "0")
