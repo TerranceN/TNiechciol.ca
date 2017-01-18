@@ -16,9 +16,9 @@ header = do
         tag "h1" [] $ text "Terrance Niechciol"
         tag "div" [("class", "contact_info")] $ do
             tag "div" [] $ mailIcon >> link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
-            tag "div" [] $ githubIcon >> link "http://github.com/TerranceN/" "github.com/TerranceN"
+            tag "div" [] $ githubIcon >> link "https://github.com/TerranceN/" "github.com/TerranceN"
             tag "div" [] $ phoneIcon >> link "tel:+16147215649" "+1-614-721-5649"
-            tag "div" [] $ linkIcon >> link "http://eat.sleep.build" "eat.sleep.build"
+            tag "div" [] $ linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
 
 section name content = do
     tag "div" [("class", "section"), ("id", (slugify name) ++ "_section")] $ do
@@ -37,7 +37,6 @@ subsection name sideInfo headerInfo content = do
   where
     wrapDivs = mapM_ wrapDiv
     wrapDiv thing = tag "div" [] thing
-
 linkIcon = image "/images/link_icon.svg" "link"
 calendarIcon = image "/images/calendar_icon.svg" "date"
 videoIcon = image "/images/video_icon.svg" "video"
@@ -81,7 +80,7 @@ resume = do
                 section "Personal Projects" $ do
                     tag "div" [("class", "project_descriptions")] $ do
                         subsection "Geometry Wars Clone"
-                          [linkIcon >> link "http://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
+                          [linkIcon >> link "https://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
                           ,videoIcon >> link "https://youtu.be/Xv-3VLCFOQM" "youtu.be/Xv-3VLCFOQM"
                           ,calendarIcon >> text "Sept. 2013 - Dec. 2013"
                           ,langIcon >> text "Scala"
@@ -93,7 +92,7 @@ resume = do
                                   ,tag "span" [] $ text "The dynamic music system plays more intense music when there's more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
-                          [linkIcon >> link "http://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
+                          [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
                           ,videoIcon >> link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
                           ,calendarIcon >> text "A weekend in April 2014"
                           ,langIcon >> text "Java"
@@ -104,7 +103,7 @@ resume = do
                                   ,tag "span" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
                                   ]
                         subsection "Defered Renderer with SSAO"
-                          [linkIcon >> link "http://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
+                          [linkIcon >> link "https://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
                           ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
                           ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
                           ,langIcon >> text "Scala"
@@ -116,7 +115,7 @@ resume = do
                                   ,tag "span" [] $ text "Used depth information from the defered rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
                                   ]
                         subsection "eat.sleep.build"
-                          [linkIcon >> link "http://eat.sleep.build" "eat.sleep.build"
+                          [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
                           ,calendarIcon >> text "Nov. 2012 - present"
                           ,langIcon >> text "Haskell"
                           ,toolIcon >> text "lighttpd"
@@ -130,7 +129,7 @@ resume = do
                     uText "Computer Science student at the University of Waterloo &mdash; Expected graduation: April 2017"
 
 fonts = do
-    tag "link" [("href", "http://fonts.googleapis.com/css?family=Oswald:400,700|Roboto Condensed")
+    tag "link" [("href", "https://fonts.googleapis.com/css?family=Oswald:400,700|Roboto Condensed")
                ,("rel", "stylesheet")
                ,("type", "text/css")
                ] noHtml

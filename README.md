@@ -1,7 +1,7 @@
 Website
 =======
 
-This is my personal website, hosted at [eat.sleep.build](http://eat.sleep.build). It used to be at [TNiechciol.ca](http://TNiechciol.ca), but my last name is hard to spell, so I switched to an easier-to-spell domain name.
+This is my personal website, hosted at [eat.sleep.build](https://eat.sleep.build). It used to be at [TNiechciol.ca](http://TNiechciol.ca), but my last name is hard to spell, so I switched to an easier-to-spell domain name.
 
 My website is built with [Haskell](http://www.haskell.org/haskellwiki/Haskell) and runs on top of [lighttpd](https://www.lighttpd.net/).
 
