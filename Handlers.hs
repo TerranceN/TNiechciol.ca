@@ -39,7 +39,7 @@ index urlOptions request =
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
         tag "p" [] $ do
-            text "I'm a Computer Science student at the University of Waterloo in my 5th year. I'm taking a 5th year because I did an extra co-op term and only had 4 courses for a bunch of terms. In my spare time I lift weights, play badminton, and I've learned some violin and swing dancing, but I'm not that confident in either of those. I also love coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
+            text "I'm a Computer Science student at the University of Waterloo in my 5th year. I'm taking a 5th year because I did an extra co-op term, only had 4 courses for a bunch of terms, and plan on taking some harder courses (like Real-Time Programming). In my spare time I lift weights, play badminton, and I've learned some violin and swing dancing, but I'm not that confident in either of those. I also love coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
         tag "p" [("class", "noindent")] $ do
             text "Here's my "
             link "/todo/" "todo list"
@@ -183,9 +183,8 @@ museumOfResumes urlOptions request = do
           tag "li" [] $ text "Experimented with bubble letters to make my resume feel lighter, but it allowed the smaller text to overpower the titles too much."
           tag "li" [] $ text "I experimented with different ways of seperating sections. But I feel like having a full border stands out too much."
       tag "div" [("class", "resume_section")] $ do
-        tag "h2" [] $ text "Current"
-        link "/Resume" "Direct link"
-        link "/files/Resume.pdf" "PDF file"
+        tag "h2" [] $ text "December 2016 - Waterloo 5A"
+        link "/files/old_resumes/2016-12.pdf" "PDF file"
         tag "ul" [] $ do
           tag "li" [] $ text "Made with html/css and " >> link "http://wkhtmltopdf.org/" "wkhtmltopdf" >> text "."
           tag "li" [] $ text "Switched back to solid lettering"
@@ -193,6 +192,13 @@ museumOfResumes urlOptions request = do
           tag "li" [] $ text "Added more room between the two columns and left-aligned the right column. They don't look like they run into each other anymore."
           tag "li" [] $ text "Added svg icons for the info lines on the right, which makes a very solid visual line separating the columns."
           tag "li" [] $ text "Experimented with separating sections with horizontal red lines and subsections with grey lines."
+      tag "div" [("class", "resume_section")] $ do
+        tag "h2" [] $ text "Current"
+        link "/Resume" "Direct link"
+        link "/files/Resume.pdf" "PDF file"
+        tag "ul" [] $ do
+          tag "li" [] $ text "Made with html/css and " >> link "http://wkhtmltopdf.org/" "wkhtmltopdf" >> text "."
+          tag "li" [] $ text "Updated with my new graduation date."
 
 notFoundPage urlOptions request = do
     httpResponse 404 $ mainPage noHtml body []
