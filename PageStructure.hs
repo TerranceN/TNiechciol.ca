@@ -81,6 +81,9 @@ navBar selected = do
     home attrs = 
       tag "li" attrs $ do
           tag "div" [] $ link "/" "Home"
+    blog attrs = 
+      tag "li" attrs $ do
+          tag "div" [] $ link "/Blog/" "Blog"
     projects attrs = 
       tag "li" attrs $ do
           tag "div" [] $ link "/Projects/" "Projects"
@@ -96,6 +99,7 @@ navBar selected = do
       tag "li" attrs $ do
           tag "div" [] $ link "/Resume/" "Resume"
     pages = [("home", home)
+            ,("blog", blog)
             ,("projects", projects)
             ,("resume", resume)
             ]

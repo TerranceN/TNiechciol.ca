@@ -21,6 +21,7 @@ import HelperFunctions
 import PageStructure
 import qualified Resume
 import qualified Projects
+import qualified Blog
 
 index urlOptions request =
     mainLayout head content [("section", "home")]
@@ -269,3 +270,4 @@ handlers =
     ,(exactly "/404/", notFoundPage)
     ,(exactly "/base_resume/", Resume.resumePage)
     ] ++ (subHandler "/projects" Projects.handlers)
+      ++ (subHandler "/blog" Blog.handlers)
