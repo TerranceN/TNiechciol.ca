@@ -2,6 +2,7 @@ module PageTypes
 ( Page
 , Html
 , Handler
+, Endpoint
 , Option
 , tag
 , text
