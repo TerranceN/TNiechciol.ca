@@ -8,8 +8,8 @@ import Data.Time
 import PageTypes
 import PageStructure
 
-blogLayout :: String -> Html -> IO Response
-blogLayout titleText blogContent = mainLayout head body [("section", "blog")]
+blogLayout :: Html -> String -> IO Response
+blogLayout blogContent titleText = mainLayout head body [("section", "blog")]
   where
     head = do
       title titleText
@@ -19,7 +19,7 @@ blogLayout titleText blogContent = mainLayout head body [("section", "blog")]
       blogContent
 
 
-blogSummaryPage urlOptions request = blogLayout "Blog" body
+blogSummaryPage urlOptions request = blogLayout body "Blog"
   where
     sortedBlogPosts = sortBy (comparing blogDate) blogPosts
     last5Blogs = (take 5) . reverse $ sortedBlogPosts
@@ -29,29 +29,83 @@ blogSummaryPage urlOptions request = blogLayout "Blog" body
     body = do
       mapM_ makeBlogLink last5Blogs
 
-exampleBlogEntry title = blogLayout title body
-  where
-    body = do
-      tag "p" [] $ do
-        sentences
-          [text "This is a test post, please ignore it."
-          ,text "I'm making it one sentence at a time."
-          ]
-      tag "p" [] $ text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper purus non neque imperdiet laoreet. Donec in nisl in elit lacinia tempor. Fusce efficitur diam nec ligula interdum eleifend. Pellentesque tincidunt viverra elit, et tincidunt neque volutpat a. Vestibulum feugiat ultricies pretium. Pellentesque enim tortor, feugiat vel dignissim in, dictum non tortor. Vestibulum vehicula leo vitae nunc pellentesque, vitae pretium leo eleifend. Praesent suscipit ipsum eu elit vestibulum viverra."
-      tag "p" [] $ text "Ut hendrerit consequat purus, nec tincidunt ligula auctor eget. Nullam iaculis pharetra magna, at egestas purus luctus vitae. Sed sit amet mattis felis. Pellentesque nunc nisl, volutpat sed lorem a, condimentum dictum velit. Ut auctor dignissim mollis. Aliquam sodales arcu rutrum mi tempus commodo. Mauris tristique dui urna, eu commodo nibh mollis vitae. Sed tristique lectus in eros dignissim aliquam. Fusce ornare, ipsum ut efficitur suscipit, nulla elit mollis ligula, vel sagittis quam risus ut ipsum."
-      tag "p" [] $ text "Vestibulum sodales semper nunc sed eleifend. Donec sit amet mauris sit amet ligula convallis sodales. Etiam rhoncus venenatis lectus nec rhoncus. Cras non libero vel ligula hendrerit faucibus. Integer non enim erat. Aenean ultrices ipsum feugiat, faucibus libero eu, interdum tellus. Sed et pulvinar velit, ac hendrerit elit. Praesent fringilla neque vitae sem molestie, vitae tempor libero dictum. Donec ac tristique libero. Fusce nec diam vel ex mattis aliquam quis sit amet nisi. In sit amet velit a augue posuere interdum in ut purus."
-      tag "p" [] $ text "Nullam id auctor felis. Duis eleifend interdum dolor, eget porttitor risus. Sed malesuada mi eget augue laoreet pretium. Pellentesque et risus ac elit gravida sollicitudin. Maecenas in erat egestas, pulvinar purus vel, hendrerit ex. Praesent at enim porta, posuere lacus nec, semper lectus. Vestibulum finibus sem nibh, eget tincidunt lorem cursus varius. Mauris tristique vestibulum sapien at tristique. Quisque egestas non magna sed finibus. Sed convallis lorem eu ligula dignissim malesuada vitae quis tellus. Praesent tellus eros, vehicula eget nibh in, porttitor vestibulum lacus."
-      tag "p" [] $ text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat ligula interdum varius luctus. Sed turpis est, fringilla eu vulputate nec, egestas quis ipsum. Etiam fermentum tempor vehicula. Duis consectetur dapibus diam, ac efficitur odio ullamcorper in. Nam sed congue magna. Nunc tristique tincidunt convallis. Cras suscipit accumsan quam, sed auctor sapien efficitur sit amet. Phasellus ut varius erat. Nunc tempus libero sed justo dignissim, sed cursus dolor aliquet. Praesent egestas lectus est. Integer lobortis quam a augue vestibulum, sit amet maximus tellus ultrices. Mauris laoreet congue mauris, bibendum imperdiet est rutrum sit amet. Proin sem purus, rutrum non urna efficitur, porta mollis lectus."
+loremIpsum = do
+  tag "p" [] $ sentences
+    [text "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    ,text "Vivamus semper purus non neque imperdiet laoreet."
+    ,text "Donec in nisl in elit lacinia tempor."
+    ,text "Fusce efficitur diam nec ligula interdum eleifend."
+    ,text "Pellentesque tincidunt viverra elit, et tincidunt neque volutpat a."
+    ,text "Vestibulum feugiat ultricies pretium."
+    ,text "Pellentesque enim tortor, feugiat vel dignissim in, dictum non tortor."
+    ,text "Vestibulum vehicula leo vitae nunc pellentesque, vitae pretium leo eleifend."
+    ,text "Praesent suscipit ipsum eu elit vestibulum viverra."
+    ]
+  tag "p" [] $ sentences
+    [text "Ut hendrerit consequat purus, nec tincidunt ligula auctor eget."
+    ,text "Nullam iaculis pharetra magna, at egestas purus luctus vitae."
+    ,text "Sed sit amet mattis felis."
+    ,text "Pellentesque nunc nisl, volutpat sed lorem a, condimentum dictum velit."
+    ,text "Ut auctor dignissim mollis."
+    ,text "Aliquam sodales arcu rutrum mi tempus commodo."
+    ,text "Mauris tristique dui urna, eu commodo nibh mollis vitae."
+    ,text "Sed tristique lectus in eros dignissim aliquam."
+    ,text "Fusce ornare, ipsum ut efficitur suscipit, nulla elit mollis ligula, vel sagittis quam risus ut ipsum."
+    ]
+  tag "p" [] $ sentences
+    [text "Vestibulum sodales semper nunc sed eleifend."
+    ,text "Donec sit amet mauris sit amet ligula convallis sodales."
+    ,text "Etiam rhoncus venenatis lectus nec rhoncus."
+    ,text "Cras non libero vel ligula hendrerit faucibus."
+    ,text "Integer non enim erat."
+    ,text "Aenean ultrices ipsum feugiat, faucibus libero eu, interdum tellus."
+    ,text "Sed et pulvinar velit, ac hendrerit elit."
+    ,text "Praesent fringilla neque vitae sem molestie, vitae tempor libero dictum."
+    ,text "Donec ac tristique libero."
+    ,text "Fusce nec diam vel ex mattis aliquam quis sit amet nisi."
+    ,text "In sit amet velit a augue posuere interdum in ut purus."
+    ]
+  tag "p" [] $ sentences
+    [text "Nullam id auctor felis."
+    ,text "Duis eleifend interdum dolor, eget porttitor risus."
+    ,text "Sed malesuada mi eget augue laoreet pretium."
+    ,text "Pellentesque et risus ac elit gravida sollicitudin."
+    ,text "Maecenas in erat egestas, pulvinar purus vel, hendrerit ex."
+    ,text "Praesent at enim porta, posuere lacus nec, semper lectus."
+    ,text "Vestibulum finibus sem nibh, eget tincidunt lorem cursus varius."
+    ,text "Mauris tristique vestibulum sapien at tristique."
+    ,text "Quisque egestas non magna sed finibus."
+    ,text "Sed convallis lorem eu ligula dignissim malesuada vitae quis tellus."
+    ,text "Praesent tellus eros, vehicula eget nibh in, porttitor vestibulum lacus."
+    ]
+  tag "p" [] $ sentences
+    [text "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    ,text "Donec volutpat ligula interdum varius luctus."
+    ,text "Sed turpis est, fringilla eu vulputate nec, egestas quis ipsum."
+    ,text "Etiam fermentum tempor vehicula."
+    ,text "Duis consectetur dapibus diam, ac efficitur odio ullamcorper in."
+    ,text "Nam sed congue magna."
+    ,text "Nunc tristique tincidunt convallis."
+    ,text "Cras suscipit accumsan quam, sed auctor sapien efficitur sit amet."
+    ,text "Phasellus ut varius erat."
+    ,text "Nunc tempus libero sed justo dignissim, sed cursus dolor aliquet."
+    ,text "Praesent egestas lectus est."
+    ,text "Integer lobortis quam a augue vestibulum, sit amet maximus tellus ultrices."
+    ,text "Mauris laoreet congue mauris, bibendum imperdiet est rutrum sit amet."
+    ,text "Proin sem purus, rutrum non urna efficitur, porta mollis lectus."
+    ]
 
-exampleBlogEntry2 title = blogLayout title body
-  where
-    body = do
-      tag "p" [] $ text "This is different."
-      tag "p" [] $ text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus semper purus non neque imperdiet laoreet. Donec in nisl in elit lacinia tempor. Fusce efficitur diam nec ligula interdum eleifend. Pellentesque tincidunt viverra elit, et tincidunt neque volutpat a. Vestibulum feugiat ultricies pretium. Pellentesque enim tortor, feugiat vel dignissim in, dictum non tortor. Vestibulum vehicula leo vitae nunc pellentesque, vitae pretium leo eleifend. Praesent suscipit ipsum eu elit vestibulum viverra."
-      tag "p" [] $ text "Ut hendrerit consequat purus, nec tincidunt ligula auctor eget. Nullam iaculis pharetra magna, at egestas purus luctus vitae. Sed sit amet mattis felis. Pellentesque nunc nisl, volutpat sed lorem a, condimentum dictum velit. Ut auctor dignissim mollis. Aliquam sodales arcu rutrum mi tempus commodo. Mauris tristique dui urna, eu commodo nibh mollis vitae. Sed tristique lectus in eros dignissim aliquam. Fusce ornare, ipsum ut efficitur suscipit, nulla elit mollis ligula, vel sagittis quam risus ut ipsum."
-      tag "p" [] $ text "Vestibulum sodales semper nunc sed eleifend. Donec sit amet mauris sit amet ligula convallis sodales. Etiam rhoncus venenatis lectus nec rhoncus. Cras non libero vel ligula hendrerit faucibus. Integer non enim erat. Aenean ultrices ipsum feugiat, faucibus libero eu, interdum tellus. Sed et pulvinar velit, ac hendrerit elit. Praesent fringilla neque vitae sem molestie, vitae tempor libero dictum. Donec ac tristique libero. Fusce nec diam vel ex mattis aliquam quis sit amet nisi. In sit amet velit a augue posuere interdum in ut purus."
-      tag "p" [] $ text "Nullam id auctor felis. Duis eleifend interdum dolor, eget porttitor risus. Sed malesuada mi eget augue laoreet pretium. Pellentesque et risus ac elit gravida sollicitudin. Maecenas in erat egestas, pulvinar purus vel, hendrerit ex. Praesent at enim porta, posuere lacus nec, semper lectus. Vestibulum finibus sem nibh, eget tincidunt lorem cursus varius. Mauris tristique vestibulum sapien at tristique. Quisque egestas non magna sed finibus. Sed convallis lorem eu ligula dignissim malesuada vitae quis tellus. Praesent tellus eros, vehicula eget nibh in, porttitor vestibulum lacus."
-      tag "p" [] $ text "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec volutpat ligula interdum varius luctus. Sed turpis est, fringilla eu vulputate nec, egestas quis ipsum. Etiam fermentum tempor vehicula. Duis consectetur dapibus diam, ac efficitur odio ullamcorper in. Nam sed congue magna. Nunc tristique tincidunt convallis. Cras suscipit accumsan quam, sed auctor sapien efficitur sit amet. Phasellus ut varius erat. Nunc tempus libero sed justo dignissim, sed cursus dolor aliquet. Praesent egestas lectus est. Integer lobortis quam a augue vestibulum, sit amet maximus tellus ultrices. Mauris laoreet congue mauris, bibendum imperdiet est rutrum sit amet. Proin sem purus, rutrum non urna efficitur, porta mollis lectus."
+exampleBlogEntry = blogLayout $ do
+  tag "p" [] $ do
+    sentences
+      [text "This is a test post, please ignore it."
+      ,text "I'm making it one sentence at a time."
+      ]
+  loremIpsum
+
+exampleBlogEntry2 = blogLayout $ do
+  tag "p" [] $ text "This is different."
+  loremIpsum
 
 
 data BlogPost = BlogPost
