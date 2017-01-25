@@ -23,6 +23,8 @@ import qualified Resume
 import qualified Projects
 import qualified Blog
 
+githubLink = "https://github.com/TerranceN/TNiechciol.ca"
+
 index urlOptions request =
     mainLayout head content [("section", "home")]
   where
@@ -32,26 +34,37 @@ index urlOptions request =
     content = do
         image "/images/profile_pic.jpg" "A picture of me!"
         tag "p" [("class", "first")] $ do
-            text "Hi, I'm Terrance Niechciol, and this is my personal website where you can find my "
-            link "/Resume/" "resume"
-            text ", and some small "
-            link "/Projects/" "projects"
-            text " that I've made for fun. I also have a "
-            link "https://github.com/TerranceN" "github account"
-            text " you can check out too."
+          sentences
+            [do
+              text "Hi, I'm Terrance Niechciol, and this is my personal website where you can find my " >> link "/Resume/" "resume"
+              text ", and some small " >> link "/Projects/" "projects" >> text " that I've made for fun."
+            ,do
+              text "I also have a " >> link "https://github.com/TerranceN" "github account" >> text " you can check out too."
+            ]
         tag "p" [] $ do
-            text "I'm a Computer Science student at the University of Waterloo in my 5th year. I'm taking a 5th year because I did an extra co-op term, only had 4 courses for a bunch of terms, and plan on taking some harder courses (like Real-Time Programming). In my spare time I lift weights, play badminton, and I've learned some violin and swing dancing, but I'm not that confident in either of those. I also love coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
+            sentences
+              [text "I'm a Computer Science student at the University of Waterloo in my 5th year."
+              ,text $ unlines
+                ["I'm taking a 5th year because I did an extra co-op term, "
+                ,"only had 4 courses for a bunch of terms, "
+                ,"and plan on taking some harder courses (like Real-Time Programming)."
+                ]
+              ,text $ unlines
+                ["In my spare time I lift weights, play badminton, "
+                ,"and I've learned some violin and swing dancing, but I'm not that confident in either of those."
+                ]
+              ,text $ unlines 
+                ["I also love coffee (pour-overs > all), "
+                ,"artsy video games (like Fez, Gone Home, and Dark Souls), "
+                ,"and meeting new people (through events, parties, and Lyft lines)."
+                ]
+              ]
         tag "p" [("class", "noindent")] $ do
-            text "Here's my "
-            link "/todo/" "todo list"
-            text "."
+            text "Here's my " >> link "/todo/" "todo list" >> text "."
         tag "p" [("class", "noindent")] $ do
-            text "You can also find "
-            link "https://github.com/TerranceN/TNiechciol.ca""this website on github"
-            text "."
+            text "You can also find " >> link githubLink "this website on github" >> text "."
         tag "p" [("class", "noindent")] $ do
-            text "Feel free to send me an email: "
-            link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
+            text "Feel free to send me an email: " >> link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
 
 resumePage urlOptions request =
     mainLayout head content [("section", "resume")]

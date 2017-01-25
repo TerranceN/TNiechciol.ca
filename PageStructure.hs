@@ -6,6 +6,7 @@ module PageStructure
 , navBar
 , script
 , stylesheet
+, sentences
 , mainPage
 , mainLayout
 , exactly
@@ -36,6 +37,8 @@ link :: String -> String -> Html
 link url "" = link url url
 link url string = do
     tag "a" [("href", url)] $ text string
+
+
 
 linkNewTab :: String -> String -> Html
 linkNewTab url "" = link url url
@@ -68,6 +71,9 @@ inlineStylesheet :: String -> Html
 inlineStylesheet file = do
     contents <- lift $ readFile file
     tag "style" [] $ uText contents
+
+sentences :: [Html] -> Html
+sentences xs = foldl (\x y -> x >> text " " >> y) noHtml xs
 
 navBar :: String -> Html
 navBar selected = do
