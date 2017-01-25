@@ -44,20 +44,17 @@ index urlOptions request =
         tag "p" [] $ do
             sentences
               [text "I'm a Computer Science student at the University of Waterloo in my 5th year."
-              ,text $ unlines
-                ["I'm taking a 5th year because I did an extra co-op term, "
-                ,"only had 4 courses for a bunch of terms, "
-                ,"and plan on taking some harder courses (like Real-Time Programming)."
-                ]
-              ,text $ unlines
-                ["In my spare time I lift weights, play badminton, "
-                ,"and I've learned some violin and swing dancing, but I'm not that confident in either of those."
-                ]
-              ,text $ unlines 
-                ["I also love coffee (pour-overs > all), "
-                ,"artsy video games (like Fez, Gone Home, and Dark Souls), "
-                ,"and meeting new people (through events, parties, and Lyft lines)."
-                ]
+              ,do
+                text "I'm taking a 5th year because I did an extra co-op term, "
+                text "only had 4 courses for a bunch of terms, "
+                text "and plan on taking some harder courses (like Real-Time Programming)."
+              ,do
+                text "In my spare time I lift weights, play badminton, "
+                text "and I've learned some violin and swing dancing, but I'm not that confident in either of those."
+              ,do
+                text "I also love coffee (pour-overs > all), "
+                text "artsy video games (like Fez, Gone Home, and Dark Souls), "
+                text "and meeting new people (through events, parties, and Lyft lines)."
               ]
         tag "p" [("class", "noindent")] $ do
             text "Here's my " >> link "/todo/" "todo list" >> text "."
