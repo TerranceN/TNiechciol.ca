@@ -117,8 +117,16 @@ data BlogPost = BlogPost
 
 blogPosts :: [BlogPost]
 blogPosts =
-    [BlogPost "Test Blog, Please Ignore" "example_blog" (fromGregorian 2017 01 17) exampleBlogEntry
-    ,BlogPost "Test Blog2, Please Ignore" "example_blog2" (fromGregorian 2017 01 20) exampleBlogEntry2
+    [BlogPost
+      "Test Blog, Please Ignore"
+      "example_blog"
+      (fromGregorian 2017 01 17)
+      exampleBlogEntry
+    ,BlogPost
+      "Test Blog2, Please Ignore"
+      "example_blog2"
+      (fromGregorian 2017 01 20)
+      exampleBlogEntry2
     ]
 
 blogLinks = map makeBlogLink blogPosts
