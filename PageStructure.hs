@@ -19,6 +19,7 @@ module PageStructure
 , module Text.ParserCombinators.Parsec
 ) where
 
+import System.FilePath
 import Data.Char
 import Data.Maybe
 import qualified Data.HashMap.Lazy as Map
@@ -213,9 +214,10 @@ youtube_video id width height =
                          ,("frameborder", "0")
                          ,("allowfullscreen", "true")] noHtml
 
-image url alt = 
+image url alt = do
+    hashedUrl <- lift $ hashifyUrl url $ takeExtension url
     tag "div" [("class", "image_container loading")] $ do
-        tag "img" [("src", url)
+        tag "img" [("src", hashedUrl)
                   ,("alt", alt)
                   ,("title", alt)
                   ,("onload", "this.parentNode.classList.remove('loading')")] noHtml
