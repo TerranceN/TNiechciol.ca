@@ -2,7 +2,7 @@ module Blog where
 
 import System.Info
 import System.Process
-import System.Locale
+import System.Locale hiding (defaultTimeLocale)
 import Data.Time
 import Control.Monad
 import Control.Monad.Trans
