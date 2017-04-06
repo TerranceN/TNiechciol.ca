@@ -102,8 +102,8 @@ resume = do
                                   ,tag "span" [] $ text "Added the ability for players to phase through walls to add variety to the combat"
                                   ,tag "span" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
                                   ]
-                        subsection "Defered Renderer with SSAO"
-                          [linkIcon >> link "https://eat.sleep.build/Projects/DeferedRenderer/" "eat.sleep.build/Projects/DeferedRenderer"
+                        subsection "Deferred Renderer with SSAO"
+                          [linkIcon >> link "https://eat.sleep.build/Projects/DeferredRenderer/" "eat.sleep.build/Projects/DeferredRenderer"
                           ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
                           ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
                           ,langIcon >> text "Scala"
@@ -111,8 +111,8 @@ resume = do
                           ] Nothing $ do
                             ulist [tag "span" [] $ text "Created a tech demo to learn how to implement some modern graphics techniques"
                                   ,tag "span" [] $ text "Implemented normal mapping and specular mapping to make walls look more detailed"
-                                  ,tag "span" [] $ text "Implemented defered rendering to efficiently render many lights"
-                                  ,tag "span" [] $ text "Used depth information from the defered rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
+                                  ,tag "span" [] $ text "Implemented deferred rendering to efficiently render many lights"
+                                  ,tag "span" [] $ text "Used depth information from the deferred rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
                                   ]
                         subsection "eat.sleep.build"
                           [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"

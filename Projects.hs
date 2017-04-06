@@ -45,8 +45,8 @@ projectsPage urlOptions request =
         projectPreview "ATA Hackathon Game" "/ATAHackathonGame" "/images/ata_hackathon_game_merged_small.jpg" $ do
             tag "p" [] $ text "A 2D arena shooter platformer made during a 48-hour hackathon while working at A Thinking Ape. It features wall-jumping, powerups, and the ability to temporarily remove walls in a circle around you for getting the drop on an enemy, or to shoot through walls."
         tag "hr" [("class", "preview_separator")] noHtml
-        projectPreview "Defered Renderer" "/DeferedRenderer" "/images/defered_renderer_small.jpg" $ do
-            tag "p" [] $ text "A 3D rendering engine that implements real-time bump mapping, defered rendering, and ambient occlusion. Using the depth information generated during the defered rendering process, occlusion information for each pixel is calculated in screen-space using a randomly oriented sampling of nearby points."
+        projectPreview "Deferred Renderer" "/DeferredRenderer" "/images/deferred_renderer_small.jpg" $ do
+            tag "p" [] $ text "A 3D rendering engine that implements real-time bump mapping, deferred rendering, and ambient occlusion. Using the depth information generated during the deferred rendering process, occlusion information for each pixel is calculated in screen-space using a randomly oriented sampling of nearby points."
         tag "hr" [("class", "preview_separator")] noHtml
         projectPreview "Geometry Wars Clone (old)" "/GeoWarsCloneOld" "/images/GWClone_dragon.jpg" $ do
             tag "p" [] $ text "An old attempt at making a Geometry Wars clone. Particles and grid effects are implemented on the CPU and are rendered with OpenGL 1.0's glBegin and glEnd. The outdated technologies used is what motivated creating a new version."
@@ -156,16 +156,16 @@ ataHackathonPage urlOptions request =
         projectSection "Downloads" $ do
             button "https://github.com/TerranceN/ATAHackathonW14" "Source"
 
-deferedRendererPage urlOptions request =
+deferredRendererPage urlOptions request =
     projectLayout head content
   where
     head =
-        title "Defered Renderer"
+        title "Deferred Renderer"
     content = do
         tag "div" [("class", "right_info")] $ do
           tag "div" [] $ text "Sept. 2013 - Oct. 2013"
           tag "div" [] $ text "Scala and LWJGL"
-        tag "h1" [] $ text "Defered Renderer"
+        tag "h1" [] $ text "Deferred Renderer"
         tag "hr" [] noHtml
         youtube_video "eJY72rMtFx4" 560 315
         projectSection "Description" $ do
@@ -178,7 +178,7 @@ deferedRendererPage urlOptions request =
                 text " Ambient occlusion is computed in a style similar to Crysis, but uses normal-oriented hemispheres instead of full spheres."
                 text " This allows the normal map to be used, allowing for fine details in the computed occlusion map."
         projectSection "Screenshots" $ do
-            screenshot "/images/defered_renderer_small.jpg" "Game"
+            screenshot "/images/deferred_renderer_small.jpg" "Game"
         projectSection "Downloads" $ do
             button "https://github.com/TerranceN/Deferred-Renderer" "Source"
 
@@ -248,7 +248,9 @@ handlers =
     ,(exactly "/geowarsclone/", geometryWarsPage)
     ,(exactly "/geowarscloneold/", geometryWarsOldPage)
     ,(exactly "/atahackathongame/", ataHackathonPage)
-    ,(exactly "/deferedrenderer/", deferedRendererPage)
+    ,(exactly "/deferredrenderer/", deferredRendererPage)
+    -- Also catch this typo since I used it in old versions of my resume
+    ,(exactly "/deferedrenderer/", deferredRendererPage)
     ,(exactly "/springphysics/", springPhysicsPage)
     ,(exactly "/lightingdemo/", lightingDemoPage)
     ,(exactly "/paradoxtower/", paradoxTowerPage)
