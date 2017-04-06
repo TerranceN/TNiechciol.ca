@@ -88,7 +88,7 @@ navBar selected = do
           tag "ul" [] $ do
               tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
               tag "li" [] $ link "/Projects/ATAHackathonGame/" "ATA Hackathon Game"
-              tag "li" [] $ link "/Projects/DeferedRenderer/" "Defered Renderer"
+              tag "li" [] $ link "/Projects/DeferredRenderer/" "Deferred Renderer"
               tag "li" [] $ link "/Projects/GeoWarsCloneOld/" "Geometry Wars Clone (old)"
               tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
               tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
