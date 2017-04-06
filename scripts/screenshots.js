@@ -14,8 +14,8 @@ $(function() {
   $(".close", popupContainer).click(closeFcn);
 
   $(".screenshot").click(function() {
-    var newSrc = $("img", $(this))[0].src.replace(/^(.*)_small.jpg$/, function(match, p1) {
-      return p1 + "_large.jpg";
+    var newSrc = $("img", $(this))[0].src.replace(/^(.*)_small([0-9a-f]{40,40}).jpg$/, function(match, p1, p2) {
+      return p1 + "_large" + p2 + ".jpg";
     });
     $(".popup_content img").attr("src", "");
     $(".popup_content img").parent().addClass("loading");
