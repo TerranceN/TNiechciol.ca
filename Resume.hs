@@ -61,7 +61,7 @@ resume = do
                       ,langIcon >> text "Ruby, Go, Javascript, Java"
                       ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
                       ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
-                        ulist [tag "span" [] $ text "Replaced a prototype chat backend with a chat micro-service, to separate chat performance concerns from the main API"
+                        ulist [tag "span" [] $ text "Replaced a prototype chat backend with a chat micro-service to separate chat performance concerns from the main API"
                               ,tag "span" [] $ text "Rewrote the web dashboard using React for feature parity with the mobile clients"
                               ,tag "span" [] $ text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
                               ,tag "span" [] $ text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
@@ -89,7 +89,7 @@ resume = do
                             ulist [tag "span" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
                                   ,tag "span" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
                                   ,tag "span" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
-                                  ,tag "span" [] $ text "The dynamic music system plays more intense music when there's more enemies"
+                                  ,tag "span" [] $ text "The dynamic music system plays more intense music when there are more enemies"
                                   ]
                         subsection "ATA Co-op Hackathon Game"
                           [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
