@@ -34,10 +34,6 @@ html body * {
     position:relative;
 }
 
-.resume_content #resume_body {
-    padding-top: 10px;
-}
-
 .resume_content h1, .resume_content h1 * {
     padding:0;
     margin:0;
@@ -81,6 +77,7 @@ html body * {
 
 .resume_content .section .section_content {
     margin-left: 10px;
+    margin-top: -10px;
 }
 
 .resume_content #work-experience_section {
