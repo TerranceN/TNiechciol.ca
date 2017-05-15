@@ -11,6 +11,7 @@ module PageStructure
 , mainLayout
 , exactly
 , image
+, inlineSvg
 , screenshot
 , youtube_video
 , projectSection
@@ -221,6 +222,11 @@ image url alt = do
                   ,("alt", alt)
                   ,("title", alt)
                   ,("onload", "this.parentNode.classList.remove('loading')")] noHtml
+
+inlineSvg file = do
+    contents <- lift $ readFile file
+    tag "div" [("class", "image_container loading")] $ do
+        tag "svg" [] $ uText contents
 
 screenshot url alt =
     tag "div" [("class", "screenshot_container")] $ do

@@ -22,8 +22,8 @@ html body * {
 }
 
 .resume_content a {
-    text-decoration:underline;
-    color: #F00 !important;
+    text-decoration:none;
+    color: #C00 !important;
 }
 
 .resume_content #resume {
@@ -38,6 +38,8 @@ html body * {
     padding:0;
     margin:0;
     font-size: 72px;
+    line-height: 72px;
+    margin-top: 10px;
     display: inline-block;
 }
 
@@ -98,24 +100,27 @@ html body * {
 
 .resume_content .subsection {
     position:relative;
-    padding: 3px 0px 5px 0px;
-    border-radius: 3px;
+    margin-top: 15px;
 }
 
 .resume_content .subsection .inner_content {
     width: 600px;
     display: inline-block;
-    margin-left: 4px;
+    margin-top: 14px;
 }
 
-.resume_content .subsection .right_info {
-    float: right;
+.resume_content .subsection .inner_content ul {
+  margin: 0;
+}
+
+.resume_content .subsection .left_info {
+    float: left;
     text-align: left;
     margin-top: 0px;
     width: 277px;
 }
 
-.resume_content .subsection .right_info * {
+.resume_content .subsection .left_info * {
     font-size: 14px;
     font-family: 'Roboto Condensed', sans-serif !important;
 }
@@ -134,7 +139,6 @@ html body * {
 
 .resume_content .subsection_header > * {
   display: inline-block;
-  margin-left: 10px;
 }
 
 .resume_content .header_info {
@@ -142,6 +146,7 @@ html body * {
   font-size: 12px;
   vertical-align: bottom;
   height: 22px;
+  display: none;
 }
 
 .subsection + .subsection:before {
@@ -151,10 +156,18 @@ html body * {
   top: 0;
   width: 500px;
   margin-top: 5px;
+  display: none;
 }
 
-.subsection + .subsection .subsection_header {
-  margin-top: 10px;
+.subsection .subsection_header {
+  margin-bottom: 5px;
+  height: 32px;
+  position: relative;
+}
+
+.subsection .subsection_header .image_container {
+  position: absolute;
+  bottom: 0;
 }
 
 .section {
@@ -170,26 +183,27 @@ html body * {
   border-top: 2px solid #F66;
 }
 
-.inner_content li, .right_info div {
+.inner_content li, .left_info .info div {
   line-height: 22px;
 }
 
-.right_info > div {
+.left_info .info > div {
   height: 22px;
 }
 
-.contact_info .image_container, .right_info .image_container {
+.contact_info .image_container, .left_info .info .image_container {
   display: inline-block;
   margin-right: 5px;
 }
 
-.contact_info .image_container img, .right_info .image_container img {
+.contact_info .image_container svg, .left_info .info .image_container svg {
   margin-bottom: -2px;
-  max-width: 16px;
-  max-height: 16px;
+  width: 16px;
+  height: 16px;
+  fill: #C00 !important;
 }
 
-.resume_content .subsection .right_info img {
+.resume_content .subsection .left_info .info svg {
   margin-bottom: -3px;
 }
 
