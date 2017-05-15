@@ -25,13 +25,13 @@ section name content = do
         tag "h2" [] $ text name
         tag "div" [("class", "section_content")] content
 
-subsection logo sideInfo headerInfo content = do
+subsection header sideInfo headerInfo content = do
     tag "div" [("class", "subsection")] $ do
         tag "div" [] $ do
             tag "div" [("class", "inner_content")] content
             tag "div" [("class", "left_info")] $ do
               tag "div" [("class", "subsection_header")] $ do
-                logo
+                header
                 maybe noHtml (\headerInfo -> tag "div" [("class", "header_info")] $ headerInfo) headerInfo
               tag "div" [("class", "info")] $ do
               wrapDivs sideInfo
@@ -57,30 +57,75 @@ resume = do
     tag "div" [("id", "resume_wrapper")] $ do
       tag "h1" [] $ text "Terrance Niechciol"
       tag "div" [("id", "resume_body")] $ do
-        tag "div" [("id", "resume_body")] $ do
-          subsection remindLogo
-            [linkIcon >> link "https://www.remind.com/about" "remind.com/about"
-            ,locationIcon >> text "San Francisco"
-            ,calendarIcon >> text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
-            ,langIcon >> text "Ruby, Go, Javascript, Java"
-            ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
-            ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
-              ulist [tag "span" [] $ text "Replaced a prototype chat backend with a chat micro-service to separate chat performance concerns from the main API"
-                    ,tag "span" [] $ text "Rewrote the web dashboard using React for feature parity with the mobile clients"
-                    ,tag "span" [] $ text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
-                    ,tag "span" [] $ text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
-                    ]
-          subsection ataLogo
-            [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
-            ,locationIcon >> text "Vancouver"
-            ,calendarIcon >> text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
-            ,langIcon >> text "Objective C, Python, Javascript, Java"
-            ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
-            ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
-              ulist [tag "span" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became " >> link "https://itunes.apple.com/us/app/pineapple-poker/id906193660?mt=8" "Pineapple Poker"
-                    ,tag "span" [] $ text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
-                    ,tag "span" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
-                    ]
+        subsection remindLogo
+          [linkIcon >> link "https://www.remind.com/about" "remind.com/about"
+          ,locationIcon >> text "San Francisco"
+          ,calendarIcon >> text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016"
+          ,langIcon >> text "Ruby, Go, Javascript, Java"
+          ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
+          ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
+            ulist [tag "div" [] $ text "Replaced a prototype chat backend with a chat micro-service to separate chat performance concerns from the main API"
+                  ,tag "div" [] $ text "Rewrote the web dashboard using React for feature parity with the mobile clients"
+                  ,tag "div" [] $ text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
+                  ,tag "div" [] $ text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
+                  ]
+        subsection ataLogo
+          [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
+          ,locationIcon >> text "Vancouver"
+          ,calendarIcon >> text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
+          ,langIcon >> text "Objective C, Python, Javascript, Java"
+          ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
+          ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
+            ulist [tag "div" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became an app called Pineapple Poker"
+                  ,tag "div" [] $ text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
+                  ,tag "div" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+                  ]
+        subsection (tag "h2" [] (text "Geometry Wars Clone"))
+          [linkIcon >> link "https://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
+          ,videoIcon >> link "https://youtu.be/Xv-3VLCFOQM" "youtu.be/Xv-3VLCFOQM"
+          ,calendarIcon >> text "Sept. 2013 - Dec. 2013"
+          ,langIcon >> text "Scala"
+          ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
+                  ,tag "div" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
+                  ,tag "div" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
+                  ,tag "div" [] $ text "The dynamic music system plays more intense music when there are more enemies"
+                  ]
+        subsection (tag "h2" [] (text "ATA Co-op Hackathon Game"))
+          [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
+          ,videoIcon >> link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
+          ,calendarIcon >> text "A weekend in April 2014"
+          ,langIcon >> text "Java"
+          ,toolIcon >> text "libGDX, OpenGL"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
+                  ,tag "div" [] $ text "Added the ability for players to phase through walls to add variety to the combat"
+                  ,tag "div" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
+                  ]
+        subsection (tag "h2" [] (text "Deferred Renderer with SSAO"))
+          [linkIcon >> link "https://eat.sleep.build/Projects/DeferredRenderer/" "eat.sleep.build/Projects/DeferredRenderer"
+          ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
+          ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
+          ,langIcon >> text "Scala"
+          ,toolIcon >> text "LWJGL, OpenGL"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Created a tech demo to learn how to implement some modern graphics techniques"
+                  ,tag "div" [] $ text "Implemented normal mapping and specular mapping to make walls look more detailed"
+                  ,tag "div" [] $ text "Implemented deferred rendering to efficiently render many lights"
+                  ,tag "div" [] $ text "Used depth information from the deferred rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
+                  ]
+        subsection (tag "h2" [] (text "eat.sleep.build"))
+          [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
+          ,calendarIcon >> text "Nov. 2012 - present"
+          ,langIcon >> text "Haskell"
+          ,toolIcon >> text "lighttpd"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Created a Haskell webapp running on top of lighttpd"
+                  ,tag "div" [] $ text "Created an Html DSL using monads to programmatically compose html"
+                  ,tag "div" [] $ text "Built from a \"Hello World\" Haskell application into a full website to better understand how other frameworks like Django and Rails work"
+                  ]
+        tag "div" [("class", "clear")] $ noHtml
 
 -- notresume = do
 --     tag "div" [("class", "resume_content")] $ do
