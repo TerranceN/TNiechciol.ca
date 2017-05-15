@@ -148,7 +148,7 @@ body {
 
 #navBar li:hover > a, #navBar li:hover > div > a, #navBar li.selected > a, #navBar ul:not(:hover) li.selected > div > a
 {
-    background: #F00;
+    background: #E00;
     color: #FFF;
 }
 
@@ -260,18 +260,23 @@ p {
 }
 
 a {
-    color: #F00;
+    color: #C00;
+    text-decoration: none;
 
-    -webkit-transition: text-shadow 0.2s ease, color 0.2s ease;
-    -moz-transition: text-shadow 0.2s ease, color 0.2s ease;
-    -o-transition: text-shadow 0.2s ease, color 0.2s ease;
-    -ms-transition: text-shadow 0.2s ease, color 0.2s ease;
-    transition: text-shadow 0.2s ease, color 0.2s ease;
+    -webkit-transition: text-shadow 0.1s ease, color 0.1s ease;
+    -moz-transition: text-shadow 0.1s ease, color 0.1s ease;
+    -o-transition: text-shadow 0.1s ease, color 0.1s ease;
+    -ms-transition: text-shadow 0.1s ease, color 0.1s ease;
+    transition: text-shadow 0.1s ease, color 0.1s ease;
+}
+
+p a {
+  font-weight: bold;
 }
 
 a:hover {
-    color: #F22;
-    text-shadow: 0 0 2px #F87, 0 0 2px #F87;
+    color: #C22;
+    text-shadow: 0 0 1px #E87, 0 0 1px #E87;
 }
 
 html .button {
@@ -296,7 +301,7 @@ html .button {
 }
 
 html .button:hover {
-    background-color: #F00;
+    background-color: #C00;
     color: #FFF;
 
     transition-duration: 0.1s;

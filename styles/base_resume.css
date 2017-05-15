@@ -26,7 +26,7 @@ html body * {
 }
 
 .resume_content a {
-    text-decoration:none;
+    text-decoration:none !important;
     color: #C00 !important;
 }
 
@@ -45,7 +45,7 @@ html body * {
 .resume_content .contact_info {
   position: absolute;
   top: 11px;
-  right: 150px;
+  right: 140px;
 }
 
 .resume_content .contact_info > div {
@@ -126,11 +126,11 @@ html body * {
 
 .resume_content .subsection .inner_content li:before {
     content:"·";
-    font-size:60px;
+    font-size:50px;
     vertical-align:middle;
     line-height:22px;
     position: absolute;
-    left: -17px;
+    left: -16px;
 }
 
 .resume_content .subsection .left_info {
@@ -189,6 +189,18 @@ html body * {
 
 .subsection_header .image_container {
   max-height: 32px;
+}
+
+.subsection .subsection_header h2 {
+  top: -3px;
+}
+
+#remindLogo img {
+  top: 2px;
+}
+
+#ataLogo img {
+  top: -1px;
 }
 
 #waterlooLogo img {
