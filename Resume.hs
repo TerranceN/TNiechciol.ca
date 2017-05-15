@@ -17,7 +17,6 @@ header = do
         tag "div" [("class", "contact_info")] $ do
             tag "div" [] $ mailIcon >> link "mailto:TNiechciol@gmail.com" "TNiechciol@gmail.com"
             tag "div" [] $ githubIcon >> link "https://github.com/TerranceN/" "github.com/TerranceN"
-            tag "div" [] $ phoneIcon >> link "tel:+16147215649" "+1-614-721-5649"
             tag "div" [] $ linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
 
 section name content = do
@@ -55,7 +54,7 @@ ataLogo = image "/images/ata_logo.svg" "A Thinking Ape"
 resume = do
   tag "div" [("class", "resume_content")] $ do
     tag "div" [("id", "resume_wrapper")] $ do
-      tag "h1" [] $ text "Terrance Niechciol"
+      header
       tag "div" [("id", "resume_body")] $ do
         subsection remindLogo
           [linkIcon >> link "https://www.remind.com/about" "remind.com/about"

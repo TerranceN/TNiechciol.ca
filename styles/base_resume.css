@@ -8,6 +8,7 @@ html body * {
     overflow: visible !important;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 
 .resume_content {
@@ -42,15 +43,19 @@ html body * {
 }
 
 .resume_content .contact_info {
-    margin-left: 2px;
-    position: relative;
-    left: 75px;
-    display: inline-block;
-    width: 277px;
+  position: absolute;
+  top: 11px;
+  right: 150px;
 }
 
 .resume_content .contact_info > div {
   margin-bottom: -2px;
+  line-height: 22px;
+  height: 22px;
+}
+
+.resume_content .contact_info > div:first-child {
+  stroke: #C00 !important;
 }
 
 .resume_content .contact_info a {
@@ -125,7 +130,7 @@ html body * {
     vertical-align:middle;
     line-height:22px;
     position: absolute;
-    left: 0;
+    left: -17px;
 }
 
 .resume_content .subsection .left_info {
@@ -226,11 +231,6 @@ html body * {
 .contact_info .image_container {
   position: relative;
   top: 2px;
-}
-
-/* Fix for pdf rendering; makes the email icon a bit higher so it seems centered */
-.contact_info .image_container:nth-child(1) {
-  top: 0;
 }
 
 #school_section p {
