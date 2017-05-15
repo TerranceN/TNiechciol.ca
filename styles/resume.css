@@ -1,5 +1,5 @@
 #pageContent .resume_content a {
-    text-decoration:underline;
+    text-decoration:none;
 }
 
 #pageContent {
@@ -21,7 +21,8 @@
     position: absolute;
     z-index: 1;
     font-size: 14px;
-    top: 6px;
+    line-height: 20px;
+    top: 22px;
     right: 5px;
     text-align: right;
     font-family: 'Roboto Condensed', sans-serif;
