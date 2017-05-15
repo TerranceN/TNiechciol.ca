@@ -33,7 +33,7 @@ subsection header sideInfo headerInfo content = do
                 header
                 maybe noHtml (\headerInfo -> tag "div" [("class", "header_info")] $ headerInfo) headerInfo
               tag "div" [("class", "info")] $ do
-              wrapDivs sideInfo
+                wrapDivs sideInfo
   where
     wrapDivs = mapM_ wrapDiv
     wrapDiv thing = tag "div" [] thing
@@ -48,8 +48,9 @@ mailIcon = inlineSvg "./images/email_icon.svg"
 phoneIcon = inlineSvg "./images/phone_icon.svg"
 locationIcon = inlineSvg "./images/location_icon.svg"
 
-remindLogo = image "/images/remind_logo.svg" "Remind"
-ataLogo = image "/images/ata_logo.svg" "A Thinking Ape"
+remindLogo = tag "div" [("id", "remindLogo")] $ image "/images/remind_logo.svg" "Remind"
+ataLogo = tag "div" [("id", "ataLogo")] $ image "/images/ata_logo.svg" "A Thinking Ape"
+waterlooLogo = tag "div" [("id", "waterlooLogo")] $ image "/images/uwaterloo_logo.svg" "A Thinking Ape"
 
 resume = do
   tag "div" [("class", "resume_content")] $ do
@@ -123,6 +124,11 @@ resume = do
             ulist [tag "div" [] $ text "Created a Haskell webapp running on top of lighttpd"
                   ,tag "div" [] $ text "Created an Html DSL using monads to programmatically compose html"
                   ,tag "div" [] $ text "Built from a \"Hello World\" Haskell application into a full website to better understand how other frameworks like Django and Rails work"
+                  ]
+        subsection waterlooLogo
+          [] Nothing $ do
+            ulist [tag "div" [] $ text "Candidate for a Bachelor of Computer Science"
+                  ,tag "div" [] $ text "Expected graduation - August 2017"
                   ]
         tag "div" [("class", "clear")] $ noHtml
 

@@ -180,11 +180,23 @@ html body * {
 
 .subsection .subsection_header {
   margin-bottom: 5px;
+}
+
+.subsection .subsection_header {
   height: 32px;
   position: relative;
 }
 
-.subsection_header .image_container, .subsection_header h2 {
+.subsection_header .image_container {
+  max-height: 32px;
+}
+
+#waterlooLogo img {
+  margin-top: 3px;
+  height: 38px;
+}
+
+.resume_content .subsection_header > * {
   position: absolute;
   bottom: 0;
   font-size: 22px !important;
