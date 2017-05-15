@@ -225,7 +225,7 @@ image url alt = do
 
 inlineSvg file = do
     contents <- lift $ readFile file
-    tag "div" [("class", "image_container loading")] $ do
+    tag "div" [("class", "image_container")] $ do
         tag "svg" [] $ uText contents
 
 screenshot url alt =
