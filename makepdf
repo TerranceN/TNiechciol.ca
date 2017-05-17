@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# clear the electron cache
+rm `cygpath $APPDATA`/Electron/Cache/*
+electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf"
+pdftk files/Resume_tmp.pdf cat 1 output files/Resume.pdf
+rm files/Resume_tmp.pdf
