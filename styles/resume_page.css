@@ -1,3 +1,11 @@
 body {
-    margin: 0;
+  margin: 0;
+}
+
+@media print {
+  body {
+    /* Scale down the resume when printing so it fits on one page */
+    transform-origin: 50% 0%;
+    transform: scale(0.94, 0.94)
+  }
 }
