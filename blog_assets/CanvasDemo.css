@@ -1,0 +1,36 @@
+.canvas_demo {
+}
+
+.canvas_demo .demo_contents {
+  display: table;
+  width: 100%;
+}
+
+.canvas_demo .demo_contents_cell {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.canvas_demo .demo_contents_cell > * {
+  position: relative;
+  display: inline-block;
+  outline: 1px solid #BBB;
+  margin: 10px;
+}
+
+.canvas_demo .demo_contents_cell canvas {
+  display: block;
+}
+
+.canvas_demo .demo_contents_cell a {
+  position: absolute;
+  top: -20px;
+  left: 0;
+}
+
+.canvas_demo p {
+  text-indent: 0px !important;
+  margin: 0 !important;
+  text-align: center;
+}

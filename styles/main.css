@@ -368,3 +368,7 @@ hr {
     border: 0; border-top: 2px solid #F22;
     padding: 0; 
 }
+
+.image_container img {
+  display: block;
+}
