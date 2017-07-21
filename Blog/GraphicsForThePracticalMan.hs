@@ -232,7 +232,7 @@ blogEntry = blogLayout head $ do
     sentences
       [text "We can do the same thing for a two-dimensional object."
       ,text "This means using three-dimensional vectors where the z-component is always 1, and using three-dimensional basis vectors to store the transformations."
-      ,text "Then translation is just applying a shearing in the x and y directions based on the z-direction:"
+      ,text "Then translation is just applying a shear in the x and y directions based on the z-direction:"
       ]
   canvasDemoInteractive (text "Translation!") $ do
     canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_translate.js"
