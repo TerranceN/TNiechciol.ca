@@ -115,10 +115,13 @@ var Module = (function() {
   }
 
   function render() {
+    var initArrowHeadSize = arrowHeadSize;
+
     ctx.clearRect(0, 0, width, height);
     
     ctx.lineWidth = 1;
     ctx.strokeStyle='#DDDDDD';
+    ctx.setLineDash([0, 0]);
     ctx.beginPath();
     for (var i = 0; i < height/scale; i++) {
       ctx.moveTo(0, height - i*scale);
@@ -130,7 +133,7 @@ var Module = (function() {
     }
     ctx.stroke();
 
-    
+
     ctx.lineWidth = 3;
     ctx.strokeStyle='#888888';
     ctx.beginPath();
@@ -203,20 +206,21 @@ var Module = (function() {
     ctx.fillText("(1, 0)",120,height-60);
     ctx.fillText("(sx, 1)",mouseX,height-130);
     */
-    
+
+    var gridMouseX = toGridPoint({x: grid_translate_demo_mouseX, y: 0}).x;
+    ctx.lineWidth = 2;
+    drawArrow({x: 0, y: 0}, {x: 1, y: 0});
+    drawArrow({x: 0, y: 0}, {x: 0+gridMouseX, y: 1});
+
     ctx.lineWidth = 4;
     ctx.strokeStyle='#000000';
-    
-    var gridMouseX = toGridPoint({x: grid_translate_demo_mouseX, y: 0}).x;
     drawGridLine({x: 0+gridMouseX, y: 1}, {x: 1+gridMouseX, y: 1});
-    ctx.lineWidth = 2;
-    drawGridLine({x: 0, y: 0}, {x: 1, y: 0});
-    drawGridLine({x: 0, y: 0}, {x: 0+gridMouseX, y: 1});
-    drawGridLine({x: 1, y: 0}, {x: 1+gridMouseX, y: 1});
     
-    ctx.lineWidth = 2;
-    ctx.strokeStyle='#AA0000';
-    
+    ctx.lineWidth = 1;
+    ctx.strokeStyle='#000000';
+    ctx.setLineDash([2, 1]);/*dashes are 5px and spaces are 3px*/
+
+    arrowHeadSize -= 5;
     drawArrow({x: 0+gridMouseX, y: 1}, {x: 0+gridMouseX, y: 0});
     drawArrow({x: 1+gridMouseX, y: 1}, {x: 1+gridMouseX, y: 0});
     
@@ -229,6 +233,8 @@ var Module = (function() {
     }
     ctx.fillStyle = '#CC0000';
     ctx.fill();
+
+    arrowHeadSize = initArrowHeadSize;
   }
   
   var drawLoop = DrawLoop(render);
