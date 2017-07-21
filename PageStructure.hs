@@ -181,7 +181,7 @@ mainPage head content options = do
         tag "head" [] $ do
             meta
             inlineStylesheet "./styles/main.css"
-            stylesheet "https://fonts.googleapis.com/css?family=Raleway|Roboto Condensed"
+            stylesheet "https://fonts.googleapis.com/css?family=Raleway|Roboto Condensed|Roboto Mono"
             head
         tag "body" [("background", "/images/confectionary.jpg")] $ do
             tag "div" [("id", "wrapper")] $ do

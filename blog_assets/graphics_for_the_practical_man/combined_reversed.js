@@ -73,51 +73,72 @@ var Module = (function() {
       halfTri(high.x, high.y, mid.x, otherx, mid.y);
     }
   }
+  
+  function vAdd(v1, v2) {
+    return {
+      x: v1.x + v2.x,
+      y: v1.y + v2.y
+    };
+  }
+  
+  function vScale(v, s) {
+    return {
+      x: v.x * s,
+      y: v.y * s
+    };
+  }
+  
+  function vTransform(v, basis) {
+    var xBasisPart = vScale(basis.xBasis, v.x);
+    var yBasisPart = vScale(basis.yBasis, v.y);
+    return vAdd(xBasisPart, yBasisPart);
+  }
+  
+  function triWithBasis(basis, v1, v2, v3) {
+    var vertices = [v1, v2, v3];
+    for (var i = 0; i < vertices.length; i++) {
+      vertices[i] = vTransform(vertices[i], basis);
+    }
+    tri(vertices[0], vertices[1], vertices[2]);
+  }
 
-  function starAtRot(p, a) {
-    var c = Math.cos(a);
-    var s = Math.sin(a);
-    tri(
-      {x:c*-10-s*-10+p.x, y:s*-10+c*-10+p.y},
-      {x:c*  0-s*-30+p.x, y:s*  0+c*-30+p.y},
-      {x:c* 10-s*-10+p.x, y:s* 10+c*-10+p.y}
-    );
-    tri(
-      {x:c* 10-s*-10+p.x, y:s* 10+c*-10+p.y},
-      {x:c* 30-s*  0+p.x, y:s* 30+c*  0+p.y},
-      {x:c* 10-s* 10+p.x, y:s* 10+c* 10+p.y}
-    );
-    tri(
-      {x:c*-10-s* 10+p.x, y:s*-10+c* 10+p.y},
-      {x:c*  0-s* 30+p.x, y:s*  0+c* 30+p.y},
-      {x:c* 10-s* 10+p.x, y:s* 10+c* 10+p.y}
-    );
-    tri(
-      {x:c*-10-s*-10+p.x, y:s*-10+c*-10+p.y},
-      {x:c*-30-s*  0+p.x, y:s*-30+c*  0+p.y},
-      {x:c*-10-s* 10+p.x, y:s*-10+c* 10+p.y}
-    );
-    tri(
-      {x:c*-10-s*-10+p.x, y:s*-10+c*-10+p.y},
-      {x:c* 10-s*-10+p.x, y:s*10+c* -10+p.y},
-      {x:c* 10-s* 10+p.x, y:s*10+c*  10+p.y}
-    );
-    tri(
-      {x:c*-10-s*-10+p.x, y:s*-10+c*-10+p.y},
-      {x:c* 10-s* 10+p.x, y:s* 10+c* 10+p.y},
-      {x:c*-10-s* 10+p.x, y:s*-10+c* 10+p.y}
-    );
+  function starWithBasis(basis) {
+    triWithBasis(basis, {x:-10, y:-10}, {x:  0, y:-30}, {x:10, y:-10});
+    triWithBasis(basis, {x: 10, y:-10}, {x: 30, y:  0}, {x: 10, y:10});
+    triWithBasis(basis, {x:-10, y: 10}, {x:  0, y: 30}, {x: 10, y:10});
+    triWithBasis(basis, {x:-10, y:-10}, {x:-30, y:  0}, {x:-10, y:10});
+    triWithBasis(basis, {x:-10, y:-10}, {x: 10, y:-10}, {x: 10, y:10});
+    triWithBasis(basis, {x:-10, y:-10}, {x: 10, y: 10}, {x:-10, y:10});
+  }
+
+  
+  function combineBases(basis1, basis2) {
+    return {
+      xBasis: vTransform(basis2.xBasis, basis1),
+      yBasis: vTransform(basis2.yBasis, basis1)
+    };
   }
 
   var angle = 0;
 
   function render(dt) {
-    ctx.clearRect(0, 0, width, height);
+    ctx.resetTransform(); ctx.clearRect(0, 0, width, height);
     ctx.strokeStyle='#000000';
     ctx.lineWidth = 2; // Make line width 2 to avoid gaps in the triangles
+    ctx.translate(100, 100);
     
-    starAtRot({x: 100, y: 100}, angle);
-
+    var rotationBasis = {
+      xBasis: {x: Math.cos(angle), y: Math.sin(angle)},
+      yBasis: {x: -Math.sin(angle), y: Math.cos(angle)}
+    };
+    
+    var scaleBasis = {
+      xBasis: {x: 1, y: 0},
+      yBasis: {x: 0, y: 2}
+    };
+    
+    starWithBasis(combineBases(scaleBasis, rotationBasis));
+    
     angle += 0.002 * dt;
   }
   
@@ -135,7 +156,7 @@ var Module = (function() {
   
   return {
     setCanvas: setCanvas,
-    getCanvas: getCanvas,
+    getCanvas, getCanvas,
     start: start,
     stop: stop,
     render: render

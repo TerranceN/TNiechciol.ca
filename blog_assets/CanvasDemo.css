@@ -1,4 +1,31 @@
 .canvas_demo {
+  margin: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  background: #f5f2f0;
+  border-style: ridge;
+  position: relative;
+}
+
+.canvas_demo.interactive:before {
+  content: "Mouse over to interact!";
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 12px;
+}
+
+pre {
+  margin: 10px !important;
+  border-style: ridge;
+  overflow: hidden !important;
+}
+
+pre.hidden {
+  height: 0px;
+  padding: 7px !important;
 }
 
 .canvas_demo .demo_contents {
@@ -15,8 +42,17 @@
 .canvas_demo .demo_contents_cell > * {
   position: relative;
   display: inline-block;
-  outline: 1px solid #BBB;
-  margin: 10px;
+  border: 10px solid #e5e2e0;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.canvas_demo .demo_contents_cell > * > *:first-child {
+  border: 1px solid #333;
+  border-radius: 10px;
 }
 
 .canvas_demo .demo_contents_cell canvas {
@@ -25,12 +61,21 @@
 
 .canvas_demo .demo_contents_cell a {
   position: absolute;
-  top: -20px;
+  top: -30px;
   left: 0;
 }
 
 .canvas_demo p {
   text-indent: 0px !important;
   margin: 0 !important;
+  margin-left: 30px !important;
+  margin-right: 30px !important;
   text-align: center;
+  font-size: 14px;
+}
+
+.canvas_demo code.monospace {
+  font-size: 10px;
+  background: #e5e2e0;
+  padding-bottom: 3px;
 }

@@ -8,17 +8,8 @@ import Data.Time
 import PageTypes
 import PageStructure
 
-blogLayout :: Html -> Html -> String -> IO Response
-blogLayout extraHead blogContent titleText = mainLayout head body [("section", "blog")]
-  where
-    head = do
-      title titleText
-      stylesheet "/styles/blog.css"
-      extraHead
-    body = do
-      tag "h1" [] $ text titleText
-      blogContent
-
+import Blog.Common
+import qualified Blog.GraphicsForThePracticalMan
 
 blogSummaryPage urlOptions request = blogLayout noHtml body "Blog"
   where
@@ -42,9 +33,6 @@ loremIpsum = do
     ,text "Vestibulum vehicula leo vitae nunc pellentesque, vitae pretium leo eleifend."
     ,text "Praesent suscipit ipsum eu elit vestibulum viverra."
     ]
-  canvasDemo "Some description of the demo." $ do
-    image "/blog_assets/graphics_for_the_practical_man/rotate.png" "Rotation"
-    canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_at_rot.js"
   tag "p" [] $ sentences
     [text "Ut hendrerit consequat purus, nec tincidunt ligula auctor eget."
     ,text "Nullam iaculis pharetra magna, at egestas purus luctus vitae."
@@ -56,9 +44,6 @@ loremIpsum = do
     ,text "Sed tristique lectus in eros dignissim aliquam."
     ,text "Fusce ornare, ipsum ut efficitur suscipit, nulla elit mollis ligula, vel sagittis quam risus ut ipsum."
     ]
-  canvasDemo "Some description of the demo." $ do
-    image "/blog_assets/graphics_for_the_practical_man/rotate.png" "Rotation"
-    canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_at_rot.js"
   tag "p" [] $ sentences
     [text "Vestibulum sodales semper nunc sed eleifend."
     ,text "Donec sit amet mauris sit amet ligula convallis sodales."
@@ -72,9 +57,6 @@ loremIpsum = do
     ,text "Fusce nec diam vel ex mattis aliquam quis sit amet nisi."
     ,text "In sit amet velit a augue posuere interdum in ut purus."
     ]
-  canvasDemo "Some description of the demo." $ do
-    image "/blog_assets/graphics_for_the_practical_man/rotate.png" "Rotation"
-    canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_at_rot.js"
   tag "p" [] $ sentences
     [text "Nullam id auctor felis."
     ,text "Duis eleifend interdum dolor, eget porttitor risus."
@@ -88,9 +70,6 @@ loremIpsum = do
     ,text "Sed convallis lorem eu ligula dignissim malesuada vitae quis tellus."
     ,text "Praesent tellus eros, vehicula eget nibh in, porttitor vestibulum lacus."
     ]
-  canvasDemo "Some description of the demo." $ do
-    image "/blog_assets/graphics_for_the_practical_man/rotate.png" "Rotation"
-    canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_at_rot.js"
   tag "p" [] $ sentences
     [text "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     ,text "Donec volutpat ligula interdum varius luctus."
@@ -107,46 +86,10 @@ loremIpsum = do
     ,text "Mauris laoreet congue mauris, bibendum imperdiet est rutrum sit amet."
     ,text "Proin sem purus, rutrum non urna efficitur, porta mollis lectus."
     ]
-  canvasDemo "Some description of the demo." $ do
-    image "/blog_assets/graphics_for_the_practical_man/rotate.png" "Rotation"
-    canvasDemoCanvas "/blog_assets/graphics_for_the_practical_man/star_at_rot.js"
-
-canvasDemo description contents = do
-  tag "div" [("class", "canvas_demo")] $ do
-    tag "div" [("class", "demo_contents")] $ do
-      tag "div" [("class", "demo_contents_cell")] $ do
-        contents
-    tag "p" [] $ do
-      tag "i" [] $ do
-        text description
-
-canvasDemoCanvas src = 
-  tag "div" [] $ do
-    tag "canvas" [("src", src)
-                 ,("width", "200")
-                 ,("height", "200")
-                 ] noHtml
-    tag "a" [("href", src), ("target", "_blank")] $ text "View source"
-
-
-exampleBlogEntry = blogLayout head $ do
-  tag "p" [] $ do
-    sentences
-      [text "This is a test post, please ignore it."
-      ,text "I'm making it one sentence at a time."
-      ]
-  loremIpsum
-  where
-    head = do
-      script "/scripts/jquery-2.2.0.min.js"
-      script "/scripts/jquery.inview.min.js"
-      script "/blog_assets/CanvasDemo.js"
-      stylesheet "/blog_assets/CanvasDemo.css"
 
 exampleBlogEntry2 = blogLayout noHtml $ do
   tag "p" [] $ text "This is different."
   loremIpsum
-
 
 data BlogPost = BlogPost
   { blogTitle :: String
@@ -158,10 +101,10 @@ data BlogPost = BlogPost
 blogPosts :: [BlogPost]
 blogPosts =
     [BlogPost
-      "Test Blog, Please Ignore"
-      "example_blog"
+      "3D Graphics For The Practical Man (Or Woman)"
+      "3d_graphics_for_the_practical_man"
       (fromGregorian 2017 01 17)
-      exampleBlogEntry
+      Blog.GraphicsForThePracticalMan.blogEntry
     ,BlogPost
       "Test Blog2, Please Ignore"
       "example_blog2"

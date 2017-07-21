@@ -3,6 +3,8 @@ Main.exe
 Stuff
 google*.html
 *.hi
+*.dyn_hi
+*.dyn_o
 *.o
 *.sw*
 Blog/*/Main

@@ -13,8 +13,8 @@
 
 .screenshot, .youtube_video {
     margin: 0px 10px;
-    border: 10px solid #eee;
-    background-color: #eee;
+    border: 10px solid #e5e2e0;
+    background-color: #e5e2e0;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -o-border-radius: 5px;
@@ -41,8 +41,8 @@
 }
 
 .screenshot:hover, .youtube_video:hover {
-    border-color: #f00;
-    background-color: #f00;
+    border-color: #d00;
+    background-color: #d00;
 
     transform:scale(1.01);
     -ms-transform:scale(1.01); /* IE 9 */
@@ -52,7 +52,7 @@
 }
 
 .screenshot img, .youtube_video > .youtube_video_border {
-    border: 3px solid black;
+    border: 1px solid #333;
     border-radius: 10px;
     overflow: hidden;
     background-color: black;
@@ -192,8 +192,8 @@ body.popup {
 }
 
 .screenshot_popup {
-    background-color: #F22;
-    border: 10px solid #F22;
+    background-color: #d22;
+    border: 10px solid #d22;
     border-radius: 10px;
 }
 
@@ -225,7 +225,7 @@ body.popup {
 }
 
 .screenshot_popup .close:hover {
-    text-shadow: 0 0 1px #F00, 0 0 1px #F00;
+    text-shadow: 0 0 1px #d00, 0 0 1px #d00;
 
     transform:scale(1.2);
     -ms-transform:scale(1.2); /* IE 9 */

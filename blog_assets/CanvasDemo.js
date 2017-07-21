@@ -66,7 +66,7 @@ function DrawLoop(renderFcn) {
       then = now;
     }
     var delta = now - then; then = now;
-    renderFcn(delta);
+    renderFcn(Math.min(delta, 30));
     if (isRunning) {
       window.requestAnimationFrame(loop);
     }
@@ -88,8 +88,8 @@ function DrawLoop(renderFcn) {
   }
 }
 
-window.onload = function() {
+window.addEventListener('load', function() {
   CanvasDemoLoader.loadAllDemos().then(function(demos) {
     demos.forEach(CanvasDemoToggler.setupToggle)
   });
-}
+});
