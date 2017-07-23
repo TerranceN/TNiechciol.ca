@@ -29,7 +29,7 @@ var Module = (function() {
   grid_translate_demo_mouseX = mouseX;
   
   var onMouseMove = function(event) {
-    mouseX = event.layerX;
+    mouseX = event.offsetX;
     grid_translate_demo_mouseX = mouseX;
   }
   

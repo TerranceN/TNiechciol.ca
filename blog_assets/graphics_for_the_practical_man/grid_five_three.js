@@ -53,8 +53,8 @@ var Module = (function() {
   }
   
   var onMouseMove = function(event) {
-    mouse.x = event.layerX;
-    mouse.y = event.layerY;
+    mouse.x = event.offsetX;
+    mouse.y = event.offsetY;
     updatePoint();
   }
   

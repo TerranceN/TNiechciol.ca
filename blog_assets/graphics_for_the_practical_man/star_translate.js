@@ -16,8 +16,8 @@ var Module = (function() {
   var mouseX = 100;
   var mouseY = 100;
   var onMouseMove = function(event) {
-    mouseX = event.layerX;
-    mouseY = event.layerY;
+    mouseX = event.offsetX;
+    mouseY = event.offsetY;
   }
   var onMouseLeave = function(event) {
     mouseX = 100;

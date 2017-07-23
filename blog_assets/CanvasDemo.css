@@ -5,8 +5,10 @@
   padding-top: 15px;
   padding-bottom: 10px;
   background: #f5f2f0;
-  border-style: ridge;
+  border-style: double;
   position: relative;
+  border-width: 3px;
+  border-color: #808080;
 }
 
 .canvas_demo.interactive:before {
@@ -19,7 +21,10 @@
 
 pre {
   margin: 10px !important;
-  border-style: ridge;
+  border-style: double;
+  position: relative;
+  border-width: 3px;
+  border-color: #808080;
   overflow: hidden !important;
 }
 
