@@ -128,7 +128,7 @@ resume = do
         subsection waterlooLogo
           [] Nothing $ do
             ulist [tag "div" [] $ text "Candidate for a Bachelor of Computer Science"
-                  ,tag "div" [] $ text "Expected graduation - August 2017"
+                  ,tag "div" [] $ text "Expected graduation - March 2018"
                   ]
         tag "div" [("class", "clear")] $ noHtml
 

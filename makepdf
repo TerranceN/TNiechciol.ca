@@ -8,5 +8,8 @@ rm $cache/Electron/Cache/*
 
 # remake the pdf
 electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf"
+# have to do this twice after clearing the cache, 
+#  and I want to clear the cache to make sure things update. Ugh.
+electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf"
 pdftk files/Resume_tmp.pdf cat 1 output files/Resume.pdf
 rm files/Resume_tmp.pdf
