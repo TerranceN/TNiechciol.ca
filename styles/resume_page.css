@@ -1,11 +1,19 @@
 body {
   margin: 0;
+  text-align: center;
 }
 
-@media print {
-  body {
-    /* Scale down the resume when printing so it fits on one page */
-    transform-origin: 50% 0%;
-    transform: scale(0.94, 0.94)
-  }
+body:before {
+  content: '';
+  display: inline-block;
+  margin-right: -0.25em;
+}
+
+.resume_content {
+  display: inline-block;
+  text-align: left;
+
+  /* Scale down the resume when printing so it fits on one page */
+  -webkit-transform-origin: 50% 0%;
+  -webkit-transform: scale(0.93, 0.93);
 }

@@ -3,13 +3,29 @@ set -e
 
 # clear the electron cache
 
-cache=$(which cygpath &> /dev/null && echo $(cygpath $APPDATA)) || cache=$(echo $HOME/.config)
-rm $cache/Electron/Cache/*
+cache=none
+
+winCache=$(echo $(which cygpath &> /dev/null && echo $(cygpath $APPDATA)))
+linuxCache=$(echo $HOME/.config)
+macCache=$(echo "/Users/$USER/Library/Application Support")
+
+if [ -d "$macCache" ]; then
+  cache=$macCache
+elif [ -d "$linuxCache" ]; then
+  cache=$linuxCache
+else
+  cache=$winCache
+fi
+
+if [ -d "$cache/Electron/Cache/" ]; then
+  echo "Clearing cache..."
+  rm -r "$cache/Electron/Cache/"
+fi
 
 # remake the pdf
-electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf"
+electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf" -e
 # have to do this twice after clearing the cache, 
 #  and I want to clear the cache to make sure things update. Ugh.
-electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf"
+electron-pdf -m 0 -p Letter "http://localhost:8080/base_resume/" "./files/Resume_tmp.pdf" -e
 pdftk files/Resume_tmp.pdf cat 1 output files/Resume.pdf
 rm files/Resume_tmp.pdf

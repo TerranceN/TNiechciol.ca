@@ -237,7 +237,8 @@ html body * {
 }
 
 .left_info .info > div {
-  height: 22px;
+  min-height: 22px;
+  display: flex;
 }
 
 .contact_info .image_container, .left_info .info .image_container {
