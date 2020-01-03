@@ -86,14 +86,14 @@ navBar selected = do
     projects attrs = 
       tag "li" attrs $ do
           tag "div" [] $ link "/Projects/" "Projects"
-          tag "ul" [] $ do
-              tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
-              tag "li" [] $ link "/Projects/ATAHackathonGame/" "ATA Hackathon Game"
-              tag "li" [] $ link "/Projects/DeferredRenderer/" "Deferred Renderer"
-              tag "li" [] $ link "/Projects/GeoWarsCloneOld/" "Geometry Wars Clone (old)"
-              tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
-              tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
-              tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
+          -- tag "ul" [] $ do
+          --     tag "li" [] $ link "/Projects/GeoWarsClone/" "Geometry Wars Clone"
+          --     tag "li" [] $ link "/Projects/ATAHackathonGame/" "ATA Hackathon Game"
+          --     tag "li" [] $ link "/Projects/DeferredRenderer/" "Deferred Renderer"
+          --     tag "li" [] $ link "/Projects/GeoWarsCloneOld/" "Geometry Wars Clone (old)"
+          --     tag "li" [] $ link "/Projects/LightingDemo/" "2D Lighting Demo"
+          --     tag "li" [] $ link "/Projects/ParadoxTower/" "Paradox Tower"
+          --     tag "li" [] $ link "/Projects/SpringPhysics/" "Spring Physics Demo"
     resume attrs = 
       tag "li" attrs $ do
           tag "div" [] $ link "/Resume/" "Resume"
