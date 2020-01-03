@@ -199,15 +199,20 @@ museumOfResumes urlOptions request = do
           tag "li" [] $ text "Made with html/css and " >> link "http://wkhtmltopdf.org/" "wkhtmltopdf" >> text "."
           tag "li" [] $ text "Updated with my new graduation date."
       tag "div" [("class", "resume_section")] $ do
-        tag "h2" [] $ text "Current"
-        link "/Resume" "Direct link"
-        link "/files/Resume.pdf" "PDF file"
+        tag "h2" [] $ text "May 2017 - Waterloo 6A"
+        link "/files/old_resumes/2017-05.pdf" "PDF file"
         tag "ul" [] $ do
           tag "li" [] $ text "Made with html/css and " >> link "https://github.com/fraserxu/electron-pdf" "electron-pdf" >> text "."
           tag "li" [] $ text "Using electron-pdf and pdftk, the pdf is actually letter sized."
           tag "li" [] $ text "Moved extra info column to fit under job titles."
           tag "li" [] $ text "Replaced job titles with the company logo."
           tag "li" [] $ text "Removed my phone number."
+      tag "div" [("class", "resume_section")] $ do
+        tag "h2" [] $ text "Current"
+        link "/Resume" "Direct link"
+        link "/files/Resume.pdf" "PDF file"
+        tag "ul" [] $ do
+          tag "li" [] $ text "Made with html/css and " >> link "https://github.com/fraserxu/electron-pdf" "electron-pdf" >> text "."
 
 notFoundPage urlOptions request = do
     httpResponse 404 $ mainPage noHtml body []
