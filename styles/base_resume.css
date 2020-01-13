@@ -35,7 +35,7 @@ html body * {
 }
 
 .resume_content #header {
-  margin-bottom: 10px;
+  margin-bottom: 23px;
 }
 
 .resume_content h1, .resume_content h1 * {
@@ -49,7 +49,7 @@ html body * {
 .resume_content .contact_info {
   position: absolute;
   top: 11px;
-  right: 125px;
+  right: 110px;
 }
 
 .resume_content .contact_info > div {

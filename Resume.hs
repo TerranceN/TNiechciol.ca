@@ -60,25 +60,55 @@ resume = do
         subsection remindLogo
           [linkIcon >> link "https://www.remind.com/about" "remind.com/about"
           ,locationIcon >> text "San Francisco"
-          ,calendarIcon >> (tag "span" [] $ text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016, Sept. 2017 - Feb. 2018")
-          ,langIcon >> text "Ruby, Go, Javascript, Java"
-          ,toolIcon >> text "Rails, DynamoDB, React.js, Android"
+          --,calendarIcon >> text "Jan. 2015 - Aug. 2015, May 2016 - Aug. 2016, Sept. 2017 - now"
+          ,calendarIcon >> do
+            tag "div" [] $ do
+              tag "p" [] $ text "Jan. 2015 - Aug. 2015,"
+              tag "p" [] $ text "May 2016 - Aug. 2016,"
+              tag "p" [] $ text "Sept. 2017 - now"
+          ,langIcon >> text "Ruby, Go, Typescript, Javascript"
+          ,toolIcon >> text "Rails, React, Postgres, DynamoDB, Redis"
           ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
-            ulist [tag "div" [] $ text "Replaced a prototype chat backend with a chat micro-service to separate chat performance concerns from the main API"
-                  ,tag "div" [] $ text "Rewrote the web dashboard using React for feature parity with the mobile clients"
-                  ,tag "div" [] $ text "Updated SMS copy to be more user-friendly and clear, resulting in the largest increase in SMS users installing the app in years"
-                  ,tag "div" [] $ text "Consolidated old cross-platform prompt systems into a flexible, easy-to-extend system that's been adopted by other teams successfully"
-                  ]
+                  ulist
+                    [tag "div" [] $ text "Lead or co-led the creation of a half dozen new backend micro-services, including services for our chat, third party integrations, and our authentication system"
+                    ,tag "div" [] $ text "Lead the successful development of dozens of product features, personally implementing large parts of the backend and web frontend of those."
+                    ,tag "div" [] $ text "Heavily involved with web frontend development right from the start of our current web app until today, having been part of the team that re-wrote it using React in 2015, and regularly implementing features for it even now. Parts of the code I wrote in 2015 is still in use today."
+                    ,tag "div" [] $ text "Regularly involved in incident response and resolution, including projects to resolve multiple core, time-sensitive issues."
+                    ]
         subsection ataLogo
           [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
           ,locationIcon >> text "Vancouver"
-          ,calendarIcon >> text "May 2013 - Aug. 2013, Jan. 2014 - Aug. 2014"
+          ,calendarIcon >> do
+            tag "div" [] $ do
+              tag "p" [] $ text "May 2013 - Aug. 2013"
+              tag "p" [] $ text "Jan. 2014 - Aug. 2014"
           ,langIcon >> text "Objective C, Python, Javascript, Java"
           ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
           ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
             ulist [tag "div" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became an app called Pineapple Poker"
-                  ,tag "div" [] $ text "Created and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
+                  ,tag "div" [] $ text "Built and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
                   ,tag "div" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+                  ]
+        subsection (tag "h2" [] (text "eat.sleep.build"))
+          [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
+          ,linkIcon >> link "https://github.com/TerranceN/TNiechciol.ca" "github.com/TerranceN/TNiechciol.ca"
+          ,calendarIcon >> text "Nov. 2012 - present"
+          ,langIcon >> text "Haskell"
+          ,toolIcon >> text "lighttpd"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Built a Haskell webapp running on top of lighttpd"
+                  ,tag "div" [] $ text "Created an Html DSL using monads to programmatically compose html"
+                  ,tag "div" [] $ text "Built without any web frameworks to better understand how other frameworks like Django and Rails work under the hood"
+                  ]
+        subsection (tag "h2" [] (text "asdf2"))
+          [linkIcon >> link "https://github.com/TerranceN/asdf2" "github.com/TerranceN/asdf2"
+          ,calendarIcon >> text "April 2016"
+          ,langIcon >> text "C"
+          ,toolIcon >> text "ncurses"
+          ] Nothing $ do
+            ulist [tag "div" [] $ text "Built a command line tool with ncurses to quickly search through shell history."
+                  ,tag "div" [] $ text "Organically developed from a tiny `history | grep $1` script into a tool I use hundreds of times a day."
+                  ,tag "div" [] $ text "One of a few tools I wrote myself to increase my productivity on my own terms."
                   ]
         subsection (tag "h2" [] (text "Geometry Wars Clone"))
           [linkIcon >> link "https://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
@@ -87,44 +117,34 @@ resume = do
           ,langIcon >> text "Scala"
           ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
           ] Nothing $ do
-            ulist [tag "div" [] $ text "Created a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
-                  ,tag "div" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown"
+            ulist [tag "div" [] $ text "Built a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
+                  ,tag "div" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown. Basically a homemade GPGPU/Cuda system."
                   ,tag "div" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
-                  ,tag "div" [] $ text "The dynamic music system plays more intense music when there are more enemies"
+                  ,tag "div" [] $ text "The dynamic music system transitions to more intense music when there are more enemies on screen"
                   ]
-        subsection (tag "h2" [] (text "ATA Co-op Hackathon Game"))
-          [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
-          ,videoIcon >> link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
-          ,calendarIcon >> text "A weekend in April 2014"
-          ,langIcon >> text "Java"
-          ,toolIcon >> text "libGDX, OpenGL"
-          ] Nothing $ do
-            ulist [tag "div" [] $ text "Created a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
-                  ,tag "div" [] $ text "Added the ability for players to phase through walls to add variety to the combat"
-                  ,tag "div" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
-                  ]
-        subsection (tag "h2" [] (text "Deferred Renderer with SSAO"))
-          [linkIcon >> link "https://eat.sleep.build/Projects/DeferredRenderer/" "eat.sleep.build/Projects/DeferredRenderer"
-          ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
-          ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
-          ,langIcon >> text "Scala"
-          ,toolIcon >> text "LWJGL, OpenGL"
-          ] Nothing $ do
-            ulist [tag "div" [] $ text "Created a tech demo to learn how to implement some modern graphics techniques"
-                  ,tag "div" [] $ text "Implemented normal mapping and specular mapping to make walls look more detailed"
-                  ,tag "div" [] $ text "Implemented deferred rendering to efficiently render many lights"
-                  ,tag "div" [] $ text "Used depth information from the deferred rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
-                  ]
-        subsection (tag "h2" [] (text "eat.sleep.build"))
-          [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
-          ,calendarIcon >> text "Nov. 2012 - present"
-          ,langIcon >> text "Haskell"
-          ,toolIcon >> text "lighttpd"
-          ] Nothing $ do
-            ulist [tag "div" [] $ text "Created a Haskell webapp running on top of lighttpd"
-                  ,tag "div" [] $ text "Created an Html DSL using monads to programmatically compose html"
-                  ,tag "div" [] $ text "Built from a \"Hello World\" Haskell application into a full website to better understand how other frameworks like Django and Rails work"
-                  ]
+        --subsection (tag "h2" [] (text "ATA Co-op Hackathon Game"))
+        --  [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
+        --  ,videoIcon >> link "https://youtu.be/y7BLvpp1HlY" "youtu.be/y7BLvpp1HlY"
+        --  ,calendarIcon >> text "A weekend in April 2014"
+        --  ,langIcon >> text "Java"
+        --  ,toolIcon >> text "libGDX, OpenGL"
+        --  ] Nothing $ do
+        --    ulist [tag "div" [] $ text "Built a 2D multiplayer deathmatch platformer for a 48-hour hackathon at A Thinking Ape with two other programmers, and two artists"
+        --          ,tag "div" [] $ text "Responsible for movement and level collision, and graphical effects like bullet trails and the desaturation effect when phasing through walls"
+        --          ,tag "div" [] $ text "Worked hyper-efficiently in a small focused team."
+        --          ]
+        -- subsection (tag "h2" [] (text "Deferred Renderer with SSAO"))
+        --   [linkIcon >> link "https://eat.sleep.build/Projects/DeferredRenderer/" "eat.sleep.build/Projects/DeferredRenderer"
+        --   ,videoIcon >> link "https://youtu.be/eJY72rMtFx4" "youtu.be/eJY72rMtFx4"
+        --   ,calendarIcon >> text "Sept. 2014 - Dec. 2014"
+        --   ,langIcon >> text "Scala"
+        --   ,toolIcon >> text "LWJGL, OpenGL"
+        --   ] Nothing $ do
+        --     ulist [tag "div" [] $ text "Created a tech demo to learn how to implement some modern graphics techniques"
+        --           ,tag "div" [] $ text "Implemented normal mapping and specular mapping to make walls look more detailed"
+        --           ,tag "div" [] $ text "Implemented deferred rendering to efficiently render many lights"
+        --           ,tag "div" [] $ text "Used depth information from the deferred rendering process to create a screen space approximation of ambient occlusion, to have light falloff more realistically in corners"
+        --           ]
         subsection waterlooLogo
           [] Nothing $ do
             ulist [tag "div" [] $ text "Bachelor of Computer Science"
