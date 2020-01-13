@@ -107,7 +107,7 @@ resume = do
           ] Nothing $ do
             tag "div" [] $ text "A command line to quickly search through shell history."
             ulist [tag "div" [] $ bold (text "Iterative Design: ") >> text "Organically developed from a tiny " >> tag "span" [] (text "`history | grep $@`") >> text " script into a tool I use hundreds of times a day."
-                  ,tag "div" [] $ bold (text "Self-Sufficiency: ") >> text "One of a few tools I wrote myself to increase my productivity on my own terms."
+                  ,tag "div" [] $ bold (text "Always Improving: ") >> text "One of multiple tools I designed from the ground up to increase my productivity."
                   ]
         subsection (tag "h2" [] (text "Geometry Wars Clone"))
           [linkIcon >> link "https://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
