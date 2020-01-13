@@ -35,18 +35,25 @@ index urlOptions request =
             link "/Resume/" "resume"
             text ", and some small "
             link "/Projects/" "projects"
-            text " that I've made for fun. I also have a "
+            text " that I've made for fun (at least some of them anyway). I also have a "
             link "https://github.com/TerranceN" "github account"
             text " you can check out too."
         tag "p" [] $ do
-            text "I'm a Computer Science student at the University of Waterloo in my 5th year. I'm taking a 5th year because I did an extra co-op term, only had 4 courses for a bunch of terms, and plan on taking some harder courses (like Real-Time Programming). In my spare time I lift weights, play badminton, and I've learned some violin and swing dancing, but I'm not that confident in either of those. I also love coffee (pour-overs > all), artsy video games (like Fez, Gone Home, and Dark Souls), and meeting new people (through events, parties, and Lyft lines)."
-        tag "p" [("class", "noindent")] $ do
-            text "Here's my "
-            link "/todo/" "todo list"
-            text "."
+            text "I'm a Software Developer living in San Francisco, trying not to fall into the stereotypical SF techie life. I'm currently " >> link "https://www.remind.com/about/" "helping teachers for a living" >> text ", and working on a bunch of cool things in my spare time, including but not limited to:"
+            tag "div" [] $ ulist
+              [text "Building interesting modes of transportation (like a bamboo bicycle or a onewheel)"
+              ,text "Fermenting things (like cucumbers to make pickles, or honey to make mead)"
+              ,text "Playing artsy video games (like Fez, Gone Home, and Dark Souls)"
+              ,text "Lifting weights"
+              ,text "Learning swing dancing"
+              ]
         tag "p" [("class", "noindent")] $ do
             text "You can also find "
-            link "https://github.com/TerranceN/TNiechciol.ca""this website on github"
+            link "https://github.com/TerranceN/TNiechciol.ca" "this website on github"
+            text " (the way I built it is kinda cool)."
+        tag "p" [("class", "noindent")] $ do
+            text "Here's my "
+            link "/todo/" "life todo list"
             text "."
         tag "p" [("class", "noindent")] $ do
             text "Feel free to send me an email: "
@@ -76,54 +83,68 @@ todoPage urlOptions request =
       tag "h1" [] $ text "// TODO:"
       tag "hr" [] noHtml
       tag "p" [] $ do
-        text "A big list of things I want to accomplish by the time I'm 30. I've always kept a list of things like this in the back of my head, but I've been inspired to flesh it out and put it online after looking at "
+        text "A big list of things I want to accomplish " >> tag "strike" [] (text "by the time I'm 30") >> text ". I've always kept a list of things like this in the back of my head, but I've been inspired to flesh it out and put it online after looking at "
         link "http://www.evykassirer.com/todo" "Evy Kassier's todo page" >> text "."
-      tag "h2" [] $ text "Tech"
+      tag "h2" [] $ text "Tech/Engineering"
       ulist
-        [text "Work at a video game development company that targets consoles or PC (i.e. 'real' game development)"
+        [text "Work at a video game development company that makes traditional video games"
         ,text "Create and release a video game that makes me at least $1 (basically the " >> link "http://ludumdare.com/compo/2014/09/29/october-challenge-2014/" "ludum dare October 2014 challenge" >> text ")"
+        ,tag "strike" [] (text "Learn how to use a 3D printer") >> text " (GF and I put together a " >> link "https://www.prusa3d.com/original-prusa-i3-mk3/" "Prusa I3 MK3s kit" >> text ")"
+        ,tag "strike" [] $ text "Make my garage door openable over WiFi"
+        ,text "Build my own smart door system"
+        ,tag "strike" [] (text "Learn how to use a laser cutter") >> text " (I bought a " >> link "https://www.google.com/search?q=k40+laser" "K40 Laser" >> text ")"
+        ,do
+          tag "strike" [] (text "Build a CNC Machine") >> text " (I built one of " >> link "https://www.v1engineering.com/specifications/" "these" >> text ")"
+          tag "div" [] $ ulist
+            [text "Learn to reliably machine aluminum"
+            ,text "Learn to do multi-sided machining"
+            ]
+        ,text "Build my own " >> link "https://onewheel.com/" "OneWheel"
         ]
       tag "h2" [] $ text "Health/Food"
       ulist 
-        [do
+        [tag "strike" [] $ text "Make lacto-fermented pickles"
+        ,tag "strike" [] $ text "Make mead (honey wine)"
+        ,do
           tag "p" [] $ tag "strike" [] $ text "Learn to cook my own meals by cooking at least 5/7 days a week " >> link "http://knowyourmeme.com/memes/5-7" "(thats a perfect score, right?)"
           tag "p" [] $ text "Now that I can survive on my own cooking abilities, I want to learn to cook specific things:"
           tag "div" [] $ ulist
-            [tag "strike" [] $ text "Spaghetti"
-            ,tag "strike" [] $ text "Lasagna"
+            [tag "strike" [] $ text "Lasagna"
             ,tag "strike" [] $ text "Scrambled Eggs"
             ,tag "strike" [] $ text "Chicken Stir-Fry"
+            ,tag "strike" [] $ text "Butter Chicken"
             ,text "Shakshuka"
-            ,text "Omlettes"
             ,text "Chicken/Turkey in the oven"
-            ,text "Chicken stock"
             ,text "Cheesecake"
             ]
         ,text "Reduce my body fat percentage to 10-12% in order to have visible abs, and maintain that for at least a year"
-        ,text "Squat 225lbs"
+        ,tag "strike" [] $ text "Squat 225lbs"
+        ,text "Deadlift 225lbs"
         ,text "Bench 135lbs"
         ,tag "strike" [] $ text "Brew my own coffee regularly"
-        ,text "Learn to roast my own coffee beans and experiment with adding flavours"
+        ,tag "strike" [] $ text "Learn to roast my own coffee beans and experiment with adding flavours"
         ]
       tag "h2" [] $ text "Travel"
       ulist 
         [text "Go to a beer festival in Germany"
         ,text "Visit the Rocky Mountains in Alberta"
-        ,text "Visit Craftwork Wines in Montery California"
-        ,text "Hike " >> link "http://www.yosemitehikes.com/tioga-road/clouds-rest/clouds-rest.htm" "Cloud's Rest"
-        ,text "Hike " >> link "http://www.yosemitehikes.com/yosemite-valley/half-dome/half-dome.htm" "Half Dome"
+        ,tag "strike" [] $ text "Hike " >> link "http://www.yosemitehikes.com/tioga-road/clouds-rest/clouds-rest.htm" "Cloud's Rest" >> text " (my favourite hike so far!)"
+        ,tag "strike" [] $ text "Hike " >> link "http://www.yosemitehikes.com/yosemite-valley/half-dome/half-dome.htm" "Half Dome"
         ]
       tag "h2" [] $ text "Music"
       ulist
         [text "Become good enough at violin to play " >> link "https://www.youtube.com/watch?v=8Ilq8MmasjA&t=16s" "Bach Partita No. 3 Prelude"
-        ,text "Make music for a video game (even if it's my own game)"
+        ,tag "strike" [] $ text "Make music for a video game (even if it's my own game)"
         ]
       tag "h2" [] $ text "Languages"
-      tag "p" [] $ text "These goals aren't very clearly defined because I'm not sure what counts as having 'learned' a language. I'll come back and clarify them once I feel like I can make a clear definition."
       ulist 
-        [text "Learn French"
-        ,text "Learn German"
-        ,text "Learn Mandarin"
+        [do
+          text "Learn Polish"
+          tag "div" [] $ ulist
+            [tag "strike" [] $ text "Maintain a duolingo streak of over half a year"
+            ,text "Get 1:1 video tutoring"
+            ]
+        ,text "Learn French"
         ]
 
 museumOfResumes urlOptions request = do
