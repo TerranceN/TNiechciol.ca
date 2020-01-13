@@ -68,12 +68,12 @@ resume = do
               tag "p" [] $ text "Sept. 2017 - now"
           ,langIcon >> text "Ruby, Go, Typescript, Javascript"
           ,toolIcon >> text "Rails, React, Postgres, DynamoDB, Redis"
-          ] (Just (text "(Co-op evaluations: Outstanding/Excellent)")) $ do
+          ] Nothing $ do
                   ulist
-                    [tag "div" [] $ text "Lead or co-led the creation of a half dozen new backend micro-services, including services for our chat, third party integrations, and our authentication system"
-                    ,tag "div" [] $ text "Lead the successful development of dozens of product features, personally implementing large parts of the backend and web frontend of those."
-                    ,tag "div" [] $ text "Heavily involved with web frontend development right from the start of our current web app until today, having been part of the team that re-wrote it using React in 2015, and regularly implementing features for it even now. Parts of the code I wrote in 2015 is still in use today."
-                    ,tag "div" [] $ text "Regularly involved in incident response and resolution, including projects to resolve multiple core, time-sensitive issues."
+                    [tag "div" [] $ bold (text "Backend: ") >> text "Lead or co-led the creation of a half dozen new micro-services, including services for our chat, third party integrations, and our authentication systems."
+                    ,tag "div" [] $ bold (text "Frontend: ") >> text "Heavily involved in web frontend development, from being on the team that re-wrote it in React in 2015, to regularly implementing features for it to this day. Parts of the code I wrote in 2015 is still in use today."
+                    ,tag "div" [] $ bold (text "Feature Ownership: ") >> text "Lead the successful development of dozens of product features, personally implementing large parts of the backend and web frontend of those."
+                    ,tag "div" [] $ bold (text "Enterprise Readiness: ") >> text "Regularly involved in incident response and resolution, including projects to resolve multiple core, time-sensitive issues."
                     ]
         subsection ataLogo
           [linkIcon >> link "http://www.athinkingape.com/about" "athinkingape.com/about"
@@ -84,21 +84,20 @@ resume = do
               tag "p" [] $ text "Jan. 2014 - Aug. 2014"
           ,langIcon >> text "Objective C, Python, Javascript, Java"
           ,toolIcon >> text "iOS, Django, Android, GLES 2.0"
-          ] (Just (text "(Co-op evaluations: Excellent/Excellent)")) $ do
-            ulist [tag "div" [] $ text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became an app called Pineapple Poker"
-                  ,tag "div" [] $ text "Built and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days"
-                  ,tag "div" [] $ text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0"
+          ] Nothing $ do
+            ulist [tag "div" [] $ bold (text "Frontend: ") >> text "Developed the iOS frontend of a prototype poker app focusing on playing with friends, which eventually became an app called Pineapple Poker."
+                  ,tag "div" [] $ bold (text "Frontend: ") >> text "Developed frontend features for a 3D racing game on Android, including an interactive map, and the movement/drifting animation for the cars using GLES 2.0."
+                  ,tag "div" [] $ bold (text "Backend: ") >> text "Built and improved analytics tools on the metrics team in order for them to filter information faster and be able to see a user age breakdown for specific days."
                   ]
         subsection (tag "h2" [] (text "eat.sleep.build"))
           [linkIcon >> link "https://eat.sleep.build" "eat.sleep.build"
           ,linkIcon >> link "https://github.com/TerranceN/TNiechciol.ca" "github.com/TerranceN/TNiechciol.ca"
           ,calendarIcon >> text "Nov. 2012 - present"
           ,langIcon >> text "Haskell"
-          ,toolIcon >> text "lighttpd"
           ] Nothing $ do
-            ulist [tag "div" [] $ text "Built a Haskell webapp running on top of lighttpd"
-                  ,tag "div" [] $ text "Created an Html DSL using monads to programmatically compose html"
-                  ,tag "div" [] $ text "Built without any web frameworks to better understand how other frameworks like Django and Rails work under the hood"
+            tag "div" [] $ text "My website: a Haskell webapp running on top of lighttpd"
+            ulist [tag "div" [] $ bold (text "Type Systems: ") >> text "Created a DSL using monads to programmatically compose HTML."
+                  ,tag "div" [] $ bold (text "Web Fundamentals: ") >> text "Built without any web frameworks to better understand how other frameworks like Django and Rails work under the hood."
                   ]
         subsection (tag "h2" [] (text "asdf2"))
           [linkIcon >> link "https://github.com/TerranceN/asdf2" "github.com/TerranceN/asdf2"
@@ -106,9 +105,9 @@ resume = do
           ,langIcon >> text "C"
           ,toolIcon >> text "ncurses"
           ] Nothing $ do
-            ulist [tag "div" [] $ text "Built a command line tool with ncurses to quickly search through shell history."
-                  ,tag "div" [] $ text "Organically developed from a tiny `history | grep $1` script into a tool I use hundreds of times a day."
-                  ,tag "div" [] $ text "One of a few tools I wrote myself to increase my productivity on my own terms."
+            tag "div" [] $ text "A command line to quickly search through shell history."
+            ulist [tag "div" [] $ bold (text "Iterative Design: ") >> text "Organically developed from a tiny " >> tag "span" [] (text "`history | grep $@`") >> text " script into a tool I use hundreds of times a day."
+                  ,tag "div" [] $ bold (text "Self-Sufficiency: ") >> text "One of a few tools I wrote myself to increase my productivity on my own terms."
                   ]
         subsection (tag "h2" [] (text "Geometry Wars Clone"))
           [linkIcon >> link "https://eat.sleep.build/Projects/GeoWarsClone/" "eat.sleep.build/Projects/GeoWarsClone"
@@ -117,10 +116,17 @@ resume = do
           ,langIcon >> text "Scala"
           ,toolIcon >> text "LWJGL, OpenGL, GPGPU"
           ] Nothing $ do
-            ulist [tag "div" [] $ text "Built a clone of the Xbox Live Arcade game Geometry Wars to learn how to implement effects like the deformable grid, and bloom"
-                  ,tag "div" [] $ text "Particles are simulated on the GPU to have hundreds of thousands without slowdown. Basically a homemade GPGPU/Cuda system."
-                  ,tag "div" [] $ text "The deformable grid is also simulated on the GPU but is affected by ships and bullets"
-                  ,tag "div" [] $ text "The dynamic music system transitions to more intense music when there are more enemies on screen"
+            tag "div" [] $ text "A clone of the Xbox Live Arcade game Geometry Wars"
+            ulist [tag "div" [] $ bold (text "Detail Oriented: ") >> text "Hundreds of thousands of particles/grid points are simulated on the GPU without slowdown. Basically a homemade GPGPU/Cuda system."
+                  ,tag "div" [] $ bold (text "Juicy Design: ") >> text "Meticulously hand-tweaked music and animations to make the game feel satisfying to play."
+                  ]
+        subsection (tag "h2" [] (text "Other Projects"))
+          [] Nothing $ do
+            ulist [bold (text "Bamboo Bicycle: ") >> text "hand-built a bicycle frame out of bamboo with my girlfriend"
+                  ,bold (text "CNC Machine: ") >> text "built a CNC Machine from 3d printed parts using designs on the web"
+                  ,bold (text "Fermentation: ") >> text "experimenting with fermenting cucumbers (pickles) and honey (mead)"
+                  ,bold (text "DIY WiFi Garage opener: ") >> text "ESP8266 controller with a relay and a laser-cut box"
+                  ,bold (text "DIY Smart Lights: ") >> text "MITM attacked smart outlets + Kindle Fires as smart buttons"
                   ]
         --subsection (tag "h2" [] (text "ATA Co-op Hackathon Game"))
         --  [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
