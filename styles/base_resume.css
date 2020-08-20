@@ -112,7 +112,7 @@ html body * {
 }
 
 .resume_content .subsection .inner_content {
-    width: 600px;
+    width: 612px;
     display: inline-block;
     float: right;
     font-size: 16px;
@@ -278,4 +278,11 @@ html body * {
 
 .clear {
   clear: both;
+}
+
+.other_project_link {
+  font-size: 11px;
+  margin-left: 5px;
+  position: absolute;
+  bottom: -2px;
 }

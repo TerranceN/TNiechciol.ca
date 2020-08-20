@@ -65,13 +65,13 @@ resume = do
             tag "div" [] $ do
               tag "p" [] $ text "Jan. 2015 - Aug. 2015,"
               tag "p" [] $ text "May 2016 - Aug. 2016,"
-              tag "p" [] $ text "Sept. 2017 - now"
+              tag "p" [] $ text "Sept. 2017 - April 2020"
           ,langIcon >> text "Ruby, Go, Typescript, Javascript"
           ,toolIcon >> text "Rails, React, Postgres, DynamoDB, Redis"
           ] Nothing $ do
                   ulist
                     [tag "div" [] $ bold (text "Backend: ") >> text "Lead or co-led the creation of a half dozen new micro-services, including services for our chat, third party integrations, and our authentication systems."
-                    ,tag "div" [] $ bold (text "Frontend: ") >> text "Heavily involved in web frontend development, from being on the team that re-wrote it in React in 2015, to regularly implementing features for it to this day. Parts of the code I wrote in 2015 is still in use today."
+                    ,tag "div" [] $ bold (text "Frontend: ") >> text "Heavily involved in web frontend development, from being on the team that re-wrote it in React in 2015, to regularly implementing features for it to this day. Code I wrote in 2015 is still in use today."
                     ,tag "div" [] $ bold (text "Feature Ownership: ") >> text "Lead the successful development of dozens of product features, personally implementing large parts of the backend and web frontend of those."
                     ,tag "div" [] $ bold (text "Enterprise Readiness: ") >> text "Regularly involved in incident response and resolution, including projects to resolve multiple core, time-sensitive issues."
                     ]
@@ -105,7 +105,7 @@ resume = do
           ,langIcon >> text "C"
           ,toolIcon >> text "ncurses"
           ] Nothing $ do
-            tag "div" [] $ text "A command line to quickly search through shell history."
+            tag "div" [] $ text "A command line utility to quickly search through shell history"
             ulist [tag "div" [] $ bold (text "Iterative Design: ") >> text "Organically developed from a tiny " >> tag "span" [] (text "`history | grep $@`") >> text " script into a tool I use hundreds of times a day."
                   ,tag "div" [] $ bold (text "Always Improving: ") >> text "One of multiple tools I designed from the ground up to increase my productivity."
                   ]
@@ -122,11 +122,11 @@ resume = do
                   ]
         subsection (tag "h2" [] (text "Other Projects"))
           [] Nothing $ do
-            ulist [bold (text "Bamboo Bicycle: ") >> text "hand-built a bicycle frame out of bamboo with my girlfriend"
-                  ,bold (text "CNC Machine: ") >> text "built a CNC Machine from 3d printed parts using designs on the web"
+            ulist [bold (text "Bamboo Bicycle: ") >> text "hand-built a bicycle frame out of bamboo with my girlfriend" >> tag "span" [("class", "other_project_link")] (text " " >> link "https://imgur.com/a/dvswSbW" "imgur.com/a/dvswSbW")
+                  ,bold (text "CNC Machine: ") >> text "built an MPCNC, a CNC Machine from 3d printed parts" >> tag "span" [("class", "other_project_link")] (text " " >> link "https://imgur.com/a/KMqnzZl" "imgur.com/a/KMqnzZl")
+                  ,bold (text "Nixie Clock: ") >> text "Designed and built a nixie clock using a PCB made on my CNC" >> tag "span" [("class", "other_project_link")] (text " " >> link "https://imgur.com/a/WPx4fi7" "imgur.com/a/WPx4fi7")
+                  ,bold (text "Electric Grinder: ") >> text "Converted a hario hand grinder into an electric grinder" >> tag "span" [("class", "other_project_link")] (text " " >> link "https://imgur.com/a/Qaizi4o" "imgur.com/a/Qaizi4o")
                   ,bold (text "Fermentation: ") >> text "experimenting with fermenting cucumbers (pickles) and honey (mead)"
-                  ,bold (text "DIY WiFi Garage opener: ") >> text "ESP8266 controller with a relay and a laser-cut box"
-                  ,bold (text "DIY Smart Lights: ") >> text "MITM attacked smart outlets + Kindle Fires as smart buttons"
                   ]
         --subsection (tag "h2" [] (text "ATA Co-op Hackathon Game"))
         --  [linkIcon >> link "https://eat.sleep.build/Projects/ATAHackathonGame/" "eat.sleep.build/Projects/ATAHackathonGame"
